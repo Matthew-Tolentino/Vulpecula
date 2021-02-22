@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpiritHandler : MonoBehaviour
 {
 	public List<GameObject> SpiritList;
-	public static float rotDegree;
+	public float rotDegree;
     public float rotSpeed;
 
     public bool triggerLamp;
@@ -14,7 +14,9 @@ public class SpiritHandler : MonoBehaviour
     public int selectedSpirit;
     public bool ability;
 
-    
+
+    public Vector3 rockgoto;
+    public bool nearButton;
 
 
     void Start()
@@ -25,6 +27,7 @@ public class SpiritHandler : MonoBehaviour
     	selectedSpirit = -1;
     	ability = false;
         triggerLamp = false;
+        nearButton = false;
     }
 
 
@@ -40,7 +43,7 @@ public class SpiritHandler : MonoBehaviour
 
 
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Spirit_Floating")
         {
@@ -50,7 +53,7 @@ public class SpiritHandler : MonoBehaviour
             Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>(), true);
 
             // Dialog Code (Matthew) ---------------------
-            if (!pull.saidDialog) collision.gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
+            //if (!pull.saidDialog) collision.gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
             // -------------------------------------------
         }
         else if (collision.gameObject.tag == "Spirit_Land")
@@ -60,12 +63,12 @@ public class SpiritHandler : MonoBehaviour
             pull.ObtainSpiritLand();
 
             // Dialog Code (Matthew) ---------------------
-            if (!pull.saidDialog) collision.gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
+            //if (!pull.saidDialog) collision.gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
             // -------------------------------------------
         }
         else return;
 
-        collision.gameObject.GetComponent<FMODUnity.StudioEventEmitter>().Play();
+        //collision.gameObject.GetComponent<FMODUnity.StudioEventEmitter>().Play();
 
         SpiritList.Add(collision.gameObject);
         if (selectedSpirit == -1) selectedSpirit = 0;
@@ -104,6 +107,7 @@ public class SpiritHandler : MonoBehaviour
 
     private void callAbility()
     {
+        if (selectedSpirit < 0) return;
     	if (SpiritList[selectedSpirit].tag == "Spirit_Land")
     	{
     		var pull = SpiritList[selectedSpirit].GetComponent<SpriritMovement_Land>();
@@ -111,7 +115,9 @@ public class SpiritHandler : MonoBehaviour
     		{
     			if (!ability)
     			{
-    				Vector3 got = transform.position + transform.forward * 4f;
+    				Vector3 got;
+                    if (nearButton) got = rockgoto;
+                    else got = transform.position + transform.forward * 4f;
                     pull.abilityMove(got);
                     ability = true;
     			}

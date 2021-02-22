@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpiritMovement_Floating : MonoBehaviour
 {
+    public GameObject pl;
     public Transform player;
     public float radius;
     public float initialD;
@@ -38,11 +39,12 @@ public class SpiritMovement_Floating : MonoBehaviour
 
     private void Update()
     {
+        var pull = pl.GetComponent<SpiritHandler>();
         if (state == "OnPlayer")
         {
-            float angle = SpiritHandler.rotDegree * Time.fixedDeltaTime;
+            float angle = pull.rotDegree * Time.fixedDeltaTime;
             Vector3 raiseHeight = player.transform.position;
-            raiseHeight.y += 2;
+            //raiseHeight.y += 2;
             moveTo = raiseHeight + new Vector3((radius * Mathf.Cos(angle + initialD)), 0f, (radius * Mathf.Sin(angle + initialD)));
             moveTo.y += Mathf.Cos(angle * numVertFluct + initialF) * verticalFluct;
         }
