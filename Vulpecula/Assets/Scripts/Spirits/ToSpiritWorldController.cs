@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class ToSpiritWorldController : MonoBehaviour
 {
-	//private string state;
+	private string state;
 	private Collider c;
 	private MeshRenderer mesh;
+
+    public GameObject target;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,18 +21,24 @@ public class ToSpiritWorldController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        var pull = target.GetComponent<MoveToSpiritWorld>();
+        string tState = pull.state;
+
+        if (tState != state){
+            if (state == "Spirit") ToHuman();
+            else ToSpirit();
+        }
     }
 
     public void ToSpirit(){
     	c.enabled = false;
     	mesh.enabled = false;
-    	//state = "Spirit";
+    	state = "Spirit";
     }
 
     public void ToHuman(){
     	c.enabled = true;
     	mesh.enabled = true;
-		//state = "Human";
+		state = "Human";
     }
 }

@@ -10,9 +10,14 @@ public class MoveToSpiritWorld : MonoBehaviour
 	public float distance;
     public GameObject player;
 
+    public float testValue;
+
+    public float sharedVal;
+
     // Start is called before the first frame update
     void Start()
     {
+    	sharedVal = 0;
         state = "Human";
         touching = false;
     }
@@ -20,15 +25,21 @@ public class MoveToSpiritWorld : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distance = Vector3.Distance(origin, player.transform.position);
+        float x = Vector3.Distance(origin, player.transform.position);
+        testValue = x;
         var pull = player.GetComponent<SpiritHandler>();
 
         if (pull.triggerLamp) lampAbility();
-        if (distance >= 20f && state == "Spirit"){
-        	var script = GetComponentsInChildren<ToSpiritWorldController>();
-        	foreach (ToSpiritWorldController sc in script){
-				if (sc != null) sc.ToHuman();
-        	}
+        if (x >= distance && state == "Spirit"){
+        	state = "Human";
+        }
+        if (state == "Spirit" && sharedVal < 1){
+        	sharedVal += Time.deltaTime/3;
+        	if (sharedVal > 1) sharedVal = 1;
+        }
+        if (state == "Human" && sharedVal > 0){
+        	sharedVal -= Time.deltaTime/3;
+        	if (sharedVal < 0) sharedVal = 0;
         }
     }
 
@@ -36,10 +47,6 @@ public class MoveToSpiritWorld : MonoBehaviour
         var pull = player.GetComponent<SpiritHandler>();
         pull.triggerLamp = false;
         if (touching){
-            var script = GetComponentsInChildren<ToSpiritWorldController>();
-            foreach (ToSpiritWorldController sc in script){
-                if (sc != null) sc.ToSpirit();
-            }
             state = "Spirit";
         }
     }
