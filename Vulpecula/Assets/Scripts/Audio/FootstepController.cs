@@ -22,14 +22,17 @@ public class FootstepController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DetermineTerrain();
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    SelectAndPlayFootstep();
+        //}
     }
 
     // For testing
-    //private void OnMouseDown()
-    //{
-    //    SelectAndPlayFootstep();
-    //}
+    private void OnMouseDown()
+    {
+        SelectAndPlayFootstep();
+    }
 
     [SerializeField]
     private float terrainRayLength = 10.0f;
@@ -42,21 +45,21 @@ public class FootstepController : MonoBehaviour
         currentTerrain = defaultTerrain;
         return; // just do this for now
 
-        RaycastHit[] hit;
+        //RaycastHit[] hit;
 
-        hit = Physics.RaycastAll(transform.position, Vector3.down, terrainRayLength);
+        //hit = Physics.RaycastAll(transform.position, Vector3.down, terrainRayLength);
 
-        foreach (RaycastHit rayhit in hit)
-        {
-            if (rayhit.transform.gameObject.layer == LayerMask.NameToLayer("Stone"))
-            {
-                currentTerrain = TERRAIN_TYPES.STONE;
-            }
-            else if (rayhit.transform.gameObject.layer == LayerMask.NameToLayer("Grass"))
-            {
-                currentTerrain = TERRAIN_TYPES.GRASS;
-            }
-        }
+        //foreach (RaycastHit rayhit in hit)
+        //{
+        //    if (rayhit.transform.gameObject.layer == LayerMask.NameToLayer("Stone"))
+        //    {
+        //        currentTerrain = TERRAIN_TYPES.STONE;
+        //    }
+        //    else if (rayhit.transform.gameObject.layer == LayerMask.NameToLayer("Grass"))
+        //    {
+        //        currentTerrain = TERRAIN_TYPES.GRASS;
+        //    }
+        //}
     }
 
     public void PlayFootstep()
