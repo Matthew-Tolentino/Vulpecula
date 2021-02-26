@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     // Player Rotation variables
     public float turnSmoothTime = .01f;
     float turnSmoothVelocity;
+    float targetAngle;
 
     // Tracking Cam
     bool snapped = false;
@@ -58,15 +59,6 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 dir = new Vector3(hori, 0f, vert).normalized;
 
-        // Freecam when Click
-        if (GameManager.mouseState == GameManager.MouseState.game)
-        {
-            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
-                GameManager.instance.setMouseLock(true);
-            if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
-                GameManager.instance.setMouseLock(false);
-        }
-
         // Rotate Player
         if (dir.magnitude >= 0.1f)
         {
@@ -80,8 +72,24 @@ public class PlayerMovement : MonoBehaviour
             snapped = true;
         }
 
-        // Move Player
+        // Inital Player move direction
         Vector3 moveDir = Mathf.Abs(vert) * transform.forward;
+
+        // Freecam when Click
+        if (GameManager.mouseState == GameManager.MouseState.game)
+        {
+            if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
+            {
+                GameManager.instance.setMouseLock(true);
+                // Change move direction to have horizontal
+                if (dir.magnitude >= 0.1f)
+                    moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            }
+            if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
+                GameManager.instance.setMouseLock(false);
+        }
+
+        // Apply movement to player
         controller.Move(moveDir.normalized * speed * Time.deltaTime);
 
         // Gravity Handeling
@@ -102,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
 
     void PlayerTurnTo(Vector3 dir)
     {
-        float targetAngle = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+        targetAngle = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
         float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
         transform.rotation = Quaternion.Euler(0f, angle, 0f);
     }
