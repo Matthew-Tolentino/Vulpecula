@@ -19,6 +19,9 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> sentences;
 
+    public bool sentenceIsDone = true;
+    private bool finishSentence = false;
+
     // Make sure there is only 1 DialogueManager
     void Awake()
     {
@@ -67,28 +70,44 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        if (sentences.Count == 0)
+        if (sentenceIsDone)
         {
-            EndDialogue();
-            return;
+            if (sentences.Count == 0)
+            {
+                EndDialogue();
+                return;
+            }
+
+            sentenceIsDone = false;
+            string sentence = sentences.Dequeue();
+
+            // Problem can happen if other coroutines are running
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(sentence));
         }
+    }
 
-        string sentence = sentences.Dequeue();
-
-        // Problem can happen if other coroutines are running
-        StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+    public void FinishSentence()
+    {
+        finishSentence = true;
     }
 
     IEnumerator TypeSentence (string sentence)
     {
         string txt = "";
+
         foreach (char letter in sentence.ToCharArray())
         {
+            if (finishSentence) break;
+
             txt += letter;
             dialogueTxt.SetText(txt);
             yield return null;
         }
+
+        dialogueTxt.SetText(sentence);
+        finishSentence = false;
+        sentenceIsDone = true;
     }
 
     public void EndDialogue()

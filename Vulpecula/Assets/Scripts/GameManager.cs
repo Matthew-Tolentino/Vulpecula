@@ -49,7 +49,10 @@ public class GameManager : MonoBehaviour
         // Next Dialogue
         if (InputManager.instance.KeyDown("NextDialogue"))
         {
-            DialogueManager.instance.DisplayNextSentence();
+            if (!DialogueManager.instance.sentenceIsDone)
+                DialogueManager.instance.FinishSentence();
+            else
+                DialogueManager.instance.DisplayNextSentence();
         }
     }
 

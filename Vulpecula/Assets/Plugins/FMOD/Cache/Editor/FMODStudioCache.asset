@@ -120,6 +120,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &-8553088833231713482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Mid Spirit/Tremulo Depth
+  m_EditorClassIdentifier: 
+  Name: Tremulo Depth
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-8452273866373245490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,8 +240,8 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 5093355872936513620}
-  - {fileID: 5209882933087668753}
+  - {fileID: 6440151552284977022}
+  - {fileID: -8553088833231713482}
   MinDistance: 0
   MaxDistance: 0
   Length: 0
@@ -303,7 +323,7 @@ MonoBehaviour:
   Path: ../FMOD_Banks/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637498612744740719
+  lastModified: 637495349350329984
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -369,7 +389,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -2278760437551930544}
+  - {fileID: 5537301881971340277}
   MinDistance: 0
   MaxDistance: 0
   Length: 13368
@@ -471,7 +491,7 @@ MonoBehaviour:
   Path: ../FMOD_Banks/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 637498612746845075
+  lastModified: 637498653681729706
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -555,7 +575,7 @@ MonoBehaviour:
   Path: ../FMOD_Banks/Spirits.bank
   Name: Spirits
   StudioPath: bank:/Spirits
-  lastModified: 637498612747503346
+  lastModified: 637495349351227582
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -864,6 +884,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &-1400769401543503570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Low Spirit/Pitch
+  m_EditorClassIdentifier: 
+  Name: Pitch
+  Min: -1
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-1392511598148369586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,8 +947,8 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 6440996776762904799}
-  - {fileID: 9034504011878951331}
+  - {fileID: 2414214301353624149}
+  - {fileID: -1400769401543503570}
   MinDistance: 0
   MaxDistance: 0
   Length: 0
@@ -1033,7 +1073,7 @@ MonoBehaviour:
   - {fileID: 1152761708691852781}
   StringsBanks:
   - {fileID: -7385119135794012759}
-  stringsBankWriteTime: 637498612744740719
+  stringsBankWriteTime: 637495349350329984
   cacheVersion: 6
 --- !u!114 &556541346361541643
 MonoBehaviour:
@@ -1075,6 +1115,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &917457071501231705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps_Discrete/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &1152761708691852781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1090,7 +1150,7 @@ MonoBehaviour:
   Path: ../FMOD_Banks/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637498612744690854
+  lastModified: 637485589347865468
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -1151,6 +1211,26 @@ MonoBehaviour:
   Name: Terrain
   Min: 0
   Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
+--- !u!114 &2414214301353624149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Low Spirit/Tremulo Depth
+  m_EditorClassIdentifier: 
+  Name: Tremulo Depth
+  Min: 0
+  Max: 1
   Default: 0
   ID:
     data1: 0
@@ -1231,6 +1311,26 @@ MonoBehaviour:
   Name: Terrain
   Min: 0
   Max: 3
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
+--- !u!114 &3673284549310495426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps_Discrete/StepVariationNumber
+  m_EditorClassIdentifier: 
+  Name: StepVariationNumber
+  Min: 0
+  Max: 10
   Default: 0
   ID:
     data1: 0
@@ -1359,8 +1459,8 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 3238428118783912795}
-  - {fileID: -4257812864357759011}
+  - {fileID: 917457071501231705}
+  - {fileID: 3673284549310495426}
   MinDistance: 0
   MaxDistance: 0
   Length: 0
@@ -1527,6 +1627,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &5537301881971340277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps_Continuous/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &5611785044243375833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1573,6 +1693,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 74662
+--- !u!114 &6440151552284977022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Mid Spirit/Pitch
+  m_EditorClassIdentifier: 
+  Name: Pitch
+  Min: -1
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &6440996776762904799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1714,7 +1854,7 @@ MonoBehaviour:
   Path: ../FMOD_Banks/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 637498612745339166
+  lastModified: 637485589348114803
   LoadResult: 0
   FileSizes:
   - Name: 
