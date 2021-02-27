@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FloorTransform : MonoBehaviour
-{	
-	public GameObject target;
-	public float maxDistance;
+public class Full_Dissapear : MonoBehaviour
+{
+    public GameObject target;
 
 	private Renderer ren;
 	private Material mat;
+	private Collider c;
  	
     void Awake()
     {
     	ren = this.GetComponent<Renderer>();
         mat = ren.material;
+        c = GetComponent<Collider>();
     }
 
     // Update is called once per frame
@@ -21,7 +22,9 @@ public class FloorTransform : MonoBehaviour
     {
         var pull = target.GetComponent<MoveToSpiritWorld>();
         float val = pull.sharedVal;
+        if (val == 0) c.enabled = true;
+        else c.enabled = false;
 
-        mat.SetFloat("Vector1_Distance", (maxDistance * val));
+        mat.SetFloat("Vector1_5F5F4195", val);
     }
 }

@@ -14,6 +14,9 @@ public class MoveToSpiritWorld : MonoBehaviour
 
     public float sharedVal;
 
+    public float secStart;
+    public float secEnd;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,11 +37,11 @@ public class MoveToSpiritWorld : MonoBehaviour
         	state = "Human";
         }
         if (state == "Spirit" && sharedVal < 1){
-        	sharedVal += Time.deltaTime/3;
+        	sharedVal += Time.deltaTime*(1/secStart);
         	if (sharedVal > 1) sharedVal = 1;
         }
         if (state == "Human" && sharedVal > 0){
-        	sharedVal -= Time.deltaTime/3;
+        	sharedVal -= Time.deltaTime*(1/secEnd);
         	if (sharedVal < 0) sharedVal = 0;
         }
     }
