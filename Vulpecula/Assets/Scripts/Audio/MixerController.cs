@@ -55,13 +55,13 @@ public class MixerController : MonoBehaviour
 
     }
 
-    void SetMasterVolume(float volume)
+    public void SetMasterVolume(float volume)
     {
         FMOD.Studio.Bus masterBus;
         masterBus = FMODUnity.RuntimeManager.GetBus(masterBusString);
         masterBus.setVolume(volume);
     }
-    float GetMasterVolume()
+    public float GetMasterVolume()
     {
         FMOD.Studio.Bus masterBus;
         masterBus = FMODUnity.RuntimeManager.GetBus(masterBusString);
@@ -70,13 +70,13 @@ public class MixerController : MonoBehaviour
         return volume;
     }
 
-    void SetMusicVolume(float volume)
+    public void SetMusicVolume(float volume)
     {
         FMOD.Studio.Bus musicBus;
         musicBus = FMODUnity.RuntimeManager.GetBus(musicBusString);
         musicBus.setVolume(volume);
     }
-    float GetMusicVolume()
+    public float GetMusicVolume()
     {
         FMOD.Studio.Bus musicBus;
         musicBus = FMODUnity.RuntimeManager.GetBus(musicBusString);
@@ -85,13 +85,13 @@ public class MixerController : MonoBehaviour
         return volume;
     }
 
-    void SetSFXVolume(float volume)
+    public void SetSFXVolume(float volume)
     {
         FMOD.Studio.Bus sfxBus;
         sfxBus = FMODUnity.RuntimeManager.GetBus(sfxBusString);
         sfxBus.setVolume(volume);
     }
-    float GetSFXBus()
+    public float GetSFXVolume()
     {
         FMOD.Studio.Bus sfxBus;
         sfxBus = FMODUnity.RuntimeManager.GetBus(sfxBusString);
