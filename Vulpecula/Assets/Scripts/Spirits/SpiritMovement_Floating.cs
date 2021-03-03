@@ -23,6 +23,11 @@ public class SpiritMovement_Floating : MonoBehaviour
     public string type;
     private Collider fs;
 
+    private float accel;
+    private float timeAway;
+
+    public float pp;
+
     // Dialog Code (Matthew) ---------------------
     [HideInInspector]
     public bool saidDialog = false;
@@ -35,10 +40,13 @@ public class SpiritMovement_Floating : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         state = "Spawn";
         if (type == "") type = "NULL";
+        accel = 1.0f;
+        timeAway = 0.0f;
     }
 
     private void Update()
     {
+    	accel = 1.0f;
         var pull = pl.GetComponent<SpiritHandler>();
         if (state == "OnPlayer")
         {
@@ -47,6 +55,21 @@ public class SpiritMovement_Floating : MonoBehaviour
             //raiseHeight.y += 2;
             moveTo = raiseHeight + new Vector3((radius * Mathf.Cos(angle + initialD)), 0f, (radius * Mathf.Sin(angle + initialD)));
             moveTo.y += Mathf.Cos(angle * numVertFluct + initialF) * verticalFluct;
+
+            float distance = Vector3.Distance(player.position, transform.position);
+            pp = distance;
+            if (distance > radius){
+            	fs.enabled = true;
+            	rb.detectCollisions = true;
+            	timeAway += Time.deltaTime;
+            	if (timeAway > 1f){
+            		fs.enabled = false;
+            		rb.detectCollisions = false;
+            		timeAway = 0f;
+            		accel = 5f;
+            	}
+            }
+            else timeAway = 0f;
         }
         else if (state == "ReturningToSpawn")
         {
@@ -63,7 +86,7 @@ public class SpiritMovement_Floating : MonoBehaviour
     {
         if (state != "Spawn")
         {
-            Vector3 direction = (moveTo - transform.position).normalized * (moveTo - transform.position).magnitude * speed;
+            Vector3 direction = (moveTo - transform.position).normalized * (moveTo - transform.position).magnitude * speed * accel;
             rb.velocity = direction;
         }
             
