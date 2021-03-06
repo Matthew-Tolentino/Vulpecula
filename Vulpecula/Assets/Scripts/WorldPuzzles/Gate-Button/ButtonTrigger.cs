@@ -5,14 +5,14 @@ using UnityEngine;
 public class ButtonTrigger : MonoBehaviour
 {
     public GameObject gate;
-    public Vector3 initPos;
-    public Vector3 openPos;
+    public float initPos;
+    public float openPos;
 
     public string state;
     private float time;
     void start()
     {
-    	initPos = gate.transform.position;
+    	//initPos = gate.transform.position;
     	state = "Closed";
     	time = 0;
     }
@@ -29,11 +29,19 @@ public class ButtonTrigger : MonoBehaviour
     	}
 
         else if (state == "Closed-To-Open"){
-        	gate.transform.position = Vector3.Lerp(initPos, openPos, time);
+    	    gate.transform.eulerAngles = new Vector3(
+		        gate.transform.eulerAngles.x,
+		        Mathf.Lerp(initPos, openPos, time),
+		        gate.transform.eulerAngles.z
+		    );
         	time += Time.deltaTime/5f;
         }
         else if (state == "Open-To-Closed"){
-        	gate.transform.position = Vector3.Lerp(openPos, initPos, 1-time);
+        	gate.transform.eulerAngles = new Vector3(
+		        gate.transform.eulerAngles.x,
+		        Mathf.Lerp(openPos, initPos, 1-time),
+		        gate.transform.eulerAngles.z
+		    );
         	time -= Time.deltaTime*3.5f;
         }
     }
