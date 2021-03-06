@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5403,7 +5403,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 438288617}
-  m_LocalRotation: {x: 0.10440131, y: 0.69110227, z: -0.10192739, w: 0.70787627}
+  m_LocalRotation: {x: 0.1044013, y: 0.69110227, z: -0.10192738, w: 0.70787627}
   m_LocalPosition: {x: 58.33486, y: 17.39518, z: 245.10701}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -7666,7 +7666,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 625849009}
-  m_LocalRotation: {x: 0.10266814, y: 0.69134974, z: -0.1002353, w: 0.7081297}
+  m_LocalRotation: {x: 0.10266812, y: 0.69134974, z: -0.10023527, w: 0.7081297}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -16664,7 +16664,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1206188373}
-  m_LocalRotation: {x: 0.11331581, y: 0.6897626, z: -0.110630654, w: 0.70650405}
+  m_LocalRotation: {x: 0.113315806, y: 0.6897626, z: -0.11063064, w: 0.70650405}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -31134,6 +31134,7 @@ GameObject:
   - component: {fileID: 2051827826}
   - component: {fileID: 2051827831}
   - component: {fileID: 2051827830}
+  - component: {fileID: 2051827832}
   m_Layer: 0
   m_Name: Bunny_Spirit
   m_TagString: Spirit_Floating
@@ -31260,6 +31261,19 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 0
+--- !u!114 &2051827832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051827825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcc7b5ec35f553740b469b467e759bcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playOnStart: 0
 --- !u!1001 &2055027591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31581,7 +31595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c58102f70482a40ad0230b25c22ed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultTerrain: 0
+  defaultTerrain: 1
   terrainRayLength: 10
 --- !u!114 &2074128818
 MonoBehaviour:
