@@ -22,6 +22,11 @@ public class ItemManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
+    public bool CheckItem(string item)
+    {
+        return items.checkItem(item);
+    }
+
     public void UpdateItem(string item, bool pickUp)
     {
         items.updateItem(item, pickUp);
