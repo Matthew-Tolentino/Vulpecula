@@ -78,7 +78,8 @@ public class GameManager : MonoBehaviour
         gameIsPaused = true;
 
         // Update UI for spirits found
-        Invoke(nameof(UpdateUI), 1f);
+        if (pauseMenuUI.activeSelf)
+            Invoke(nameof(UpdateUI), .25f);
 
         // Unlock mouse
         setMouseLock(false);
@@ -132,5 +133,10 @@ public class GameManager : MonoBehaviour
             camSettings.inputXAxis = "Horizontal";
             camSettings.inputYAxis = "";
         }
+    }
+
+    public void setDefaultMouseState()
+    {
+        mouseState = MouseState.game;
     }
 }

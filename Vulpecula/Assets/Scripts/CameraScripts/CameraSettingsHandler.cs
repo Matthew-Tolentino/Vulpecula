@@ -11,6 +11,12 @@ public class CameraSettingsHandler : MonoBehaviour
 
     private string lastXAxis;
 
+    private void Awake()
+    {
+        camSettings.inputXAxis = "Horizontal";
+        camSettings.inputYAxis = "";
+    }
+
     // Start is called before the first frame update
     void Start()
     {
