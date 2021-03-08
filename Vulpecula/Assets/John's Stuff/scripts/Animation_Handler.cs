@@ -20,6 +20,8 @@ public class Animation_Handler : MonoBehaviour
     {
        
         animator = GetComponent<Animator>();
+
+        healthBar = GameObject.Find("PlayerHealthFG").GetComponent<Image>();
         
     }
 
@@ -27,9 +29,9 @@ public class Animation_Handler : MonoBehaviour
     void Update()
     {
         // Used to determine current value of health bar. 
-        //healthBar.fillAmount = ((startHealth-(seenCounter/100)*4)/startHealth);
-        
-        if(Input.GetKey("space"))
+        healthBar.fillAmount = ((startHealth - (seenCounter / 100) * 4) / startHealth);
+
+        if (Input.GetKey("space"))
         {
            angerCounter = 0;
            animator.SetBool("isAngry", false);
