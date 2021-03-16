@@ -35,6 +35,8 @@ public class MoveToSpiritWorld : MonoBehaviour
         if (pull.triggerLamp) lampAbility();
         if (x >= distance && state == "Spirit"){
         	state = "Human";
+            // beginning to exit spirit world
+            StartCoroutine(Audio_FadeOutOfSpiritWorld(fadeOutTime));
         }
         if (state == "Spirit" && sharedVal < 1){
         	sharedVal += Time.deltaTime*(1/secStart);
@@ -51,6 +53,9 @@ public class MoveToSpiritWorld : MonoBehaviour
         pull.triggerLamp = false;
         if (touching){
             state = "Spirit";
+            // begining to enter spirit world
+            StartCoroutine(Audio_FadeIntoSpiritWorld(fadeInTime));
+            
         }
     }
 
@@ -63,5 +68,53 @@ public class MoveToSpiritWorld : MonoBehaviour
     	if (col.gameObject.tag == "Player"){
     		touching = false;
     	}
+    }
+
+    [SerializeField]
+    private bool controlSpiritHum = false;
+
+    private float fadeInTime = 2; // in seconds
+    private float fadeOutTime = 2; // in seconds
+    IEnumerator Audio_FadeIntoSpiritWorld(float duration)
+    {
+        float currentTime = 0f;
+        while (currentTime < duration)
+        {
+            float connection = Mathf.Lerp(0, 1, currentTime / duration);
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Spirit World Connection", connection);
+            currentTime += Time.deltaTime;
+            yield return null;
+        }
+
+        if (controlSpiritHum)
+        {
+            foreach (var noodler in FindObjectsOfType<SpiritNoodler>())
+            {
+                noodler.StartPlaying();
+            }
+        }
+
+        yield return null;
+    }
+    IEnumerator Audio_FadeOutOfSpiritWorld(float duration)
+    {
+        if (controlSpiritHum)
+        {
+            foreach (var noodler in FindObjectsOfType<SpiritNoodler>())
+            {
+                noodler.StopPlaying();
+            }
+        }
+
+        float currentTime = 0f;
+        while (currentTime < duration)
+        {
+            float connection = Mathf.Lerp(1, 0, currentTime / duration);
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Spirit World Connection", connection);
+            currentTime += Time.deltaTime;
+            yield return null;
+        }
+
+        yield return null;
     }
 }

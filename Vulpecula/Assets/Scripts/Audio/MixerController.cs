@@ -32,7 +32,6 @@ public class MixerController : MonoBehaviour
     string musicBusString = "Bus:/Music";
     string sfxBusString = "Bus:/SFX";
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -98,5 +97,16 @@ public class MixerController : MonoBehaviour
         float volume;
         sfxBus.getVolume(out volume);
         return volume;
+    }
+
+    public void SetMusicLPCutoff(float cutoff)
+    {
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Music LP Filter Cutoff", cutoff);
+    }
+    public float GetMusicLPCutoff()
+    {
+        float cutoff;
+        FMODUnity.RuntimeManager.StudioSystem.getParameterByName("Music LP Filter Cutoff", out cutoff);
+        return cutoff;
     }
 }

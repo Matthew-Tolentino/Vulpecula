@@ -109,6 +109,7 @@ public class SpiritNoodler : MonoBehaviour
 
     public void StartPlaying()
     {
+        musicInstance.setTimelinePosition(0);
         musicInstance.start();
     }
     public void StopPlaying()
