@@ -56,6 +56,9 @@ public class DialogueManager : MonoBehaviour
         isOpen = true;
         animator.SetBool("isOpen", true);
 
+        // Set mouse state to canvas so you can click next button
+        GameManager.mouseState = GameManager.MouseState.canvas;
+
         nameTxt.SetText(dialogue.name);
 
         sentences.Clear();
@@ -114,5 +117,7 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("isOpen", false);
         isOpen = false;
+
+        GameManager.mouseState = GameManager.MouseState.game;
     }
 }

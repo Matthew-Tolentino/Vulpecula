@@ -46,13 +46,10 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // Next Dialogue
+        // Listen for keypress for next Dialogue
         if (InputManager.instance.KeyDown("NextDialogue"))
         {
-            if (!DialogueManager.instance.sentenceIsDone)
-                DialogueManager.instance.FinishSentence();
-            else
-                DialogueManager.instance.DisplayNextSentence();
+            NextDialogue();
         }
     }
 
@@ -138,5 +135,13 @@ public class GameManager : MonoBehaviour
     public void setDefaultMouseState()
     {
         mouseState = MouseState.game;
+    }
+
+    public void NextDialogue()
+    {
+        if (!DialogueManager.instance.sentenceIsDone)
+            DialogueManager.instance.FinishSentence();
+        else
+            DialogueManager.instance.DisplayNextSentence();
     }
 }
