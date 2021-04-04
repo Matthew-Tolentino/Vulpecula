@@ -10,11 +10,19 @@ public class ButtonTrigger : MonoBehaviour
 
     public string state;
     private float time;
+
+    [SerializeField]
+    private GameObject gateOpenSound;
+    [SerializeField]
+    private GameObject gateCloseSound;
     void start()
     {
     	//initPos = gate.transform.position;
     	state = "Closed";
     	time = 0;
+
+        
+        
     }
 
     void Update()
@@ -51,7 +59,11 @@ public class ButtonTrigger : MonoBehaviour
     	if (state == "Opened") return;
         else if (other.gameObject.tag == "Spirit_Land"){
         	var pull = other.gameObject.GetComponent<SpriritMovement_Land>();
-        	if (pull.type == "Sit") state = "Closed-To-Open";
+            if (pull.type == "Sit")
+            {
+                gateOpenSound.GetComponent<FMODUnity.StudioEventEmitter>().Play();
+                state = "Closed-To-Open";
+            }
         }
     }
 
@@ -60,7 +72,11 @@ public class ButtonTrigger : MonoBehaviour
     	if (state == "Closed") return;
         else if (other.gameObject.tag == "Spirit_Land"){
         	var pull = other.gameObject.GetComponent<SpriritMovement_Land>();
-        	if (pull.type == "Sit") state = "Open-To-Closed";
+            if (pull.type == "Sit")
+            {
+                gateCloseSound.GetComponent<FMODUnity.StudioEventEmitter>().Play();
+                state = "Open-To-Closed";
+            }
         }
     }
 }
