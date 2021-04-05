@@ -33,4 +33,9 @@ public class Items : ScriptableObject
                 return;
         }
     }
+
+    // Return all names of item variables
+    public string[] getItems() {
+        return new string[] {"GateKey"};
+    }
 }

@@ -31,4 +31,8 @@ public class ItemManager : MonoBehaviour
     {
         items.updateItem(item, pickUp);
     }
+
+    public string[] GetItems() {
+        return items.getItems();
+    }
 }
