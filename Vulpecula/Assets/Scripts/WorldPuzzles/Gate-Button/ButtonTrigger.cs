@@ -61,6 +61,8 @@ public class ButtonTrigger : MonoBehaviour
         	var pull = other.gameObject.GetComponent<SpriritMovement_Land>();
             if (pull.type == "Sit")
             {
+                if (gateCloseSound.GetComponent<FMODUnity.StudioEventEmitter>().IsPlaying())
+                    gateCloseSound.GetComponent<FMODUnity.StudioEventEmitter>().Stop();
                 gateOpenSound.GetComponent<FMODUnity.StudioEventEmitter>().Play();
                 state = "Closed-To-Open";
             }
@@ -74,6 +76,8 @@ public class ButtonTrigger : MonoBehaviour
         	var pull = other.gameObject.GetComponent<SpriritMovement_Land>();
             if (pull.type == "Sit")
             {
+                if (gateOpenSound.GetComponent<FMODUnity.StudioEventEmitter>().IsPlaying())
+                    gateOpenSound.GetComponent<FMODUnity.StudioEventEmitter>().Stop();
                 gateCloseSound.GetComponent<FMODUnity.StudioEventEmitter>().Play();
                 state = "Open-To-Closed";
             }

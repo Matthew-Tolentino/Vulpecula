@@ -73,7 +73,7 @@ public class MoveToSpiritWorld : MonoBehaviour
     [SerializeField]
     private bool controlSpiritHum = false;
 
-    private float fadeInTime = 2; // in seconds
+    private float fadeInTime = 1.75f; // in seconds
     private float fadeOutTime = 2; // in seconds
     IEnumerator Audio_FadeIntoSpiritWorld(float duration)
     {

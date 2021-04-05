@@ -71,8 +71,10 @@ public class SpiritNoodler : MonoBehaviour
 
         musicInstance.setCallback(soundPlayedCallback, FMOD.Studio.EVENT_CALLBACK_TYPE.SOUND_PLAYED);
 
-        if (playOnStart)
-            musicInstance.start();
+        musicInstance.start();
+
+        if (!playOnStart)
+            musicInstance.setPaused(true);
     }
 
     void OnDestroy()
@@ -109,12 +111,14 @@ public class SpiritNoodler : MonoBehaviour
 
     public void StartPlaying()
     {
-        musicInstance.setTimelinePosition(0);
-        musicInstance.start();
+        musicInstance.setPaused(false);
+        //musicInstance.setTimelinePosition(0);
+        //musicInstance.start();
     }
     public void StopPlaying()
     {
-        musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        musicInstance.setPaused(true);
+        //musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     // Update is called once per frame
