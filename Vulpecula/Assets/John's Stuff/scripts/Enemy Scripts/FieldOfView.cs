@@ -29,7 +29,8 @@ public class FieldOfView : MonoBehaviour
     public bool isSeen = false;
     public List<Transform> visibleTargets = new List<Transform>();
 
-    
+    [SerializeField]
+    private FMODUnity.StudioEventEmitter onSeeSound;
 
     private void Start()
     {
@@ -68,7 +69,11 @@ public class FieldOfView : MonoBehaviour
                 //If player is seen, the code below is performed
                 if(!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
-                    
+                    // onSeeSound
+                    if (onSeeSound != null && !onSeeSound.IsPlaying())
+                    {
+                        onSeeSound.Play();
+                    }
                     // Look at Player when seen
                     transform.LookAt(target);
                     transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
