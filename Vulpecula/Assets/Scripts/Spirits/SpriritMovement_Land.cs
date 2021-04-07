@@ -13,7 +13,7 @@ public class SpriritMovement_Land : MonoBehaviour
 
     public string state;
     private Vector3 moveTo;
-    private float timer;
+    public float timer;
     private Collider fs;
 
     public string type;
@@ -23,7 +23,7 @@ public class SpriritMovement_Land : MonoBehaviour
     private Quaternion forceRot;
 
     private bool addF;
-
+    public Vector3 velo;
     // Dialog Code (Matthew) ---------------------
     [HideInInspector]
     public bool saidDialog = false;
@@ -84,6 +84,7 @@ public class SpriritMovement_Land : MonoBehaviour
         else if (state == "ReturnToSpawn")
         {
             moveTo = spawn;
+            rb.isKinematic = false;
             if (timer > 0) timer -= Time.deltaTime;
             else
             {
@@ -126,6 +127,7 @@ public class SpriritMovement_Land : MonoBehaviour
         {
             Vector3 direction = (moveTo - transform.position).normalized * (moveTo - transform.position).magnitude * speed * accel;
             rb.velocity = direction;
+            velo = rb.velocity;
         }
     }
     private void FixedUpdate()
