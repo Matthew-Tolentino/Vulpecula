@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -7038,18 +7038,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1038541266}
   m_CullTransparentMesh: 0
---- !u!114 &1039051974 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7412724583394206316, guid: 897d9de865929544aa6edbbff546798e,
-    type: 3}
-  m_PrefabInstance: {fileID: 2618230047758760161}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03e073665c4ccf14983a7e4ad533cd00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1062385190
 GameObject:
   m_ObjectHideFlags: 0
@@ -9449,6 +9437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1594265429}
   - component: {fileID: 1594265430}
+  - component: {fileID: 1594265431}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -9528,7 +9517,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1039051974}
+      - m_Target: {fileID: 1594265431}
         m_MethodName: SetMasterVolume
         m_Mode: 0
         m_Arguments:
@@ -9539,6 +9528,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1594265431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594265428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 095653dfbe390494db5ec32f1c4565d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1598193465
 GameObject:
   m_ObjectHideFlags: 0
