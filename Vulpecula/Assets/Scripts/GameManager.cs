@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject pauseMenuCanvasUI;
     public GameObject pauseMenuUI;
+
+    public Image selectedSpiritImage;
+    public Sprite floatyImg;
+    public Sprite rockImg;
+    public Sprite lampImg;
 
     public CameraSettings camSettings;
 
@@ -135,6 +141,36 @@ public class GameManager : MonoBehaviour
     public void setDefaultMouseState()
     {
         mouseState = MouseState.game;
+    }
+
+    public void setSelectedSpirit(string name) {
+        selectedSpiritImage.sprite = findSpiritImage(name);
+        // Make image visable
+        Color temp = selectedSpiritImage.color;
+        temp.a = 1f;
+        selectedSpiritImage.color = temp;
+    }
+
+    public Sprite findSpiritImage(string name) {
+        switch (name) {
+            case "Floaty_SpiritUI":
+                return floatyImg;
+            case "Floaty":
+                return floatyImg;
+            case "Bunny":
+                return floatyImg;
+            case "Rock_SpiritUI":
+                return rockImg;
+            case "Rock":
+                return rockImg;
+            case "Lamp_SpiritUI":
+                return lampImg;
+            case "Lamp":
+                return lampImg;
+            default:
+                Debug.LogError("No sprite with name: " + name);
+                return null;
+        }
     }
 
     public void NextDialogue()

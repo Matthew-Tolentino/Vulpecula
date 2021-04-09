@@ -9,13 +9,13 @@ using TMPro;
 public class PausedMenu : MonoBehaviour
 {
     public GameObject spriteUI;
-
     
     private List<string> spiritsInLevel;
     private GameObject spiritUIHolder;
 
     void Start()
     {
+        // Holds names of spirits
         spiritsInLevel = new List<string>();
         spiritUIHolder = GameObject.Find("SpiritUIHolder");
 
@@ -31,8 +31,11 @@ public class PausedMenu : MonoBehaviour
         int index = 0;
         foreach (Transform child in spiritUIHolder.transform)
         {
-            child.name = spiritsInLevel[index] + "UI";
-            child.GetChild(0).GetComponent<TextMeshProUGUI>().SetText(spiritsInLevel[index++]);
+            child.name = spiritsInLevel[index++] + "UI";
+            // child.GetChild(0).GetComponent<TextMeshProUGUI>().SetText(spiritsInLevel[index++]);
+
+            // Assign Image to spirit
+            child.GetComponent<Image>().sprite = GameManager.instance.findSpiritImage(child.name);
         }
     }
 
@@ -70,6 +73,20 @@ public class PausedMenu : MonoBehaviour
             spiritsInLevel.Add(child.name);
         }
     }
+
+    // public Sprite AssignImage(string name) {
+    //     switch (name) {
+    //         case "Floaty_SpiritUI":
+    //             return floatyImg;
+    //         case "Rock_SpiritUI":
+    //             return rockImg;
+    //         case "Lamp_SpiritUI":
+    //             return lampImg;
+    //         default:
+    //             Debug.LogError("No sprite with name: " + name);
+    //             return null;
+    //     }
+    // }
 
     public void ReturnToMainMenu()
     {
