@@ -147,7 +147,10 @@ public class GameManager : MonoBehaviour
         selectedSpiritImage.sprite = findSpiritImage(name);
         // Make image visable
         Color temp = selectedSpiritImage.color;
-        temp.a = 1f;
+        if (selectedSpiritImage.sprite != null)
+            temp.a = 1f;
+        else
+            temp.a = 0f;
         selectedSpiritImage.color = temp;
     }
 
