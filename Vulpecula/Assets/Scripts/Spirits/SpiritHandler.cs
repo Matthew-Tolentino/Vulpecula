@@ -67,10 +67,14 @@ public class SpiritHandler : MonoBehaviour
             // -------------------------------------------
         }
         else return;
-        
-        foreach (var emitter in collision.gameObject.GetComponents<FMODUnity.StudioEventEmitter>())
+
+        // call sounds
+        if (collision.gameObject.GetComponent<SpiritSounds>() != null)
         {
-            emitter.Play();
+            foreach (var emitter in collision.gameObject.GetComponent<SpiritSounds>().collectSounds)
+            {
+                emitter.Play();
+            }
         }
 
         SpiritList.Add(collision.gameObject);
@@ -111,7 +115,17 @@ public class SpiritHandler : MonoBehaviour
     private void callAbility()
     {
         if (selectedSpirit < 0) return;
-    	if (SpiritList[selectedSpirit].tag == "Spirit_Land")
+
+        // call sounds
+        if (SpiritList[selectedSpirit].GetComponent<SpiritSounds>() != null)
+        {
+            foreach (var emitter in SpiritList[selectedSpirit].GetComponent<SpiritSounds>().actionTriggerSounds)
+            {
+                emitter.Play();
+            }
+        }
+
+        if (SpiritList[selectedSpirit].tag == "Spirit_Land")
     	{
     		var pull = SpiritList[selectedSpirit].GetComponent<SpriritMovement_Land>();
     		if (pull.type == "Sit") 

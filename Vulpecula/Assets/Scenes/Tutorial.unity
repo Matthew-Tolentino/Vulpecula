@@ -7080,7 +7080,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 438288617}
-  m_LocalRotation: {x: 0.10440131, y: 0.69110227, z: -0.10192739, w: 0.70787627}
+  m_LocalRotation: {x: 0.1044013, y: 0.69110227, z: -0.10192738, w: 0.70787627}
   m_LocalPosition: {x: 58.33486, y: 17.39518, z: 245.10701}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -9806,7 +9806,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 625849009}
-  m_LocalRotation: {x: 0.10266814, y: 0.69134974, z: -0.1002353, w: 0.7081297}
+  m_LocalRotation: {x: 0.10266812, y: 0.69134974, z: -0.10023527, w: 0.7081297}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -19936,8 +19936,10 @@ GameObject:
   - component: {fileID: 1174235222}
   - component: {fileID: 1174235227}
   - component: {fileID: 1174235221}
+  - component: {fileID: 1174235229}
   - component: {fileID: 1174235224}
   - component: {fileID: 1174235223}
+  - component: {fileID: 1174235228}
   - component: {fileID: 1174235225}
   - component: {fileID: 1174235226}
   m_Layer: 0
@@ -20060,8 +20062,8 @@ MonoBehaviour:
   - Name: Pitch
     Value: 0.22
   OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &1174235225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20111,6 +20113,50 @@ MonoBehaviour:
   activate: 0
   intensity: 0
   state: 
+--- !u!114 &1174235228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174235218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Spirits/Low Chirp
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Pitch
+    Value: 0.22
+  - Name: Tremulo Depth
+    Value: 0.5
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1174235229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174235218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1fe1d079a48ef74cbf4566c435e754e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectSounds:
+  - {fileID: 1174235224}
+  - {fileID: 1174235223}
+  actionTriggerSounds:
+  - {fileID: 1174235228}
 --- !u!1 &1178190250
 GameObject:
   m_ObjectHideFlags: 0
@@ -35425,8 +35471,10 @@ GameObject:
   - component: {fileID: 1874079104}
   - component: {fileID: 1874079110}
   - component: {fileID: 1874079103}
+  - component: {fileID: 1874079112}
   - component: {fileID: 1874079107}
   - component: {fileID: 1874079106}
+  - component: {fileID: 1874079111}
   - component: {fileID: 1874079109}
   - component: {fileID: 1874079108}
   m_Layer: 0
@@ -35604,6 +35652,50 @@ MonoBehaviour:
   activate: 0
   intensity: 0
   state: 
+--- !u!114 &1874079111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874079101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Spirits/Mid Chirp
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Pitch
+    Value: -0.32
+  - Name: Tremulo Depth
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1874079112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874079101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1fe1d079a48ef74cbf4566c435e754e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectSounds:
+  - {fileID: 1874079107}
+  - {fileID: 1874079106}
+  actionTriggerSounds:
+  - {fileID: 1874079111}
 --- !u!1001 &1877092669
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39381,8 +39473,10 @@ GameObject:
   - component: {fileID: 2051827827}
   - component: {fileID: 2051827835}
   - component: {fileID: 2051827826}
+  - component: {fileID: 2051827837}
   - component: {fileID: 2051827831}
   - component: {fileID: 2051827830}
+  - component: {fileID: 2051827836}
   - component: {fileID: 2051827832}
   - component: {fileID: 2051827834}
   - component: {fileID: 2051827833}
@@ -39576,6 +39670,50 @@ MonoBehaviour:
   activate: 0
   intensity: 0
   state: 
+--- !u!114 &2051827836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051827825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Spirits/Mid Chirp
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Pitch
+    Value: -0.07
+  - Name: Tremulo Depth
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &2051827837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051827825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1fe1d079a48ef74cbf4566c435e754e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectSounds:
+  - {fileID: 2051827831}
+  - {fileID: 2051827830}
+  actionTriggerSounds:
+  - {fileID: 2051827836}
 --- !u!1001 &2055027591
 PrefabInstance:
   m_ObjectHideFlags: 0

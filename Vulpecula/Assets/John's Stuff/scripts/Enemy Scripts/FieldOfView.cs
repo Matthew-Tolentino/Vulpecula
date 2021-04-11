@@ -31,6 +31,7 @@ public class FieldOfView : MonoBehaviour
 
     [SerializeField]
     private FMODUnity.StudioEventEmitter onSeeSound;
+    private float lastTimeSeen = 0;
 
     private void Start()
     {
@@ -70,8 +71,9 @@ public class FieldOfView : MonoBehaviour
                 if(!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
                     // onSeeSound
-                    if (onSeeSound != null && !onSeeSound.IsPlaying())
+                    if (onSeeSound != null && (Time.time - lastTimeSeen) >= 0.6)
                     {
+                        lastTimeSeen = Time.time;
                         onSeeSound.Play();
                     }
                     // Look at Player when seen
