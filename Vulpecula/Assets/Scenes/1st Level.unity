@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.008872648, g: 0.002663297, b: 0.0634311, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -332,6 +332,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1630794972795428178, guid: b25394d9cc115ac4cb82b7552f717f6e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 39f3a0cc1133b18459b6f04d0272e015, type: 2}
+    - target: {fileID: 1630794972795428178, guid: b25394d9cc115ac4cb82b7552f717f6e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 39f3a0cc1133b18459b6f04d0272e015, type: 2}
     - target: {fileID: 2715566404302941441, guid: b25394d9cc115ac4cb82b7552f717f6e,
         type: 3}
       propertyPath: m_Layer
@@ -438,6 +448,12 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &13550851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 635547659545568360, guid: b25394d9cc115ac4cb82b7552f717f6e,
+    type: 3}
+  m_PrefabInstance: {fileID: 13550845}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &41661096
 GameObject:
   m_ObjectHideFlags: 0
@@ -1757,6 +1773,7 @@ GameObject:
   - component: {fileID: 407750246}
   - component: {fileID: 407750245}
   - component: {fileID: 407750244}
+  - component: {fileID: 407750250}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -1884,6 +1901,19 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &407750250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407750242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9910c209e40230c49a77e49f32ea0ba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 13550851}
 --- !u!1 &413710765
 GameObject:
   m_ObjectHideFlags: 0
