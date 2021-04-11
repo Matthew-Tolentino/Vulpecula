@@ -1,80 +1,95 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using UnityEngine;
-//using System;
 
 public class SpiritNoodler : MonoBehaviour
 {
-
     FMOD.Studio.EVENT_CALLBACK soundPlayedCallback;
     FMOD.Studio.EventInstance musicInstance;
 
     [SerializeField]
     private bool playOnStart = true;
 
+    [SerializeField]
+    private float volume = 0.5f;
+
+    [SerializeField]
+    private SCALE_TYPES scaleType = SCALE_TYPES.PENTATONIC;
+
+    [SerializeField]
+    int minNote = -12;
+    [SerializeField]
+    int maxNote = 13;
+
+    [SerializeField]
+    float minTremulo = 0f;
+    [SerializeField]
+    float maxTremulo = 0.6f;
+
+    private bool isPaused = true;
+
     private int nextSemitone;
     private bool needsSemitoneUpdate = true;
 
     private enum SCALE_TYPES { PENTATONIC };
 
-    private static int[] PentatonicIntervals = {0, 2, 4, 7, 9, 12};
+    private static int[] PentatonicIntervals = { 0, 2, 4, 7, 9, 12 };
 
-    private static float TREMULOMAX = 0.6f;
+    private static int NUM_NOTES = 4;
 
-    private static int ClampToBaseOctive(int semitoneInterval)
+    private System.Random rand = new System.Random();
+
+    private static int ClampToBaseOctive(int semitoneInterval, out int octavesOffset)
     {
+        octavesOffset = 0;
         while (semitoneInterval > 12)
         {
+            octavesOffset++;
             semitoneInterval -= 12;
         }
         while (semitoneInterval < 0)
         {
+            octavesOffset--;
             semitoneInterval += 12;
         }
         return semitoneInterval;
     }
     private static int ClampToScale(int semitoneInterval, SCALE_TYPES scale)
     {
-        semitoneInterval = ClampToBaseOctive(semitoneInterval);
+        int octavesOffset;
+        semitoneInterval = ClampToBaseOctive(semitoneInterval, out octavesOffset);
         switch (scale)
         {
             case SCALE_TYPES.PENTATONIC:
                 if (System.Array.Exists(PentatonicIntervals, element => element == semitoneInterval))
-                    return semitoneInterval;
+                    break;
                 for (int i = 0; i < PentatonicIntervals.Length; ++i)
                 {
-                    if (semitoneInterval < PentatonicIntervals[i])
-                        return PentatonicIntervals[i];
+                    if (semitoneInterval <= PentatonicIntervals[i])
+                    {
+                        System.Random rand = new System.Random();
+                        if (rand.NextDouble() < 0.5 || i == 0)
+                            semitoneInterval = PentatonicIntervals[i];
+                        else
+                            semitoneInterval = PentatonicIntervals[i - 1];
+                    }
                 }
                 break;
             default:
-                return semitoneInterval;
+                break;
         }
+        semitoneInterval += 12 * octavesOffset;
         return semitoneInterval;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        // Explicitly create the delegate object and assign it to a member so it doesn't get freed
-        // by the garbage collected while it's being used
-        soundPlayedCallback = new FMOD.Studio.EVENT_CALLBACK(SoundPlayedCallback);
-
-        musicInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Spirits/Test Hum 2");
-        FMODUnity.RuntimeManager.AttachInstanceToGameObject(musicInstance, gameObject.transform, gameObject.GetComponent<Rigidbody>());
-
-        // Pin the class that will store the data modified during the callback
-        //timelineHandle = GCHandle.Alloc(timelineInfo, GCHandleType.Pinned);
-        // Pass the object through the userdata of the instance
-        //musicInstance.setUserData(GCHandle.ToIntPtr(timelineHandle));
-
-        musicInstance.setCallback(soundPlayedCallback, FMOD.Studio.EVENT_CALLBACK_TYPE.SOUND_PLAYED);
-
-        musicInstance.start();
-
-        if (!playOnStart)
-            musicInstance.setPaused(true);
+        if (playOnStart)
+        {
+            PlayNextNote();
+            isPaused = false;
+        }
     }
 
     void OnDestroy()
@@ -89,19 +104,29 @@ public class SpiritNoodler : MonoBehaviour
     //    GUILayout.Box(String.Format("Current Bar = {0}, Last Marker = {1}", timelineInfo.currentMusicBar, (string)timelineInfo.lastMarker));
     //}
 
-    [AOT.MonoPInvokeCallback(typeof(FMOD.Studio.EVENT_CALLBACK))]
-    static FMOD.RESULT SoundPlayedCallback(FMOD.Studio.EVENT_CALLBACK_TYPE type, System.IntPtr instancePtr, System.IntPtr paramsPtr)
+    void PlayNextNote()
     {
-        FMOD.Studio.EventInstance instance = new FMOD.Studio.EventInstance(instancePtr);
-        System.Random rand = new System.Random();
-        int semitones = rand.Next(-12, 13);
+        musicInstance.release();
+
+        int noteID = rand.Next(0, NUM_NOTES);
+
+        musicInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Spirits/Hum/Note " + noteID.ToString().PadLeft(2, '0'));
+        var test = gameObject.GetComponent<Rigidbody>();
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(musicInstance, gameObject.transform, gameObject.GetComponent<Rigidbody>());
+
+        //FMOD.ATTRIBUTES_3D Attribs = new FMOD.ATTRIBUTES_3D();
+        //musicInstance.set3DAttributes();
+
+        musicInstance.setVolume(volume);
+
+        int semitones = rand.Next(minNote, maxNote);
         semitones = ClampToScale(semitones, SCALE_TYPES.PENTATONIC);
-        instance.setParameterByName("Pitch", SemitoneToPitchVar((float)semitones)); //(float)UnityEngine.Random.Range(-1, 1)
+        musicInstance.setParameterByName("Pitch", SemitoneToPitchVar((float)semitones));
 
-        float tremuloDepth = (float)rand.NextDouble() * TREMULOMAX;
-        instance.setParameterByName("Tremulo Depth", tremuloDepth);
+        float tremuloDepth = (float)rand.NextDouble() * (maxTremulo - minTremulo) + minTremulo;
+        musicInstance.setParameterByName("Tremulo Depth", tremuloDepth);
 
-        return FMOD.RESULT.OK;
+        musicInstance.start();
     }
 
     static float SemitoneToPitchVar(float semitones)
@@ -111,18 +136,23 @@ public class SpiritNoodler : MonoBehaviour
 
     public void StartPlaying()
     {
-        musicInstance.setPaused(false);
-        //musicInstance.setTimelinePosition(0);
-        //musicInstance.start();
+        isPaused = false;
     }
     public void StopPlaying()
     {
-        musicInstance.setPaused(true);
-        //musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        isPaused = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isPaused)
+            return;
+
+        musicInstance.getPlaybackState(out var state);
+        if (state == FMOD.Studio.PLAYBACK_STATE.STOPPED)
+        {
+            PlayNextNote();
+        }
     }
 }
