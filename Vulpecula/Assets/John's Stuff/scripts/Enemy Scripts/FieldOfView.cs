@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class FieldOfView : MonoBehaviour
 {
     
@@ -11,7 +12,11 @@ public class FieldOfView : MonoBehaviour
 
     public GameObject myPlayer;
     public GameObject myBody;
-    
+
+    public GameObject PostFX_Vision;
+    //public PostProcessVolume volume = gameObject.GetComponent<PostProcessVolume>();
+
+
     private SpiritHandler spiritRef;
     private Animator animator;
     private Animation_Handler animationRef;
@@ -92,6 +97,10 @@ public class FieldOfView : MonoBehaviour
                         myPlayer.GetComponent<CharacterController>().enabled = false;
                         myPlayer.GetComponent<PlayerMovement>().enabled = false;
                     }
+
+                    // Activate Post Processing Effect
+
+
 
                     if (isSeen == true) { }
 
