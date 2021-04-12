@@ -19,6 +19,7 @@ public class SpiritGlowControl : MonoBehaviour
 	        activate = false;
 	        intensity = 0f;
 	        state = "Inactive";
+	        mat.SetFloat("Vector1_Intensity", intensity);
 	    }
     }
 
@@ -41,9 +42,5 @@ public class SpiritGlowControl : MonoBehaviour
 
         	mat.SetFloat("Vector1_Intensity", intensity);
     	}
-    }
-
-    void setGlow(){
-    	activate = true;
     }
 }
