@@ -51,9 +51,10 @@ public class Animation_Handler : MonoBehaviour
            animator.SetBool("isPointing", true);
              
         }
-        // Swapped running animation to be based on player movement
+        
         // else if ((Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d")) && Input.GetKey(KeyCode.LeftShift))
-        else if (.09f < GameManager.instance.playerMoveVector.magnitude)
+        // Swap running animation to be based on player movement
+        else if (.16f < GameManager.instance.playerMoveVector.magnitude)
         {
             //Debug.Log("RUNNING");
             angerCounter = 0;
@@ -64,8 +65,9 @@ public class Animation_Handler : MonoBehaviour
             animator.SetBool("isWalking", false);
              
         }
-        // Swapped walking animation to be based on player movement
+        
         // else if(Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d") )
+        // Swap walking animation to be based on player movement
         else if (.01f < GameManager.instance.playerMoveVector.magnitude || Input.GetKey("a") || Input.GetKey("d"))
         {
             //Debug.Log("WALKING");
