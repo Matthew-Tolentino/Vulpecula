@@ -31,6 +31,9 @@ public class PlayerMovement : MonoBehaviour
     // Tracking Cam
     bool snapped = false;
 
+    [HideInInspector]
+    public Vector3 movementVector;
+
 
     // Start is called before the first frame update
     void Start()
@@ -89,8 +92,13 @@ public class PlayerMovement : MonoBehaviour
                 GameManager.instance.setMouseLock(false);
         }
 
+        // Calculate player movement direction and magnitude
+        movementVector = moveDir.normalized * speed * Time.deltaTime;
+        Debug.Log(movementVector.magnitude);
+        GameManager.instance.playerMoveVector = movementVector;
+
         // Apply movement to player
-        controller.Move(moveDir.normalized * speed * Time.deltaTime);
+        controller.Move(movementVector);
 
         // Gravity Handeling
         Vector3 checkPos = new Vector3(transform.position.x, transform.position.y - 1.6f, transform.position.z);

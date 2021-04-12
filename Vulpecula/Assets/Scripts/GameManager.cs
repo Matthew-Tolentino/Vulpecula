@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
 
     public CameraSettings camSettings;
 
+    public Vector3 playerMoveVector;
+
     void Awake()
     {
         if (instance == null)

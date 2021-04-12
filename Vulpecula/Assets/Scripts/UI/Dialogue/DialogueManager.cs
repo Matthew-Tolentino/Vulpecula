@@ -42,15 +42,6 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
     }
 
-    // TODO: Implement overall input manager
-    //void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.F))
-    //    {
-    //        DisplayNextSentence();
-    //    }
-    //}
-
     public void StartDialogue(Dialogue dialogue)
     {
         isOpen = true;
