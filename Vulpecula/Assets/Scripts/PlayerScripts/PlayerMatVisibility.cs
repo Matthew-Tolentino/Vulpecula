@@ -33,5 +33,9 @@ public class PlayerMatVisibility : MonoBehaviour
         	if (val < temp) val = temp;
         	mat.SetFloat("Vector1_Visibility", val);
         }
+        else if (val < temp) {
+        	val = temp;
+        	mat.SetFloat("Vector1_Visibility", val);
+        }
     }
 }
