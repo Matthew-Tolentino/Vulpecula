@@ -112,6 +112,7 @@ public class SpriritMovement_Land : MonoBehaviour
             if (Mathf.Round(transform.position.x) == Mathf.Round(forceMove.x) && Mathf.Round(transform.position.z) == Mathf.Round(forceMove.z))
             {
                 state = "ForcedMovent_Idle";
+                rb.isKinematic = true;
                 accel = 1f;
                 rb.detectCollisions = true;
                 fs.enabled = true;
