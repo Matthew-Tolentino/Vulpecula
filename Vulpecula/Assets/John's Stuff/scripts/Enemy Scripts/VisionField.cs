@@ -43,9 +43,10 @@ public class VisionField : MonoBehaviour
         for(int r = 0; r < SpiritRef.SpiritList.Count; r++){
             if(SpiritRef.SpiritList != null && SpiritRef.SpiritList[r] != null ){
                 // Check if the rabbit spirit is in party
-                if(SpiritRef.SpiritList[r].tag == "Spirit_Floating"){
+                if (SpiritRef.SpiritList[r].tag == "Spirit_Floating") {
                     // Activate spotlight
                     visionLight.intensity = 10000;
+                    visionLight.spotAngle = Vision.viewAngle;
                     visionLight.spotAngle = Vision.viewAngle;
                     visionLight.range = Vision.viewRadius;
                 }

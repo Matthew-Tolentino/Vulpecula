@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Calculate player movement direction and magnitude
         movementVector = moveDir.normalized * speed * Time.deltaTime;
-        Debug.Log(movementVector.magnitude);
+        //Debug.Log(movementVector.magnitude);
         GameManager.instance.playerMoveVector = movementVector;
 
         // Apply movement to player

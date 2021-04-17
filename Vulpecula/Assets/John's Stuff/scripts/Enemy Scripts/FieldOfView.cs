@@ -13,7 +13,7 @@ public class FieldOfView : MonoBehaviour
     public GameObject myPlayer;
     public GameObject myBody;
 
-    public GameObject PostFX_Vision;
+    //public GameObject PostFX_Vision;
     //public PostProcessVolume volume = gameObject.GetComponent<PostProcessVolume>();
 
 
@@ -24,10 +24,9 @@ public class FieldOfView : MonoBehaviour
     public LayerMask targetMask;
     public LayerMask obstacleMask;
 
-    public int seenCounter = 0;
+    private int seenCounter = 0;
     
-    public Light visionLight;
-
+    
 
 
     [HideInInspector]
