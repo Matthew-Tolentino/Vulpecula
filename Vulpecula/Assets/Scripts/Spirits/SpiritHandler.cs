@@ -16,6 +16,7 @@ public class SpiritHandler : MonoBehaviour
 
 
     public Vector3 rockgoto;
+    public GameObject targetRockLoc;
     public bool nearButton;
 
 
@@ -28,6 +29,7 @@ public class SpiritHandler : MonoBehaviour
     	ability = false;
         triggerLamp = false;
         nearButton = false;
+        targetRockLoc = null;
     }
 
 
@@ -136,12 +138,13 @@ public class SpiritHandler : MonoBehaviour
     				Vector3 got;
                     if (nearButton) got = rockgoto;
                     else got = transform.position + transform.forward * 4f;
-                    pull.abilityMove(got);
+                    pull.abilityMove(got, targetRockLoc);
                     ability = true;
     			}
     			else
     			{
     				pull.ObtainSpiritLand();
+                    targetRockLoc = null;
                     ability = false;
     			}
     			return;

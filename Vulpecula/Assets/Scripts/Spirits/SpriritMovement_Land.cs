@@ -20,7 +20,7 @@ public class SpriritMovement_Land : MonoBehaviour
     private float accel;
 
     private Vector3 forceMove;
-    private Quaternion forceRot;
+    private GameObject follow;
 
     private bool addF;
     public Vector3 velo;
@@ -45,7 +45,7 @@ public class SpriritMovement_Land : MonoBehaviour
         accel = 1f;
 
         forceMove = new Vector3();
-        forceRot = new Quaternion();
+        follow = null;
 
         addF = false;
     }
@@ -106,13 +106,16 @@ public class SpriritMovement_Land : MonoBehaviour
         }
         else if (state == "ForceMovement")
         {   
+            if (follow != null) 
+            {
+                forceMove = follow.transform.position;
+            }
         	rb.isKinematic = false;
             moveTo = forceMove;
-            transform.rotation = forceRot;
             if (Mathf.Round(transform.position.x) == Mathf.Round(forceMove.x) && Mathf.Round(transform.position.z) == Mathf.Round(forceMove.z))
             {
                 state = "ForcedMovent_Idle";
-                rb.isKinematic = true;
+                //rb.isKinematic = true;
                 accel = 1f;
                 rb.detectCollisions = true;
                 fs.enabled = true;
@@ -124,6 +127,7 @@ public class SpriritMovement_Land : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (state != "ForceMovement") follow = null;
         if (state != "Spawn" && state != "ForcedMovent_Idle" && state != "OnPlayer_Idle")
         {
             Vector3 direction = (moveTo - transform.position).normalized * (moveTo - transform.position).magnitude * speed * accel;
@@ -153,12 +157,15 @@ public class SpriritMovement_Land : MonoBehaviour
         state = "ReturnToSpawn";
     }
 
-    public void abilityMove(Vector3 pos, Quaternion rot = new Quaternion())
+    public void abilityMove(Vector3 pos, GameObject x = null)
     {
         state = "ForceMovement";
-        forceMove = pos;
-        //forceMove.y += 0.5f;
-        forceRot = rot;
+        if (x != null)
+        {
+            forceMove = x.transform.position;
+            follow = x;
+        }
+        else forceMove = pos;
         accel = 5f;
         fs.enabled = false;
         addF = true;

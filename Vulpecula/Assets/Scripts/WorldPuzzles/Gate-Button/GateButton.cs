@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class GateButton : MonoBehaviour
 {
-	public Vector3 sendRock;
+    public bool followTarget;
+	public GameObject sendRock;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player"){
         	var pull = other.gameObject.GetComponent<SpiritHandler>();
         	pull.nearButton = true;
-        	pull.rockgoto = sendRock;
+        	pull.rockgoto = sendRock.transform.position;
+            if (followTarget) pull.targetRockLoc = sendRock;
         }
     }
 
@@ -19,6 +21,7 @@ public class GateButton : MonoBehaviour
     	if (other.gameObject.tag == "Player"){
         	var pull = other.gameObject.GetComponent<SpiritHandler>();
         	pull.nearButton = false;
+            pull.targetRockLoc = null;
         }
     }
 
