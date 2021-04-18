@@ -54,7 +54,7 @@ public class Animation_Handler : MonoBehaviour
         
         // else if ((Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d")) && Input.GetKey(KeyCode.LeftShift))
         // Swap running animation to be based on player movement
-        else if (.16f < GameManager.instance.playerMoveVector.magnitude)
+        else if (.13f < GameManager.instance.playerMoveVector.magnitude)
         {
             //Debug.Log("RUNNING");
             angerCounter = 0;
