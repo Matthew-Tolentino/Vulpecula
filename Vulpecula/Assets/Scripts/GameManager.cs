@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject pauseMenuCanvasUI;
     public GameObject pauseMenuUI;
+    public GameObject gameOverCanvasUI;
 
     public Image selectedSpiritImage;
     public Sprite floatyImg;
@@ -184,5 +185,13 @@ public class GameManager : MonoBehaviour
             DialogueManager.instance.FinishSentence();
         else
             DialogueManager.instance.DisplayNextSentence();
+    }
+
+    public void GameOver() {
+        gameOverCanvasUI.SetActive(true);
+    }
+
+    public void setCameraShake(bool isShaking) {
+        camSettings.cameraShake = isShaking;
     }
 }

@@ -90,11 +90,15 @@ public class FieldOfView : MonoBehaviour
                     // Add player to visible targets list
                     visibleTargets.Add(target);
 
+                    // Camera Shake
+                    GameManager.instance.setCameraShake(true);
+
                     // Check if the Player is dead
                     if(animationRef.seenCounter >= 25){
                         animator.SetBool("isDead", true);
                         myPlayer.GetComponent<CharacterController>().enabled = false;
                         myPlayer.GetComponent<PlayerMovement>().enabled = false;
+                        GameManager.instance.GameOver();
                     }
 
                     // Activate Post Processing Effect
@@ -112,6 +116,8 @@ public class FieldOfView : MonoBehaviour
             {
                 
                 targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
+
+                GameManager.instance.setCameraShake(false);
                 
                 isSeen = false;
             }
@@ -120,6 +126,8 @@ public class FieldOfView : MonoBehaviour
         if(targetsInViewRadius.Length == 0)
         {
             isSeen = false;
+
+            GameManager.instance.setCameraShake(false);
         }
         
         

@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CameraSettings", menuName = "CameraSettings")]
 public class CameraSettings : ScriptableObject
 {
+    public bool cameraShake;
     public bool xInvert, yInvert;
     public float xSense, ySense;
     public string inputXAxis, inputYAxis;

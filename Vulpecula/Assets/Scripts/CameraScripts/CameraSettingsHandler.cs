@@ -42,5 +42,15 @@ public class CameraSettingsHandler : MonoBehaviour
             freeLookCam.m_XAxis.m_InputAxisValue = 0f;
             freeLookCam.m_YAxis.m_InputAxisValue = 0f;
         }
+
+        if (camSettings.cameraShake) shakeCamera();
+        else freeLookCam.m_Lens.Dutch = 0;
+    }
+
+    void shakeCamera() {
+        if (freeLookCam.m_Lens.Dutch != -.5f)
+            freeLookCam.m_Lens.Dutch = -.5f;
+        else if (freeLookCam.m_Lens.Dutch == -.5f)
+            freeLookCam.m_Lens.Dutch = .5f;
     }
 }
