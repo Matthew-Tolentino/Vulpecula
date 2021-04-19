@@ -205,6 +205,7 @@ public class SpiritHandler : MonoBehaviour
 
     	// send.SelectSpirit(type);
         GameManager.instance.setSelectedSpirit(type);
+        GameManager.instance.SetSpiritToolTip(type);
         if (selectedSpirit != -1){
             var pull = SpiritList[selectedSpirit].GetComponent<SpiritGlowControl>();
             if (pull != null) pull.activate = true;

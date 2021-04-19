@@ -179,6 +179,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SetSpiritToolTip(string name) {
+        TooltipTrigger tipTrigger = selectedSpiritImage.transform.parent.GetComponent<TooltipTrigger>();
+        tipTrigger.header = name;
+
+        switch (name) {
+            case "Rock":
+                tipTrigger.content = "Will stay in one spot upon first activation and then return you upon second activation.";
+                break;
+            case "Bunny":
+                tipTrigger.content = "Draws out the minimap to better see surroundings.";
+                break;
+            case "Lamp":
+                tipTrigger.content = "Use on special lamps to activate a transition from solar to lunar realm.";
+                break;
+            default:
+                tipTrigger.content = "No spirit currently selected";
+                break;
+        }
+    }
+
     public void NextDialogue()
     {
         if (!DialogueManager.instance.sentenceIsDone)
