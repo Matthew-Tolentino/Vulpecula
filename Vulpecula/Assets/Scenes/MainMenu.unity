@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5113,7 +5113,7 @@ PrefabInstance:
     - target: {fileID: 5960325990868446561, guid: 1ba4e9130a712f0479f711ec481c0fc0,
         type: 3}
       propertyPath: m_text
-      value: X
+      value: R
       objectReference: {fileID: 0}
     - target: {fileID: 8540187260616497339, guid: 1ba4e9130a712f0479f711ec481c0fc0,
         type: 3}
@@ -5128,7 +5128,7 @@ PrefabInstance:
     - target: {fileID: 8540187260616497339, guid: 1ba4e9130a712f0479f711ec481c0fc0,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 18.1
+      value: 18.66
       objectReference: {fileID: 0}
     - target: {fileID: 8540187260616497339, guid: 1ba4e9130a712f0479f711ec481c0fc0,
         type: 3}
@@ -5138,7 +5138,7 @@ PrefabInstance:
     - target: {fileID: 8540187260616497339, guid: 1ba4e9130a712f0479f711ec481c0fc0,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 9.05
+      value: 9.33
       objectReference: {fileID: 0}
     - target: {fileID: 8540187260616497339, guid: 1ba4e9130a712f0479f711ec481c0fc0,
         type: 3}
@@ -5158,7 +5158,7 @@ PrefabInstance:
     - target: {fileID: 9031481397925466183, guid: 1ba4e9130a712f0479f711ec481c0fc0,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 8.1
+      value: 8.66
       objectReference: {fileID: 0}
     - target: {fileID: 9031481397925466183, guid: 1ba4e9130a712f0479f711ec481c0fc0,
         type: 3}
@@ -5168,7 +5168,7 @@ PrefabInstance:
     - target: {fileID: 9031481397925466183, guid: 1ba4e9130a712f0479f711ec481c0fc0,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 9.05
+      value: 9.33
       objectReference: {fileID: 0}
     - target: {fileID: 9031481397925466183, guid: 1ba4e9130a712f0479f711ec481c0fc0,
         type: 3}
@@ -6911,7 +6911,7 @@ PrefabInstance:
     - target: {fileID: 5960325990868446561, guid: 1ba4e9130a712f0479f711ec481c0fc0,
         type: 3}
       propertyPath: m_text
-      value: C
+      value: R
       objectReference: {fileID: 0}
     - target: {fileID: 8540187260616497339, guid: 1ba4e9130a712f0479f711ec481c0fc0,
         type: 3}
@@ -9638,7 +9638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
