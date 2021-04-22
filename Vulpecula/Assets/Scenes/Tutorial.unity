@@ -2216,6 +2216,8 @@ GameObject:
   - component: {fileID: 140072347}
   - component: {fileID: 140072346}
   - component: {fileID: 140072350}
+  - component: {fileID: 140072352}
+  - component: {fileID: 140072351}
   m_Layer: 0
   m_Name: Gate_Opener
   m_TagString: Untagged
@@ -2253,8 +2255,8 @@ MonoBehaviour:
   initPos: 0
   openPos: -68.8
   state: 
-  gateOpenSound: {fileID: 896601845}
-  gateCloseSound: {fileID: 418777494}
+  gateOpenSound: {fileID: 0}
+  gateCloseSound: {fileID: 0}
 --- !u!65 &140072347
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2331,8 +2333,54 @@ MonoBehaviour:
   initPos: 0
   openPos: 68.8
   state: 
-  gateOpenSound: {fileID: 896601845}
-  gateCloseSound: {fileID: 418777494}
+  gateOpenSound: {fileID: 140072352}
+  gateCloseSound: {fileID: 140072351}
+--- !u!114 &140072351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140072344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/Gate Close
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 15
+  OverrideMaxDistance: 45
+--- !u!114 &140072352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140072344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/Gate Open
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 15
+  OverrideMaxDistance: 45
 --- !u!1 &155908173
 GameObject:
   m_ObjectHideFlags: 0
@@ -7465,60 +7513,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 402585488}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &418777494
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 418777495}
-  - component: {fileID: 418777496}
-  m_Layer: 0
-  m_Name: GateCloseSound
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &418777495
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 418777494}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.73, y: 7.74, z: 3.726}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1441960388}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &418777496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 418777494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: event:/SFX/Gate Close
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 1
-  OverrideMinDistance: 15
-  OverrideMaxDistance: 45
 --- !u!1001 &427773457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15146,60 +15140,6 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1 &896601845
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 896601846}
-  - component: {fileID: 896601847}
-  m_Layer: 0
-  m_Name: GateOpenSound
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &896601846
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 896601845}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.73, y: 7.74, z: 3.726}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1441960388}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &896601847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 896601845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: event:/SFX/Gate Open
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 1
-  OverrideMinDistance: 15
-  OverrideMaxDistance: 45
 --- !u!1001 &897839426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20282,7 +20222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playOnStart: 0
-  volume: 0.55
+  volume: 0.5
   scaleType: 0
   minNote: -12
   maxNote: 1
@@ -24890,8 +24830,6 @@ Transform:
   - {fileID: 491805818}
   - {fileID: 1919824722}
   - {fileID: 1601999900}
-  - {fileID: 896601846}
-  - {fileID: 418777495}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -25248,6 +25186,7 @@ GameObject:
   - component: {fileID: 1450797790}
   - component: {fileID: 1450797792}
   - component: {fileID: 1450797791}
+  - component: {fileID: 1450797793}
   m_Layer: 0
   m_Name: Gate Music Trigger
   m_TagString: Untagged
@@ -25263,7 +25202,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450797789}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 173, y: 3.14, z: 340.9}
+  m_LocalPosition: {x: 170.82, y: 3.14, z: 340.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 469117966}
@@ -25301,6 +25240,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 10, z: 18}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1450797793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450797789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Player
+  Event: event:/SFX/Action Sounds/Puzzle Solve Violin 01
+  PlayEvent: 3
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 1
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &1455315771
 GameObject:
   m_ObjectHideFlags: 0
@@ -36291,7 +36253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playOnStart: 0
-  volume: 0.5
+  volume: 0.45
   scaleType: 0
   minNote: 7
   maxNote: 18
@@ -40289,7 +40251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playOnStart: 0
-  volume: 0.5
+  volume: 0.45
   scaleType: 0
   minNote: 0
   maxNote: 13

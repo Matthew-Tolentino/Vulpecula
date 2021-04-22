@@ -12,9 +12,9 @@ public class ButtonTrigger : MonoBehaviour
     private float time;
 
     [SerializeField]
-    private GameObject gateOpenSound;
+    private FMODUnity.StudioEventEmitter gateOpenSound = null;
     [SerializeField]
-    private GameObject gateCloseSound;
+    private FMODUnity.StudioEventEmitter gateCloseSound = null;
     void start()
     {
     	//initPos = gate.transform.position;
@@ -56,14 +56,21 @@ public class ButtonTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-    	if (state == "Opened") return;
+    	if (state == "Opened" || state == "Closed-To-Open") return;
         else if (other.gameObject.tag == "Spirit_Land"){
         	var pull = other.gameObject.GetComponent<SpriritMovement_Land>();
             if (pull.type == "Sit")
             {
-                if (gateCloseSound.GetComponent<FMODUnity.StudioEventEmitter>().IsPlaying())
-                    gateCloseSound.GetComponent<FMODUnity.StudioEventEmitter>().Stop();
-                gateOpenSound.GetComponent<FMODUnity.StudioEventEmitter>().Play();
+                if (gateCloseSound != null && gateOpenSound != null)
+                {
+                    if (gateCloseSound.IsPlaying())
+                        gateCloseSound.Stop();
+                    if (!gateOpenSound.IsPlaying())
+                    {
+                        gateOpenSound.Play();
+                    }
+                }
+                
                 state = "Closed-To-Open";
             }
         }
@@ -71,14 +78,21 @@ public class ButtonTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-    	if (state == "Closed") return;
+    	if (state == "Closed" || state == "Open-To-Closed") return;
         else if (other.gameObject.tag == "Spirit_Land"){
         	var pull = other.gameObject.GetComponent<SpriritMovement_Land>();
             if (pull.type == "Sit")
             {
-                if (gateOpenSound.GetComponent<FMODUnity.StudioEventEmitter>().IsPlaying())
-                    gateOpenSound.GetComponent<FMODUnity.StudioEventEmitter>().Stop();
-                gateCloseSound.GetComponent<FMODUnity.StudioEventEmitter>().Play();
+                if (gateOpenSound != null && gateCloseSound != null)
+                {
+                    if (gateOpenSound.IsPlaying())
+                        gateOpenSound.Stop();
+                    if (!gateCloseSound.IsPlaying())
+                    {
+                        gateCloseSound.Play();
+                    }
+                }
+                
                 state = "Open-To-Closed";
             }
         }
