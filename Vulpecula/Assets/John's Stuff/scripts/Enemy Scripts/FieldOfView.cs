@@ -35,6 +35,8 @@ public class FieldOfView : MonoBehaviour
 
     [SerializeField]
     private FMODUnity.StudioEventEmitter onSeeSound;
+    [SerializeField]
+    private FMODUnity.StudioEventEmitter passiveSound;
     private float lastTimeSeen = 0;
 
     private void Start()
@@ -43,6 +45,13 @@ public class FieldOfView : MonoBehaviour
         spiritRef = myPlayer.GetComponent<SpiritHandler>();
         animationRef = myBody.GetComponent<Animation_Handler>();
         StartCoroutine("FindTargetsWithDelay", .2f);
+
+        passiveSound.Play();
+    }
+
+    private void OnDestroy()
+    {
+        passiveSound.Stop();
     }
 
     IEnumerator FindTargetsWithDelay(float delay)

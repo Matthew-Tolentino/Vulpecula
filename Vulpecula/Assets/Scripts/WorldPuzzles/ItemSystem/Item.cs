@@ -8,6 +8,9 @@ public class Item : MonoBehaviour
 
     private bool canPickup = false;
 
+    [SerializeField]
+    FMODUnity.StudioEventEmitter pickupSound = null;
+
     // Update is called once per frame
     void Update()
     {
@@ -16,6 +19,8 @@ public class Item : MonoBehaviour
             Destroy(transform.parent.gameObject);
             // Update inventory
             ItemManager.instance.UpdateItem(itemName, true);
+
+            if (pickupSound != null) pickupSound.Play();
         }
     }
 

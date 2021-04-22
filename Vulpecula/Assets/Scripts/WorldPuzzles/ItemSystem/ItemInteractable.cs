@@ -8,6 +8,9 @@ public class ItemInteractable : MonoBehaviour
 
     private bool canInteract;
 
+    [SerializeField]
+    FMODUnity.StudioEventEmitter interactSound = null;
+
     // Update is called once per frame
     void Update()
     {
@@ -17,6 +20,8 @@ public class ItemInteractable : MonoBehaviour
             // Generalize to all items later
             if (transform.parent.gameObject.name == "Interactable_InnerGate")
             {
+                if (interactSound != null) interactSound.Play();
+
                 Destroy(transform.parent.gameObject);
             }
         }

@@ -77,6 +77,14 @@ public class MoveToSpiritWorld : MonoBehaviour
     private float fadeOutTime = 2; // in seconds
     IEnumerator Audio_FadeIntoSpiritWorld(float duration)
     {
+        if (controlSpiritHum)
+        {
+            foreach (var noodler in FindObjectsOfType<SpiritNoodler>())
+            {
+                noodler.StartPlaying();
+            }
+        }
+
         float currentTime = 0f;
         while (currentTime < duration)
         {
@@ -84,14 +92,6 @@ public class MoveToSpiritWorld : MonoBehaviour
             FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Spirit World Connection", connection);
             currentTime += Time.deltaTime;
             yield return null;
-        }
-
-        if (controlSpiritHum)
-        {
-            foreach (var noodler in FindObjectsOfType<SpiritNoodler>())
-            {
-                noodler.StartPlaying();
-            }
         }
 
         yield return null;
