@@ -59,7 +59,7 @@ public class ButtonTrigger : MonoBehaviour
     	if (state == "Opened" || state == "Closed-To-Open") return;
         else if (other.gameObject.tag == "Spirit_Land"){
         	var pull = other.gameObject.GetComponent<SpriritMovement_Land>();
-            if (pull.type == "Sit")
+            if (pull.type == "Sit" && (pull.state == "ForceMovement" || pull.state == "ForcedMovent_Idle"))
             {
                 if (gateCloseSound != null && gateOpenSound != null)
                 {

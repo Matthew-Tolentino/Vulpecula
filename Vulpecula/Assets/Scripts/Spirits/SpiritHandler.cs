@@ -140,12 +140,15 @@ public class SpiritHandler : MonoBehaviour
                     else got = transform.position + transform.forward * 4f;
                     pull.abilityMove(got, targetRockLoc);
                     ability = true;
+                    Physics.IgnoreLayerCollision(8, 10, true);
+                    
     			}
     			else
     			{
     				pull.ObtainSpiritLand();
                     targetRockLoc = null;
                     ability = false;
+                    Physics.IgnoreLayerCollision(8, 10, false);
     			}
     			return;
     		}

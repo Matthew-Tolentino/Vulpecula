@@ -22,7 +22,6 @@ public class SpriritMovement_Land : MonoBehaviour
     private Vector3 forceMove;
     private GameObject follow;
 
-    private bool addF;
     public Vector3 velo;
     // Dialog Code (Matthew) ---------------------
     [HideInInspector]
@@ -47,7 +46,6 @@ public class SpriritMovement_Land : MonoBehaviour
         forceMove = new Vector3();
         follow = null;
 
-        addF = false;
     }
 
     // Update is called once per frame
@@ -119,6 +117,7 @@ public class SpriritMovement_Land : MonoBehaviour
                 accel = 1f;
                 rb.detectCollisions = true;
                 fs.enabled = true;
+                rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX;
             }
         }
 
@@ -128,19 +127,16 @@ public class SpriritMovement_Land : MonoBehaviour
     private void LateUpdate()
     {
         if (state != "ForceMovement") follow = null;
+        if (state != "ForcedMovent_Idle") rb.constraints = RigidbodyConstraints.None;
         if (state != "Spawn" && state != "ForcedMovent_Idle" && state != "OnPlayer_Idle")
         {
             Vector3 direction = (moveTo - transform.position).normalized * (moveTo - transform.position).magnitude * speed * accel;
             rb.velocity = direction;
             velo = rb.velocity;
         }
-    }
-    private void FixedUpdate()
-    {
-        if (addF)
-        {
-            //rb.AddForce(Vector3.up * 20);
-            addF = false;
+        else{
+            rb.velocity = new Vector3(0, rb.velocity.y ,0);
+            velo = rb.velocity;
         }
     }
 
@@ -168,7 +164,6 @@ public class SpriritMovement_Land : MonoBehaviour
         else forceMove = pos;
         accel = 5f;
         fs.enabled = false;
-        addF = true;
         rb.detectCollisions = false;
     }
 

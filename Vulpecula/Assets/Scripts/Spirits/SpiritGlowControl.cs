@@ -11,6 +11,13 @@ public class SpiritGlowControl : MonoBehaviour
 	public float intensity;
 	public string state;
 
+	private int runtime;
+
+	[SerializeField] private bool constant;
+	public bool stop;
+	public bool isHint;
+
+
     void Start()
     {	
     	if (glowTarget != null){
@@ -21,22 +28,43 @@ public class SpiritGlowControl : MonoBehaviour
 	        state = "Inactive";
 	        mat.SetFloat("Vector1_Intensity", intensity);
 	    }
+	    stop = false;
+	    runtime = 5;
     }
 
     void Update()
     {
+    	if (!stop && constant)
+  		{
+  			if (!activate) activate = true;
+  		}
+
     	if (glowTarget != null && activate){
     		if (state == "Inactive") state = "ActiveUp";
     		if (state == "ActiveUp"){
-    			intensity += Time.deltaTime * (intensity + 1) * 2;
-    			if (intensity >= 2.5) state = "ActiveDown";
+    			intensity += Time.deltaTime * (intensity + 1) * 4;
+    			if (intensity >= 7.5) state = "ActiveDown";
     		}
     		if (state == "ActiveDown"){
-    			intensity -= Time.deltaTime * 2;
+    			intensity -= Time.deltaTime * 4;
     			if (intensity <= 0){
     				state = "Inactive";
-    				activate = false;
-    				intensity = 0;
+
+    				if (isHint)
+	    				{
+	    				--runtime;
+	    				if (runtime == 0)
+	    				{
+	    					activate = false;
+	    					runtime = 5;
+	    				}
+	    				intensity = 0;
+    				}
+    				else
+    				{
+    					activate = false;
+    					intensity = 0;
+    				}
     			}
     		}
 
