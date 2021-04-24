@@ -35,11 +35,6 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 movementVector;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -61,10 +56,12 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Vector3 dir = new Vector3(hori, 0f, vert).normalized;
+        Vector3 moveDir = Vector3.zero;
 
         // Rotate Player
         if (dir.magnitude >= 0.1f)
         {
+            moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             PlayerTurnTo(dir);
             snapped = false;
         }
@@ -76,25 +73,24 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Inital Player move direction
-        Vector3 moveDir = Mathf.Abs(vert) * transform.forward;
+        // Vector3 moveDir = Mathf.Abs(vert) * transform.forward;
 
         // Freecam when Click
-        if (GameManager.mouseState == GameManager.MouseState.game)
-        {
-            if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
-            {
-                GameManager.instance.setMouseLock(true);
-                // Change move direction to have horizontal
-                if (dir.magnitude >= 0.1f)
-                    moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            }
-            if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
-                GameManager.instance.setMouseLock(false);
-        }
+        // if (GameManager.mouseState == GameManager.MouseState.game)
+        // {
+        //     if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
+        //     {
+        //         GameManager.instance.setMouseLock(true);
+        //         // Change move direction to have horizontal
+        //         if (dir.magnitude >= 0.1f)
+        //             moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+        //     }
+        //     if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
+        //         GameManager.instance.setMouseLock(false);
+        // }
 
         // Calculate player movement direction and magnitude
         movementVector = moveDir.normalized * speed * Time.deltaTime;
-        //Debug.Log(movementVector.magnitude);
         GameManager.instance.playerMoveVector = movementVector;
 
         // Apply movement to player

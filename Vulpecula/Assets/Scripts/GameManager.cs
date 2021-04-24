@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
         gameIsPaused = false;
 
         // Enable game control of camera (A and D)
-        setMouseLock(false);
+        setMouseLock(true);
 
         // Set mouse state back to game
         mouseState = MouseState.game;
@@ -128,17 +128,17 @@ public class GameManager : MonoBehaviour
             camSettings.inputXAxis = "Mouse X";
             camSettings.inputYAxis = "Mouse Y";
         }
-        else if (!isEnabled && gameIsPaused)
+        else
         {
             camSettings.inputXAxis = "";
             camSettings.inputYAxis = "";
         }
-        else
-        {
-            // let A and D control camera
-            camSettings.inputXAxis = "Horizontal";
-            camSettings.inputYAxis = "";
-        }
+        // else
+        // {
+        //     // let A and D control camera
+        //     camSettings.inputXAxis = "Horizontal";
+        //     camSettings.inputYAxis = "";
+        // }
     }
 
     public void setDefaultMouseState()

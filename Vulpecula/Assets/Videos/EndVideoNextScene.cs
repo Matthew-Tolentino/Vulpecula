@@ -17,10 +17,12 @@ public class EndVideoNextScene : MonoBehaviour
     void EndReached(UnityEngine.Video.VideoPlayer vp)
     {
     	SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        GameManager.instance.setMouseLock(true);
     }
 
     public void NextScene()
     {
     	SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        GameManager.instance.setMouseLock(true);
     }
 }
