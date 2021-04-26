@@ -19,6 +19,8 @@ public class SpiritHandler : MonoBehaviour
     public GameObject targetRockLoc;
     public bool nearButton;
 
+    public bool strongSpirit;
+
 
     void Start()
     {
@@ -30,6 +32,7 @@ public class SpiritHandler : MonoBehaviour
         triggerLamp = false;
         nearButton = false;
         targetRockLoc = null;
+        strongSpirit = false;
     }
 
 
@@ -45,7 +48,7 @@ public class SpiritHandler : MonoBehaviour
 
 
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Spirit_Floating")
         {
@@ -54,9 +57,10 @@ public class SpiritHandler : MonoBehaviour
             pull.ObtainSpiritFloating(numFloaters++);
             Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>(), true);
 
-            // Dialog Code (Matthew) ---------------------
-            //if (!pull.saidDialog) collision.gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
-            // -------------------------------------------
+            // Enable Passive Abilities
+            if (pull.type == "Bunny") ; // ENABLE MAP
+
+
         }
         else if (collision.gameObject.tag == "Spirit_Land")
         {
@@ -64,9 +68,10 @@ public class SpiritHandler : MonoBehaviour
             if (pull.state != "Spawn") return;
             pull.ObtainSpiritLand();
 
-            // Dialog Code (Matthew) ---------------------
-            //if (!pull.saidDialog) collision.gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
-            // -------------------------------------------
+            // Enable Passive Abilities
+            if (pull.type == "Strong") strongSpirit = true;
+
+
         }
         else return;
 
@@ -83,6 +88,7 @@ public class SpiritHandler : MonoBehaviour
         if (selectedSpirit == -1) selectedSpirit = 0;
         else selectedSpirit = SpiritList.Count - 1;
         nameSelected();
+
     }
 
 
@@ -98,11 +104,17 @@ public class SpiritHandler : MonoBehaviour
             pull.ReleaseSpiritFloating();
             Physics.IgnoreCollision(SpiritList[removeIndex].GetComponent<Collider>(), GetComponent<Collider>(), false);
             --numFloaters;
+
+            // Disable Passive Abilities
+            if (pull.type == "Bunny") ; // DISABLE MAP
         }
         else if (SpiritList[removeIndex].tag == "Spirit_Land")
         {
             var pull = SpiritList[removeIndex].GetComponent<SpriritMovement_Land>();
             pull.ReleaseSpiritLand();
+
+            // Disable Passive Abilities
+            if (pull.type == "Strong") strongSpirit = false;
         }
 
         SpiritList.RemoveAt(removeIndex);

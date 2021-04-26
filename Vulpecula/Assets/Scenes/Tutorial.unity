@@ -468,6 +468,7 @@ Transform:
   m_LocalPosition: {x: 77.43, y: 0.58, z: 244.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 726905922}
   - {fileID: 1760908553}
   - {fileID: 811430608}
   - {fileID: 1901264045}
@@ -990,7 +991,7 @@ PrefabInstance:
     - target: {fileID: 2419556920482424376, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: Careful of humans. Spirits are quite considering beings, they want to
+      value: Careful of humans. Spirits are quite considerate beings, they want to
         avoid causing panic amongst the humans. You yourself need to be extra careful
         as being seen by humans for too long can cause you to revert back to your
         Celestial form.
@@ -5586,7 +5587,7 @@ PrefabInstance:
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
@@ -7860,12 +7861,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 438288617}
-  m_LocalRotation: {x: 0.1044013, y: 0.69110227, z: -0.10192738, w: 0.70787627}
+  m_LocalRotation: {x: 0.10440131, y: 0.69110227, z: -0.10192739, w: 0.70787627}
   m_LocalPosition: {x: 58.33486, y: 17.39518, z: 245.10701}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 89.66701, z: 0}
 --- !u!114 &438288621
 MonoBehaviour:
@@ -10664,7 +10665,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 625849009}
-  m_LocalRotation: {x: 0.10266812, y: 0.69134974, z: -0.10023527, w: 0.7081297}
+  m_LocalRotation: {x: 0.10266814, y: 0.69134974, z: -0.1002353, w: 0.7081297}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -12005,6 +12006,120 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 725413782}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &726905921
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 35400624}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 648a751edccea304ea740435add7c00d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 648a751edccea304ea740435add7c00d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 648a751edccea304ea740435add7c00d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 648a751edccea304ea740435add7c00d,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 648a751edccea304ea740435add7c00d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 23.9
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 648a751edccea304ea740435add7c00d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.53
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 648a751edccea304ea740435add7c00d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.594
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 648a751edccea304ea740435add7c00d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 648a751edccea304ea740435add7c00d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 648a751edccea304ea740435add7c00d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 648a751edccea304ea740435add7c00d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 648a751edccea304ea740435add7c00d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 648a751edccea304ea740435add7c00d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 648a751edccea304ea740435add7c00d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 648a751edccea304ea740435add7c00d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44a283b8f38110f4e97e09f1fdf85b5d, type: 2}
+    - target: {fileID: 919132149155446097, guid: 648a751edccea304ea740435add7c00d,
+        type: 3}
+      propertyPath: m_Name
+      value: Arrow
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 648a751edccea304ea740435add7c00d, type: 3}
+--- !u!4 &726905922 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 648a751edccea304ea740435add7c00d,
+    type: 3}
+  m_PrefabInstance: {fileID: 726905921}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &726905923 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 648a751edccea304ea740435add7c00d,
+    type: 3}
+  m_PrefabInstance: {fileID: 726905921}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &726905924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726905923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef5134a1e2254ba40b424aaa17f29cc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 2051827826}
 --- !u!1 &726942817
 GameObject:
   m_ObjectHideFlags: 0
@@ -14064,7 +14179,7 @@ PrefabInstance:
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
@@ -15008,7 +15123,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 92526083245d40d41af11e74e7abdccb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 92526083245d40d41af11e74e7abdccb,
         type: 3}
@@ -17475,7 +17590,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0f3eabe3eecfac4459b39ed77a6e4a92,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0f3eabe3eecfac4459b39ed77a6e4a92,
         type: 3}
@@ -18347,7 +18462,7 @@ PrefabInstance:
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
@@ -20879,7 +20994,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3971164, y: 0.89, z: 0.9333622}
+  m_Size: {x: 1.68, y: 1.32, z: 1.32}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1174235227
 MonoBehaviour:
@@ -21547,7 +21662,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1206188373}
-  m_LocalRotation: {x: 0.11331581, y: 0.6897626, z: -0.110630654, w: 0.70650405}
+  m_LocalRotation: {x: 0.113315806, y: 0.6897626, z: -0.11063064, w: 0.70650405}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -26307,7 +26422,7 @@ PrefabInstance:
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
@@ -33108,7 +33223,7 @@ Transform:
   m_Children:
   - {fileID: 2074128816}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1630458418
 MonoBehaviour:
@@ -33188,6 +33303,7 @@ MonoBehaviour:
   rockgoto: {x: 0, y: 0, z: 0}
   targetRockLoc: {fileID: 0}
   nearButton: 0
+  strongSpirit: 0
 --- !u!54 &1630458422
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -35269,7 +35385,7 @@ PrefabInstance:
     - target: {fileID: 2419556920482424376, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: 'Looks like I might be able to open this with a key (C). '
+      value: 'Looks like I might be able to open this with a key (R). '
       objectReference: {fileID: 0}
     - target: {fileID: 2419556920482424376, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
@@ -35292,7 +35408,7 @@ PrefabInstance:
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
@@ -35572,7 +35688,7 @@ PrefabInstance:
     - target: {fileID: 2419556920482424376, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: Careful of humans. Spirits are quite considering beings, they want to
+      value: Careful of humans. Spirits are quite considerate beings, they want to
         avoid causing panic amongst the humans. You yourself need to be extra careful
         as being seen by humans for too long can cause you to revert back to your
         Celestial form.
@@ -37365,8 +37481,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 0.42
+  m_Radius: 0.36
+  m_Height: 0.81
   m_Direction: 1
   m_Center: {x: 0, y: 0.03, z: 0.12}
 --- !u!114 &1874079110
@@ -37507,7 +37623,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 92526083245d40d41af11e74e7abdccb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 92526083245d40d41af11e74e7abdccb,
         type: 3}
@@ -38110,7 +38226,7 @@ PrefabInstance:
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
@@ -41669,8 +41785,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 0.42
+  m_Radius: 0.42
+  m_Height: 1.07
   m_Direction: 1
   m_Center: {x: 0, y: 0.03, z: 0.12}
 --- !u!114 &2051827834
@@ -42232,7 +42348,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0f3eabe3eecfac4459b39ed77a6e4a92,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0f3eabe3eecfac4459b39ed77a6e4a92,
         type: 3}
@@ -43045,7 +43161,7 @@ PrefabInstance:
     - target: {fileID: 2142189039804578334, guid: 65fb9c44fca4d954c88f5623616569ba,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2142189039804578334, guid: 65fb9c44fca4d954c88f5623616569ba,
         type: 3}
