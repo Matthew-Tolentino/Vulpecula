@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+
 
 
 public class FieldOfView : MonoBehaviour
@@ -13,8 +16,13 @@ public class FieldOfView : MonoBehaviour
     public GameObject myPlayer;
     public GameObject myBody;
 
+    public GameObject exclamationPoint;
+
     //public GameObject PostFX_Vision;
     //public PostProcessVolume volume = gameObject.GetComponent<PostProcessVolume>();
+
+    //public GameObject postProc;
+    //private Vignette vg;
 
 
     private SpiritHandler spiritRef;
@@ -24,7 +32,9 @@ public class FieldOfView : MonoBehaviour
     public LayerMask targetMask;
     public LayerMask obstacleMask;
 
-    private int seenCounter = 0;
+    private int seenDelay = 0;
+
+   
     
     
 
@@ -45,6 +55,11 @@ public class FieldOfView : MonoBehaviour
         spiritRef = myPlayer.GetComponent<SpiritHandler>();
         animationRef = myBody.GetComponent<Animation_Handler>();
         StartCoroutine("FindTargetsWithDelay", .2f);
+
+        //vg = postProc.GetComponent<Vignette>();
+        exclamationPoint.SetActive(false);
+
+
 
         passiveSound.Play();
     }
@@ -80,7 +95,8 @@ public class FieldOfView : MonoBehaviour
             if(Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
             {
                 float dstToTarget = Vector3.Distance(transform.position, target.position);
-                //If player is seen, the code below is performed
+               
+                //If player is seen, the code below is performed***********************************************************
                 if(!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
                     // onSeeSound
@@ -89,13 +105,20 @@ public class FieldOfView : MonoBehaviour
                         lastTimeSeen = Time.time;
                         onSeeSound.Play();
                     }
+                    
                     // Look at Player when seen
                     transform.LookAt(target);
                     transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
+
                     // Tell other scripts that the player is seen
+                    seenDelay++;
+                    if(seenDelay >= 10)
+                    {
+                        animationRef.seenCounter++;
+                    }
                     isSeen = true;
-                    animationRef.seenCounter++;
                     spiritRef.loseSpirit();
+                   
                     // Add player to visible targets list
                     visibleTargets.Add(target);
 
@@ -111,7 +134,9 @@ public class FieldOfView : MonoBehaviour
                     }
 
                     // Activate Post Processing Effect
+                    //vg.intensity.value = 0.715f;
 
+                    exclamationPoint.SetActive(true);
 
 
                     if (isSeen == true) { }
@@ -127,6 +152,8 @@ public class FieldOfView : MonoBehaviour
                 targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
                 GameManager.instance.setCameraShake(false);
+
+                seenDelay = 0;
                 
                 isSeen = false;
             }
@@ -135,6 +162,9 @@ public class FieldOfView : MonoBehaviour
         if(targetsInViewRadius.Length == 0)
         {
             isSeen = false;
+            //vg.intensity.value = 0.0f;
+
+            exclamationPoint.SetActive(false);
 
             GameManager.instance.setCameraShake(false);
         }
