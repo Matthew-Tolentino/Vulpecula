@@ -22,6 +22,8 @@ public class SpriritMovement_Land : MonoBehaviour
     private Vector3 forceMove;
     private GameObject follow;
 
+    private float forceMag;
+
     public Vector3 velo;
     // Dialog Code (Matthew) ---------------------
     [HideInInspector]
@@ -46,16 +48,21 @@ public class SpriritMovement_Land : MonoBehaviour
         forceMove = new Vector3();
         follow = null;
 
+        forceMag = 20000f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Determine action based on state
+
+        // Folow Player
         if (state == "OnPlayer")
         {
             moveTo = player.position;
             rb.isKinematic = false;
-            //moveTo.y = transform.position.y;
+            
+            // Stop moving if come too close to player
             if (Vector3.Distance(transform.position, player.position) < 2f) {
                 state = "OnPlayer_Idle";
                 accel = 1f;
@@ -67,6 +74,8 @@ public class SpriritMovement_Land : MonoBehaviour
                 timer = 5f;
             }
         }
+
+        // Stay away from player
         else if (state == "OnPlayer_Idle")
         {   
             rb.detectCollisions = true;
@@ -74,34 +83,15 @@ public class SpriritMovement_Land : MonoBehaviour
             rb.useGravity = true;
             fs.enabled = true;
             rb.isKinematic = true;
+
+            // Come back to Player if too far
             if (Vector3.Distance(transform.position, player.position) > 3f) {
                 state = "OnPlayer";
                 timer = 5f;
             }
         }
-        else if (state == "ReturnToSpawn")
-        {
-            moveTo = spawn;
-            rb.isKinematic = false;
-            if (timer > 0) timer -= Time.deltaTime;
-            else
-            {
-                rb.detectCollisions = false;
-                rb.useGravity = false;
-                fs.enabled = false;
-                accel = 5f;
-
-            }
-            if (Mathf.Round(transform.position.x) == Mathf.Round(spawn.x) && Mathf.Round(transform.position.z) == Mathf.Round(spawn.z))
-            {
-                state = "Spawn";
-                timer = 5f;
-                rb.useGravity = true;
-                fs.enabled = true;
-                rb.detectCollisions = true;
-                accel = 1f;
-            }
-        }
+        
+        // Force movement to desired position
         else if (state == "ForceMovement")
         {   
             if (follow != null) 
@@ -110,6 +100,8 @@ public class SpriritMovement_Land : MonoBehaviour
             }
         	rb.isKinematic = false;
             moveTo = forceMove;
+
+            // Reach desired Position
             if (Mathf.Round(transform.position.x) == Mathf.Round(forceMove.x) && Mathf.Round(transform.position.z) == Mathf.Round(forceMove.z))
             {
                 state = "ForcedMovent_Idle";
@@ -126,20 +118,20 @@ public class SpriritMovement_Land : MonoBehaviour
 
     private void LateUpdate()
     {
+        // Do action based on state
         if (state != "ForceMovement") follow = null;
         if (state != "ForcedMovent_Idle") rb.constraints = RigidbodyConstraints.None;
-        if (state != "Spawn" && state != "ForcedMovent_Idle" && state != "OnPlayer_Idle")
+
+        // Move to set Position
+        if (state != "Spawn" && state != "ForcedMovent_Idle" && state != "OnPlayer_Idle" && state != "ReturningToSpawn")
         {
             Vector3 direction = (moveTo - transform.position).normalized * (moveTo - transform.position).magnitude * speed * accel;
             rb.velocity = direction;
             velo = rb.velocity;
         }
-        else{
-            rb.velocity = new Vector3(0, rb.velocity.y ,0);
-            velo = rb.velocity;
-        }
     }
 
+    // Player Get spirit
     public void ObtainSpiritLand()
     {
     	Physics.IgnoreCollision(pl.GetComponent<Collider>(), GetComponent<Collider>(), true);
@@ -147,12 +139,35 @@ public class SpriritMovement_Land : MonoBehaviour
         accel = 5f;
     }
 
+    // Player Lose spirit
     public void ReleaseSpiritLand()
     {
     	Physics.IgnoreCollision(pl.GetComponent<Collider>(), GetComponent<Collider>(), false);
-        state = "ReturnToSpawn";
+        if (state != "ReturningToSpawn" && state != "Spawn")
+            {
+            state = "ReturningToSpawn";
+            rb.isKinematic = false;
+
+            Vector3 direction = (transform.position - player.position).normalized * (forceMag + Random.value*1000);
+            direction.x += (Random.value - 1)*forceMag/2;
+            direction.z += (Random.value - 1)*forceMag/2;
+            direction.y = forceMag/5;
+
+            rb.detectCollisions = true;
+            rb.AddForce(direction);
+            
+            Invoke("finishRun", 1.0f);
+        }
     }
 
+    // Set spirit to lost
+    private void finishRun()
+    {
+        state = "Spawn";
+        rb.velocity = new Vector3(0,0,0);
+    }
+
+    // Rock force move
     public void abilityMove(Vector3 pos, GameObject x = null)
     {
         state = "ForceMovement";

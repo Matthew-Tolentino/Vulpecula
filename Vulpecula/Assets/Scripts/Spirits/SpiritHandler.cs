@@ -85,6 +85,8 @@ public class SpiritHandler : MonoBehaviour
         }
 
         SpiritList.Add(collision.gameObject);
+        if (ability) callAbility();
+
         if (selectedSpirit == -1) selectedSpirit = 0;
         else selectedSpirit = SpiritList.Count - 1;
         nameSelected();

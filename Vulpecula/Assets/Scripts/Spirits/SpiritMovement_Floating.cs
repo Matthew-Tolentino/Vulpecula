@@ -7,7 +7,7 @@ public class SpiritMovement_Floating : MonoBehaviour
     public GameObject pl;
     public Transform player;
     public float radius;
-    public float initialD;
+    private float initialD;
 
     public float verticalFluct;
     public float initialF;
@@ -26,7 +26,7 @@ public class SpiritMovement_Floating : MonoBehaviour
     private float accel;
     private float timeAway;
 
-    public float pp;
+    private float forceMag;
 
     // Dialog Code (Matthew) ---------------------
     [HideInInspector]
@@ -42,6 +42,8 @@ public class SpiritMovement_Floating : MonoBehaviour
         if (type == "") type = "NULL";
         accel = 1.0f;
         timeAway = 0.0f;
+
+        forceMag = 20000f;
     }
 
     private void Update()
@@ -57,7 +59,6 @@ public class SpiritMovement_Floating : MonoBehaviour
             moveTo.y += Mathf.Cos(angle * numVertFluct + initialF) * verticalFluct;
 
             float distance = Vector3.Distance(player.position, transform.position);
-            pp = distance;
             if (distance > radius){
             	fs.enabled = true;
             	rb.detectCollisions = true;
@@ -71,20 +72,12 @@ public class SpiritMovement_Floating : MonoBehaviour
             }
             else timeAway = 0f;
         }
-        else if (state == "ReturningToSpawn")
-        {
-            moveTo = spawn;
-            if (Mathf.Round(transform.position.x) == Mathf.Round(spawn.x) && Mathf.Round(transform.position.z) == Mathf.Round(spawn.z))
-            {
-                fs.enabled = true;
-                state = "Spawn";
-            }
-        }
+
     }
 
     private void LateUpdate()
     {
-        if (state != "Spawn")
+        if (state != "Spawn" && state != "ReturningToSpawn")
         {
             Vector3 direction = (moveTo - transform.position).normalized * (moveTo - transform.position).magnitude * speed * accel;
             rb.velocity = direction;
@@ -100,8 +93,26 @@ public class SpiritMovement_Floating : MonoBehaviour
 
     public void ReleaseSpiritFloating()
     {
-        fs.enabled = false;
-        state = "ReturningToSpawn";
+        if (state != "ReturningToSpawn" && state != "Spawn")
+            {
+            state = "ReturningToSpawn";
+            Vector3 direction = (transform.position - player.position).normalized * (forceMag + Random.value*1000);
+            direction.x += (Random.value - 1)*forceMag/2;
+            direction.z += (Random.value - 1)*forceMag/2;
+            direction.y = 0;
+
+            rb.detectCollisions = true;
+            rb.AddForce(direction);
+            
+            Invoke("finishRun", 1.0f);
+        }
+        
+    }
+
+    private void finishRun()
+    {
+        state = "Spawn";
+        rb.velocity = new Vector3(0,0,0);
     }
 
 }
