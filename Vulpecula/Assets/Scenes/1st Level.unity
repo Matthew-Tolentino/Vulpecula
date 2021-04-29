@@ -5127,7 +5127,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 219489841}
-  m_LocalRotation: {x: 0.1299084, y: -0.450403, z: 0.06642784, w: 0.8808225}
+  m_LocalRotation: {x: 0.1299084, y: -0.450403, z: 0.066427834, w: 0.8808225}
   m_LocalPosition: {x: 721.07135, y: 40.28718, z: 94.199585}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -9539,14 +9539,12 @@ MonoBehaviour:
   pl: {fileID: 407750242}
   player: {fileID: 13550846}
   radius: 4.28
-  initialD: 0
   verticalFluct: 1.39
   initialF: 0.75
   numVertFluct: 1.8
   state: 
   speed: 1.5
   type: Bunny
-  pp: 0
   saidDialog: 0
 --- !u!114 &377899688
 MonoBehaviour:
@@ -17798,6 +17796,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9485b0c79d11e2e4d0007da98d76c639, type: 3}
+--- !u!4 &743098469 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 9485b0c79d11e2e4d0007da98d76c639,
+    type: 3}
+  m_PrefabInstance: {fileID: 743098468}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &745931979
 GameObject:
   m_ObjectHideFlags: 0
@@ -21102,14 +21106,12 @@ MonoBehaviour:
   pl: {fileID: 407750242}
   player: {fileID: 13550846}
   radius: 4.28
-  initialD: 0
   verticalFluct: 0.87
   initialF: 1.31
   numVertFluct: 0.81
   state: 
   speed: 1.5
   type: Lamp
-  pp: 0
   saidDialog: 0
 --- !u!114 &943025302
 MonoBehaviour:
@@ -44326,7 +44328,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937657420}
-  m_LocalRotation: {x: 0.15833768, y: -0.018525332, z: 0.0029712655, w: 0.9872068}
+  m_LocalRotation: {x: 0.15833773, y: -0.018525332, z: 0.0029712692, w: 0.9872068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -44887,7 +44889,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1964225779}
-  m_LocalRotation: {x: 0.14345956, y: -0.018567981, z: 0.002692085, w: 0.98947835}
+  m_LocalRotation: {x: 0.14345953, y: -0.01856792, z: 0.0026920587, w: 0.98947835}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -46707,6 +46709,60 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104517129}
   m_Mesh: {fileID: 5399800497887476555, guid: cae8e85f02eafcc4a9f5aa3554e9dfba, type: 3}
+--- !u!1 &2107134120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2107134121}
+  - component: {fileID: 2107134122}
+  m_Layer: 4
+  m_Name: Pond Sounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2107134121
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107134120}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 743098469}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2107134122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107134120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/Pond 01
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 110
+  OverrideMaxDistance: 160
 --- !u!1001 &2120414864
 PrefabInstance:
   m_ObjectHideFlags: 0
