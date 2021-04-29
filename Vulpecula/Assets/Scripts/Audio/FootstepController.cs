@@ -5,7 +5,7 @@ using UnityEngine;
 public class FootstepController : MonoBehaviour
 {
 
-    private enum TERRAIN_TYPES {STONE, GRASS};
+    public enum TERRAIN_TYPES {STONE, GRASS, NULL};
 
     [SerializeField]
     private TERRAIN_TYPES defaultTerrain = TERRAIN_TYPES.STONE;
@@ -14,9 +14,15 @@ public class FootstepController : MonoBehaviour
 
     private FMOD.Studio.EventInstance footsteps;
 
+    public void SetTerrainType(TERRAIN_TYPES type)
+    {
+        currentTerrain = type;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        SetTerrainType(defaultTerrain);
     }
 
     // Update is called once per frame
@@ -42,24 +48,23 @@ public class FootstepController : MonoBehaviour
 
     void DetermineTerrain()
     {
-        currentTerrain = defaultTerrain;
-        return; // just do this for now
+        //currentTerrain = defaultTerrain;
 
-        //RaycastHit[] hit;
+        RaycastHit[] hit;
 
-        //hit = Physics.RaycastAll(transform.position, Vector3.down, terrainRayLength);
+        hit = Physics.RaycastAll(transform.position, Vector3.down, terrainRayLength);
 
-        //foreach (RaycastHit rayhit in hit)
-        //{
-        //    if (rayhit.transform.gameObject.layer == LayerMask.NameToLayer("Stone"))
-        //    {
-        //        currentTerrain = TERRAIN_TYPES.STONE;
-        //    }
-        //    else if (rayhit.transform.gameObject.layer == LayerMask.NameToLayer("Grass"))
-        //    {
-        //        currentTerrain = TERRAIN_TYPES.GRASS;
-        //    }
-        //}
+        foreach (RaycastHit rayhit in hit)
+        {
+            if (rayhit.transform.gameObject.layer == LayerMask.NameToLayer("Stone"))
+            {
+                currentTerrain = TERRAIN_TYPES.STONE;
+            }
+            else if (rayhit.transform.gameObject.layer == LayerMask.NameToLayer("Grass"))
+            {
+                currentTerrain = TERRAIN_TYPES.GRASS;
+            }
+        }
     }
 
     public void PlayFootstep()
