@@ -58,7 +58,7 @@ public class SpiritHandler : MonoBehaviour
             Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>(), true);
 
             // Enable Passive Abilities
-            if (pull.type == "Bunny") ; // ENABLE MAP
+            if (pull.type == "Bunny") GameManager.instance.setMinimapVisable(true);
 
 
         }
@@ -108,7 +108,7 @@ public class SpiritHandler : MonoBehaviour
             --numFloaters;
 
             // Disable Passive Abilities
-            if (pull.type == "Bunny") ; // DISABLE MAP
+            if (pull.type == "Bunny") GameManager.instance.setMinimapVisable(false);
         }
         else if (SpiritList[removeIndex].tag == "Spirit_Land")
         {

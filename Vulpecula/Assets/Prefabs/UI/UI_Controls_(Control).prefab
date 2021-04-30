@@ -64,7 +64,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Next Dialogue:'
+  m_text: 'Pause:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -190,8 +190,8 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 4
   m_Spacing: 10
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
@@ -241,7 +241,7 @@ PrefabInstance:
     - target: {fileID: 834564109538045195, guid: 104664146a40e2e4899bd3e923ee283e,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 112.680466
+      value: 39.892166
       objectReference: {fileID: 0}
     - target: {fileID: 834564109538045195, guid: 104664146a40e2e4899bd3e923ee283e,
         type: 3}
@@ -343,6 +343,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_Input_Button
       objectReference: {fileID: 0}
+    - target: {fileID: 6315563799826694632, guid: 104664146a40e2e4899bd3e923ee283e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6851476074159456964, guid: 104664146a40e2e4899bd3e923ee283e,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -373,20 +378,36 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8874016271675291422, guid: 104664146a40e2e4899bd3e923ee283e,
+        type: 3}
+      propertyPath: m_text
+      value: ESC
+      objectReference: {fileID: 0}
+    - target: {fileID: 9085890910224922176, guid: 104664146a40e2e4899bd3e923ee283e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 106e939069e3ec2459b22efa493df91d,
+        type: 3}
+    - target: {fileID: 9085890910224922176, guid: 104664146a40e2e4899bd3e923ee283e,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9085890910224922176, guid: 104664146a40e2e4899bd3e923ee283e,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.13333334
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9085890910224922176, guid: 104664146a40e2e4899bd3e923ee283e,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.13333334
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9085890910224922176, guid: 104664146a40e2e4899bd3e923ee283e,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.34117648
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 104664146a40e2e4899bd3e923ee283e, type: 3}

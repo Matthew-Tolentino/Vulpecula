@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
 
     public Vector3 playerMoveVector;
 
+    public GameObject minimapMask;
+    public GameObject minimapBorder;
+
     void Awake()
     {
         if (instance == null)
@@ -213,5 +216,15 @@ public class GameManager : MonoBehaviour
 
     public void setCameraShake(bool isShaking) {
         camSettings.cameraShake = isShaking;
+    }
+
+    public void setMinimapVisable(bool isOpen) {
+        if (isOpen) {
+            minimapMask.SetActive(true);
+            minimapBorder.SetActive(true);
+        } else {
+            minimapMask.SetActive(false);
+            minimapBorder.SetActive(false);
+        }
     }
 }
