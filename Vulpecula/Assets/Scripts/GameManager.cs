@@ -211,6 +211,8 @@ public class GameManager : MonoBehaviour
     }
 
     public void GameOver() {
+        setMouseLock(false);
+        mouseState = MouseState.canvas;
         gameOverCanvasUI.SetActive(true);
     }
 

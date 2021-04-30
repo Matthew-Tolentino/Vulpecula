@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
 
     public TextMeshProUGUI nameTxt;
     public TextMeshProUGUI dialogueTxt;
+    public Image portraitHolder;
 
     public Animator animator;
 
@@ -42,10 +43,13 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue(Dialogue dialogue, Sprite portrait)
     {
         isOpen = true;
         animator.SetBool("isOpen", true);
+
+        // Set the portrait of who's talking
+        portraitHolder.sprite = portrait;
 
         // Set mouse state to canvas so you can click next button
         GameManager.mouseState = GameManager.MouseState.canvas;
