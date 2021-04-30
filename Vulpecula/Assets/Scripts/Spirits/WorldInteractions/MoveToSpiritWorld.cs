@@ -51,7 +51,7 @@ public class MoveToSpiritWorld : MonoBehaviour
     void lampAbility(){
         var pull = player.GetComponent<SpiritHandler>();
         pull.triggerLamp = false;
-        if (touching){
+        if (touching && state != "Spirit"){
             state = "Spirit";
             // begining to enter spirit world
             StartCoroutine(Audio_FadeIntoSpiritWorld(fadeInTime));
