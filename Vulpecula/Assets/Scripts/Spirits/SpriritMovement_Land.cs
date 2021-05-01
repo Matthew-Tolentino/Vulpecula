@@ -49,6 +49,8 @@ public class SpriritMovement_Land : MonoBehaviour
         follow = null;
 
         forceMag = 20000f;
+
+        rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX;
     }
 
     // Update is called once per frame
@@ -120,7 +122,7 @@ public class SpriritMovement_Land : MonoBehaviour
     {
         // Do action based on state
         if (state != "ForceMovement") follow = null;
-        if (state != "ForcedMovent_Idle") rb.constraints = RigidbodyConstraints.None;
+        if (state != "ForcedMovent_Idle" && state != "Spawn") rb.constraints = RigidbodyConstraints.None;
 
         // Move to set Position
         if (state != "Spawn" && state != "ForcedMovent_Idle" && state != "OnPlayer_Idle" && state != "ReturningToSpawn")
@@ -137,6 +139,7 @@ public class SpriritMovement_Land : MonoBehaviour
     	Physics.IgnoreCollision(pl.GetComponent<Collider>(), GetComponent<Collider>(), true);
         state = "OnPlayer";
         accel = 5f;
+        rb.constraints = RigidbodyConstraints.None;
     }
 
     // Player Lose spirit

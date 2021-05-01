@@ -173,7 +173,10 @@ public class SpiritHandler : MonoBehaviour
     	else if (SpiritList[selectedSpirit].tag == "Spirit_Floating")
     	{
     		var pull = SpiritList[selectedSpirit].gameObject.GetComponent<SpiritMovement_Floating>();
-            if (pull.type == "Lamp") triggerLamp = true;
+            if (pull.type == "Lamp") {
+                triggerLamp = true;
+                Invoke("endLampCheck", 0.5f);
+            }
     	}
     }
 
@@ -229,5 +232,7 @@ public class SpiritHandler : MonoBehaviour
         }
     }
 
-
+    private void endLampCheck(){
+        triggerLamp = false;
+    }
 }
