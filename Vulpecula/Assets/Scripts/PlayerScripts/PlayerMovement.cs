@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float sprintSpeed = 20f;
     [Range(0f, 1f)]
     public float turnSpeed = .5f;
+    public float jumpHeight = 4f;
 
     [Header("Ground Checks")]
     public float groundDistance = 1f;
@@ -106,6 +107,12 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
+        }
+
+        if (InputManager.instance.KeyDown("Jump") && isGrounded) {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+            isGrounded = false;
+            // velocity.y = 500f;
         }
 
         velocity.y += gravity + Time.deltaTime;
