@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Items", menuName = "Items")]
 public class Items : ScriptableObject
 {
-    public bool gateKey;
+    public bool gateKey, wiseBook;
 
     public bool checkItem(string item)
     {
@@ -13,6 +13,8 @@ public class Items : ScriptableObject
         {
             case "GateKey":
                 return gateKey;
+            case "WiseBook":
+                return wiseBook;
 
             default:
                 Debug.LogError("No Item with name: " + item);
@@ -27,6 +29,9 @@ public class Items : ScriptableObject
             case "GateKey":
                 gateKey = pickUp;
                 return;
+            case "WiseBook":
+                wiseBook = pickUp;
+                return;
 
             default:
                 Debug.LogError("No Item with name: " + item);
@@ -35,7 +40,13 @@ public class Items : ScriptableObject
     }
 
     // Return all names of item variables
-    public string[] getItems() {
-        return new string[] {"GateKey"};
+    public string[] getItems(int level) {
+        if (level == 0)
+            return new string[] {"GateKey"};
+        if (level == 1)
+            return new string[] {"WiseBook"};
+            
+        Debug.LogError("No level with index: " + level);
+        return null;
     }
 }

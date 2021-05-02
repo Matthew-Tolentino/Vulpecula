@@ -8,6 +8,7 @@ public class ItemManager : MonoBehaviour
     public static ItemManager instance;
 
     public Items items;
+    public InventoryUI inventoryUI;
 
     void Awake()
     {
@@ -20,6 +21,8 @@ public class ItemManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(this);
+
+        resetItemBools();
     }
 
     public bool CheckItem(string item)
@@ -32,7 +35,21 @@ public class ItemManager : MonoBehaviour
         items.updateItem(item, pickUp);
     }
 
-    public string[] GetItems() {
-        return items.getItems();
+    // level = what level you are grabbing the items from
+    public string[] GetItems(int level) {
+        return items.getItems(level);
+    }
+
+    public void ResetInventory() {
+        inventoryUI.ClearInventory();
+    }
+
+    public void SetInventory(int level) {
+        inventoryUI.SetItems(level);
+    }
+
+    public void resetItemBools() {
+        UpdateItem("GateKey", false);
+        UpdateItem("WiseBook", false);
     }
 }
