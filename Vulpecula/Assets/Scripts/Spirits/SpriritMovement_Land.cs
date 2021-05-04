@@ -24,6 +24,8 @@ public class SpriritMovement_Land : MonoBehaviour
 
     private float forceMag;
 
+    public float followDistance;
+
     public Vector3 velo;
     // Dialog Code (Matthew) ---------------------
     [HideInInspector]
@@ -62,17 +64,18 @@ public class SpriritMovement_Land : MonoBehaviour
         if (state == "OnPlayer")
         {
             moveTo = player.position;
-            rb.isKinematic = false;
+            rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
             
             // Stop moving if come too close to player
-            if (Vector3.Distance(transform.position, player.position) < 2f) {
+            if (Vector3.Distance(transform.position, player.position) < followDistance) {
                 state = "OnPlayer_Idle";
                 accel = 1f;
                 timer = 5f;
             }
             timer -= Time.deltaTime;
             if (timer <= 0 ) {
-                rb.detectCollisions = false;
+                Physics.IgnoreLayerCollision(10, 15, true);
+                Physics.IgnoreLayerCollision(9, 15, true);
                 timer = 5f;
             }
         }
@@ -80,14 +83,15 @@ public class SpriritMovement_Land : MonoBehaviour
         // Stay away from player
         else if (state == "OnPlayer_Idle")
         {   
-            rb.detectCollisions = true;
+            Physics.IgnoreLayerCollision(10, 15, false);
+            Physics.IgnoreLayerCollision(9, 15, false);
             moveTo = transform.position;
             rb.useGravity = true;
             fs.enabled = true;
-            rb.isKinematic = true;
+            rb.constraints |= RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX;
 
             // Come back to Player if too far
-            if (Vector3.Distance(transform.position, player.position) > 3f) {
+            if (Vector3.Distance(transform.position, player.position) > followDistance+1) {
                 state = "OnPlayer";
                 timer = 5f;
             }
@@ -111,18 +115,20 @@ public class SpriritMovement_Land : MonoBehaviour
                 accel = 1f;
                 rb.detectCollisions = true;
                 fs.enabled = true;
-                rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX;
+                rb.constraints |= RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX;
             }
         }
 
-        transform.rotation = Quaternion.LookRotation((player.position - transform.position).normalized);
+        
+     
+
     }
 
     private void LateUpdate()
     {
         // Do action based on state
         if (state != "ForceMovement") follow = null;
-        if (state != "ForcedMovent_Idle" && state != "Spawn") rb.constraints = RigidbodyConstraints.None;
+        if (state != "ForcedMovent_Idle" && state != "Spawn") rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
 
         // Move to set Position
         if (state != "Spawn" && state != "ForcedMovent_Idle" && state != "OnPlayer_Idle" && state != "ReturningToSpawn")
@@ -131,6 +137,8 @@ public class SpriritMovement_Land : MonoBehaviour
             rb.velocity = direction;
             velo = rb.velocity;
         }
+
+        transform.rotation = Quaternion.LookRotation((player.position - transform.position).normalized);
     }
 
     // Player Get spirit
@@ -139,7 +147,7 @@ public class SpriritMovement_Land : MonoBehaviour
     	Physics.IgnoreCollision(pl.GetComponent<Collider>(), GetComponent<Collider>(), true);
         state = "OnPlayer";
         accel = 5f;
-        rb.constraints = RigidbodyConstraints.None;
+        rb.constraints |= RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;;
     }
 
     // Player Lose spirit

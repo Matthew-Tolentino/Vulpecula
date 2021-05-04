@@ -6,6 +6,7 @@ public class MoveBoxes : MonoBehaviour
 {
     Rigidbody rb;
     public SpiritHandler script;
+    public float magnitude;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -17,6 +18,19 @@ public class MoveBoxes : MonoBehaviour
         rb.isKinematic = !script.strongSpirit;
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player") {
+            Vector3 direction = (transform.position - collision.gameObject.transform.position).normalized;
+            rb.AddForce(direction * magnitude);
+        }
+    }
     
-        
+    void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player") {
+            Vector3 direction = (transform.position - collision.gameObject.transform.position).normalized;
+            rb.AddForce(direction * magnitude);
+        }
+    }    
 }

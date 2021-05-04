@@ -9,6 +9,8 @@ public class Full_Dissapear : MonoBehaviour
 	private Renderer ren;
 	private Material mat;
 	private Collider c;
+
+    public bool isInverted;
  	
     void Awake()
     {
@@ -21,7 +23,9 @@ public class Full_Dissapear : MonoBehaviour
     void Update()
     {
         var pull = target.GetComponent<MoveToSpiritWorld>();
-        float val = pull.sharedVal;
+        float val;
+        if (!isInverted) val = pull.sharedVal;
+        else val = 1- pull.sharedVal;
         if (val == 0) c.enabled = true;
         else c.enabled = false;
 

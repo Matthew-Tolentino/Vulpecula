@@ -145,7 +145,7 @@ public class SpiritHandler : MonoBehaviour
         if (SpiritList[selectedSpirit].tag == "Spirit_Land")
     	{
     		var pull = SpiritList[selectedSpirit].GetComponent<SpriritMovement_Land>();
-    		if (pull.type == "Sit") 
+    		if (pull.type == "Rock") 
     		{
     			if (!ability)
     			{
@@ -213,13 +213,12 @@ public class SpiritHandler : MonoBehaviour
     	else if (SpiritList[selectedSpirit].tag == "Spirit_Land")
     	{
     		var pull = SpiritList[selectedSpirit].GetComponent<SpriritMovement_Land>();
-    		if (pull.type == "Sit") type = "Rock";
+    		type = pull.type;
     	}
     	else if (SpiritList[selectedSpirit].tag == "Spirit_Floating")
     	{
-    		var pull = SpiritList[selectedSpirit].gameObject.GetComponent<SpiritMovement_Floating>();
-            if (pull.type == "Bunny") type = "Bunny";
-            if (pull.type == "Lamp") type = "Lamp";
+    		var pull = SpiritList[selectedSpirit].GetComponent<SpiritMovement_Floating>();
+            type = pull.type;
     	}
     	if (type == "") type = "undefined";
 
@@ -234,5 +233,30 @@ public class SpiritHandler : MonoBehaviour
 
     private void endLampCheck(){
         triggerLamp = false;
+    }
+
+    public string GetNextSpirit(){
+        if (SpiritList.Count == 0) return "none";
+        int next = ++selectedSpirit;
+        if (next == SpiritList.Count) next = 0;
+
+        if (SpiritList[next].tag == "Spirit_Land"){
+            return SpiritList[next].GetComponent<SpriritMovement_Land>().type;
+        }
+        else{
+            return SpiritList[next].GetComponent<SpiritMovement_Floating>().type;  
+        }
+    }
+    public string GetPrevSpirit(){
+        if (SpiritList.Count == 0) return "none";
+        int prev = --selectedSpirit;
+        if (prev < 0) prev = SpiritList.Count-1;
+
+        if (SpiritList[prev].tag == "Spirit_Land"){
+            return SpiritList[prev].GetComponent<SpriritMovement_Land>().type;
+        }
+        else{
+            return SpiritList[prev].GetComponent<SpiritMovement_Floating>().type;  
+        }
     }
 }

@@ -6,6 +6,7 @@ public class IgnoreByTag : MonoBehaviour
 {
 	private Collider ownCol;
 	public float strength;
+    public Vector3 pushDirection;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +23,7 @@ public class IgnoreByTag : MonoBehaviour
     void OnTriggerEnter(Collider collision){
     	if (collision.gameObject.tag == "Box"){
     		var pull = collision.gameObject.GetComponent<Rigidbody>();
-			Vector3 direction = new Vector3(1, 0, -5);
+			Vector3 direction = pushDirection;
 			direction = direction.normalized;
 			pull.velocity = direction * strength;
     	}
@@ -30,7 +31,7 @@ public class IgnoreByTag : MonoBehaviour
     void OnTriggerStay(Collider collision){
     	if (collision.gameObject.tag == "Box"){
     		var pull = collision.gameObject.GetComponent<Rigidbody>();
-			Vector3 direction = new Vector3(1, 0, -5);
+			Vector3 direction = pushDirection;
 			direction = direction.normalized;
 			pull.velocity = direction * strength;
     	}
