@@ -45,7 +45,7 @@ public class VisionField : MonoBehaviour
                 // Check if the rabbit spirit is in party
                 if (SpiritRef.SpiritList[r].tag == "Spirit_Floating") {
                     // Activate spotlight
-                    visionLight.intensity = 10000;
+                    //visionLight.intensity = 10000;
                     visionLight.spotAngle = Vision.viewAngle;
                     visionLight.spotAngle = Vision.viewAngle;
                     visionLight.range = Vision.viewRadius;
@@ -59,9 +59,9 @@ public class VisionField : MonoBehaviour
         }
         // Deactivates spotlight
         if(count == SpiritRef.SpiritList.Count){
-            visionLight.intensity = 0;
-            visionLight.spotAngle = 0;
-            visionLight.range = 0;
+            //visionLight.intensity = 0;
+            //visionLight.spotAngle = 0;
+            //visionLight.range = 0;
         }
         
     } 

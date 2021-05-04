@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4152,7 +4152,7 @@ MonoBehaviour:
   waypoints: []
   speed: 4
   tracker: 0
-  player: {fileID: 0}
+  player: {fileID: 2093458157}
 --- !u!114 &150718464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4167,8 +4167,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 12
   viewAngle: 82
-  myPlayer: {fileID: 0}
-  myBody: {fileID: 0}
+  myPlayer: {fileID: 2093458157}
+  myBody: {fileID: 2093458160}
   exclamationPoint: {fileID: 1413974022}
   targetMask:
     serializedVersion: 2
@@ -4194,7 +4194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 12
   viewAngle: 82
-  myPlayer: {fileID: 0}
+  myPlayer: {fileID: 2093458157}
   enemySelf: {fileID: 150718461}
   visionLight: {fileID: 1189753397}
 --- !u!114 &150718466
@@ -5533,7 +5533,7 @@ MonoBehaviour:
   waypoints: []
   speed: 4
   tracker: 0
-  player: {fileID: 0}
+  player: {fileID: 2093458157}
 --- !u!114 &256932616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5548,8 +5548,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 12
   viewAngle: 82
-  myPlayer: {fileID: 0}
-  myBody: {fileID: 0}
+  myPlayer: {fileID: 2093458157}
+  myBody: {fileID: 2093458160}
   exclamationPoint: {fileID: 1883615572}
   targetMask:
     serializedVersion: 2
@@ -5575,7 +5575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 12
   viewAngle: 82
-  myPlayer: {fileID: 0}
+  myPlayer: {fileID: 2093458157}
   enemySelf: {fileID: 256932613}
   visionLight: {fileID: 1865699970}
 --- !u!114 &256932618
@@ -30739,7 +30739,7 @@ MonoBehaviour:
   waypoints: []
   speed: 4
   tracker: 0
-  player: {fileID: 0}
+  player: {fileID: 2093458157}
 --- !u!114 &1151343637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30754,8 +30754,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 12
   viewAngle: 82
-  myPlayer: {fileID: 0}
-  myBody: {fileID: 0}
+  myPlayer: {fileID: 2093458157}
+  myBody: {fileID: 2093458160}
   exclamationPoint: {fileID: 109240005}
   targetMask:
     serializedVersion: 2
@@ -30781,7 +30781,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 12
   viewAngle: 82
-  myPlayer: {fileID: 0}
+  myPlayer: {fileID: 2093458157}
   enemySelf: {fileID: 1151343634}
   visionLight: {fileID: 1294824416}
 --- !u!114 &1151343639
@@ -35978,7 +35978,7 @@ MonoBehaviour:
   waypoints: []
   speed: 4
   tracker: 0
-  player: {fileID: 0}
+  player: {fileID: 2093458157}
 --- !u!114 &1329974142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35993,8 +35993,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 12
   viewAngle: 82
-  myPlayer: {fileID: 0}
-  myBody: {fileID: 0}
+  myPlayer: {fileID: 2093458157}
+  myBody: {fileID: 2093458160}
   exclamationPoint: {fileID: 508476578}
   targetMask:
     serializedVersion: 2
@@ -36020,7 +36020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 12
   viewAngle: 82
-  myPlayer: {fileID: 0}
+  myPlayer: {fileID: 2093458157}
   enemySelf: {fileID: 1329974139}
   visionLight: {fileID: 1920313876}
 --- !u!114 &1329974144
@@ -36319,7 +36319,7 @@ MonoBehaviour:
   waypoints: []
   speed: 4
   tracker: 0
-  player: {fileID: 0}
+  player: {fileID: 2093458157}
 --- !u!114 &1336834144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36334,8 +36334,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 12
   viewAngle: 82
-  myPlayer: {fileID: 0}
-  myBody: {fileID: 0}
+  myPlayer: {fileID: 2093458157}
+  myBody: {fileID: 2093458160}
   exclamationPoint: {fileID: 624929450}
   targetMask:
     serializedVersion: 2
@@ -36361,7 +36361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 12
   viewAngle: 82
-  myPlayer: {fileID: 0}
+  myPlayer: {fileID: 2093458157}
   enemySelf: {fileID: 1336834141}
   visionLight: {fileID: 158336375}
 --- !u!114 &1336834146
@@ -44223,7 +44223,7 @@ MonoBehaviour:
   - {fileID: 2009709630}
   speed: 4
   tracker: 0
-  player: {fileID: 0}
+  player: {fileID: 2093458157}
 --- !u!114 &1695866268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44238,8 +44238,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 12
   viewAngle: 82
-  myPlayer: {fileID: 0}
-  myBody: {fileID: 0}
+  myPlayer: {fileID: 2093458157}
+  myBody: {fileID: 2093458160}
   exclamationPoint: {fileID: 1176270801}
   targetMask:
     serializedVersion: 2
@@ -44265,7 +44265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 12
   viewAngle: 82
-  myPlayer: {fileID: 0}
+  myPlayer: {fileID: 2093458157}
   enemySelf: {fileID: 1695866265}
   visionLight: {fileID: 681736935}
 --- !u!114 &1695866270
@@ -45506,7 +45506,7 @@ MonoBehaviour:
   waypoints: []
   speed: 4
   tracker: 0
-  player: {fileID: 0}
+  player: {fileID: 2093458157}
 --- !u!114 &1788414336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45521,8 +45521,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 12
   viewAngle: 82
-  myPlayer: {fileID: 0}
-  myBody: {fileID: 0}
+  myPlayer: {fileID: 2093458157}
+  myBody: {fileID: 2093458160}
   exclamationPoint: {fileID: 571313399}
   targetMask:
     serializedVersion: 2
@@ -45548,7 +45548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 12
   viewAngle: 82
-  myPlayer: {fileID: 0}
+  myPlayer: {fileID: 2093458157}
   enemySelf: {fileID: 1788414333}
   visionLight: {fileID: 1851352054}
 --- !u!114 &1788414338
@@ -50367,7 +50367,7 @@ PrefabInstance:
     - target: {fileID: 4440310461492226302, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5943834
+      value: 0.59438336
       objectReference: {fileID: 0}
     - target: {fileID: 4440310461492226302, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
@@ -50377,12 +50377,12 @@ PrefabInstance:
     - target: {fileID: 4440310461492226302, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7904822
+      value: 0.7904823
       objectReference: {fileID: 0}
     - target: {fileID: 4440310461492226302, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.11813444
+      value: -0.118134454
       objectReference: {fileID: 0}
     - target: {fileID: 4440310462265449303, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
@@ -53193,7 +53193,7 @@ MonoBehaviour:
   waypoints: []
   speed: 4
   tracker: 0
-  player: {fileID: 0}
+  player: {fileID: 2093458157}
 --- !u!114 &1969160142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53208,8 +53208,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 12
   viewAngle: 82
-  myPlayer: {fileID: 0}
-  myBody: {fileID: 0}
+  myPlayer: {fileID: 2093458157}
+  myBody: {fileID: 2093458160}
   exclamationPoint: {fileID: 1260649487}
   targetMask:
     serializedVersion: 2
@@ -53235,7 +53235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 12
   viewAngle: 82
-  myPlayer: {fileID: 0}
+  myPlayer: {fileID: 2093458157}
   enemySelf: {fileID: 1969160139}
   visionLight: {fileID: 7803512}
 --- !u!114 &1969160144
@@ -53901,12 +53901,12 @@ PrefabInstance:
     - target: {fileID: 2938594160729433727, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7907074
+      value: 0.7907075
       objectReference: {fileID: 0}
     - target: {fileID: 2938594160729433727, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.116617806
+      value: -0.11661782
       objectReference: {fileID: 0}
     - target: {fileID: 2938594160729433727, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
         type: 3}
@@ -54567,12 +54567,18 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 2093458155}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2093458160}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64c58102f70482a40ad0230b25c22ed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2093458160 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9032682769361127394, guid: 7b57cc64214b2864995e59faf1203bd7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2093458155}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2103317858
 PrefabInstance:
   m_ObjectHideFlags: 0
