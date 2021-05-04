@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [Range(0f, 1f)]
     public float turnSpeed = .5f;
     public float jumpHeight = 4f;
+    public float jumpCoolDown = .5f;
 
     [Header("Ground Checks")]
     public float groundDistance = 1f;
@@ -34,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
 
     [HideInInspector]
     public Vector3 movementVector;
+
+    float timeTillNextJump;
 
 
 
@@ -98,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(movementVector);
 
         // Gravity Handeling
-        Vector3 checkPos = new Vector3(transform.position.x, transform.position.y - 1.6f, transform.position.z);
+        Vector3 checkPos = new Vector3(transform.position.x, transform.position.y - 1.5f, transform.position.z);
         if (Physics.CheckSphere(checkPos, groundDistance, groundMask))
         {
             isGrounded = true;
@@ -106,12 +109,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f;
+            velocity.y = -.2f;
         }
 
-        if (InputManager.instance.KeyDown("Jump") && isGrounded) {
+        if (InputManager.instance.KeyDown("Jump") && isGrounded  && Time.time > timeTillNextJump) {
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
             isGrounded = false;
+
+            timeTillNextJump = Time.time + jumpCoolDown;
             // velocity.y = 500f;
         }
 
@@ -124,6 +129,10 @@ public class PlayerMovement : MonoBehaviour
         targetAngle = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
         float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
         transform.rotation = Quaternion.Euler(0f, angle, 0f);
+    }
+
+    void OnDrawGizmos() {
+        Gizmos.DrawWireSphere(new Vector3(transform.position.x, transform.position.y - 1.5f, transform.position.z), groundDistance);
     }
 
 
