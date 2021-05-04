@@ -24,7 +24,7 @@ public class AddWeight : MonoBehaviour
     	}
     	else if(other.tag == "Spirit_Land")
     	{
-    		if (other.GetComponent<SpriritMovement_Land>().type == "Sit"){
+    		if (other.GetComponent<SpriritMovement_Land>().type == "Rock"){
     			if (leftSide) target.GetComponent<SeeSawControl>().leftWeight += 5;
     			else target.GetComponent<SeeSawControl>().rightWeight += 5;
     		}
@@ -40,7 +40,7 @@ public class AddWeight : MonoBehaviour
     	}
     	else if(other.tag == "Spirit_Land")
     	{
-    		if (other.GetComponent<SpriritMovement_Land>().type == "Sit"){
+    		if (other.GetComponent<SpriritMovement_Land>().type == "Rock"){
     			if (leftSide) target.GetComponent<SeeSawControl>().leftWeight -= 5;
     			else target.GetComponent<SeeSawControl>().rightWeight -= 5;
     		}

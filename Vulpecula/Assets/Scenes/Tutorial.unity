@@ -2409,10 +2409,10 @@ GameObject:
   - component: {fileID: 140072349}
   - component: {fileID: 140072348}
   - component: {fileID: 140072347}
-  - component: {fileID: 140072346}
-  - component: {fileID: 140072350}
   - component: {fileID: 140072352}
   - component: {fileID: 140072351}
+  - component: {fileID: 140072350}
+  - component: {fileID: 140072346}
   m_Layer: 0
   m_Name: Gate_Opener
   m_TagString: Untagged
@@ -2446,9 +2446,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 309dde9b78b239547af65fd02ac2819b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gate: {fileID: 1919824721}
+  gate: {fileID: 1601999899}
   initPos: 0
-  openPos: -68.8
+  openPos: 68.8
   state: 
   gateOpenSound: {fileID: 0}
   gateCloseSound: {fileID: 0}
@@ -2524,9 +2524,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 309dde9b78b239547af65fd02ac2819b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gate: {fileID: 1601999899}
+  gate: {fileID: 1919824721}
   initPos: 0
-  openPos: 68.8
+  openPos: -68.8
   state: 
   gateOpenSound: {fileID: 140072352}
   gateCloseSound: {fileID: 140072351}
@@ -45289,12 +45289,12 @@ PrefabInstance:
     - target: {fileID: 4440310460614512819, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.11331581
+      value: 0.113315806
       objectReference: {fileID: 0}
     - target: {fileID: 4440310460614512819, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.110630654
+      value: -0.11063064
       objectReference: {fileID: 0}
     - target: {fileID: 4440310462265449303, guid: 406bc29b143671049975459f054a0d19,
         type: 3}

@@ -91,6 +91,12 @@ public class PausedMenu : MonoBehaviour
     public void ReturnToMainMenu()
     {
         transform.parent.gameObject.SetActive(false);
+
+        SpiritHandler sh = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<SpiritHandler>();
+        while(sh.SpiritList.Count > 0){
+            sh.loseSpirit();
+        }
+
         SceneManager.LoadScene("MainMenu");
     }
 }

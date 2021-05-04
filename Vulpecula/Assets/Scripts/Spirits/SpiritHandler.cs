@@ -112,6 +112,7 @@ public class SpiritHandler : MonoBehaviour
         }
         else if (SpiritList[removeIndex].tag == "Spirit_Land")
         {
+            if (removeIndex == selectedSpirit && ability) callAbility();
             var pull = SpiritList[removeIndex].GetComponent<SpriritMovement_Land>();
             pull.ReleaseSpiritLand();
 

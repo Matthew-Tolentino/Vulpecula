@@ -15,7 +15,8 @@ public class ButtonTrigger : MonoBehaviour
     private FMODUnity.StudioEventEmitter gateOpenSound = null;
     [SerializeField]
     private FMODUnity.StudioEventEmitter gateCloseSound = null;
-    void start()
+
+    void Start()
     {
     	//initPos = gate.transform.position;
     	state = "Closed";
@@ -59,7 +60,7 @@ public class ButtonTrigger : MonoBehaviour
     	if (state == "Opened" || state == "Closed-To-Open") return;
         else if (other.gameObject.tag == "Spirit_Land"){
         	var pull = other.gameObject.GetComponent<SpriritMovement_Land>();
-            if (pull.type == "Sit" && (pull.state == "ForceMovement" || pull.state == "ForcedMovent_Idle"))
+            if (pull.type == "Rock" && (pull.state == "ForceMovement" || pull.state == "ForcedMovent_Idle"))
             {
                 if (gateCloseSound != null && gateOpenSound != null)
                 {
@@ -81,7 +82,7 @@ public class ButtonTrigger : MonoBehaviour
     	if (state == "Closed" || state == "Open-To-Closed") return;
         else if (other.gameObject.tag == "Spirit_Land"){
         	var pull = other.gameObject.GetComponent<SpriritMovement_Land>();
-            if (pull.type == "Sit")
+            if (pull.type == "Rock")
             {
                 if (gateOpenSound != null && gateCloseSound != null)
                 {
