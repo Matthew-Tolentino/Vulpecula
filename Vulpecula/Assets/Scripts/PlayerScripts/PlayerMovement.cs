@@ -102,10 +102,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Gravity Handeling
         Vector3 checkPos = new Vector3(transform.position.x, transform.position.y - 1.5f, transform.position.z);
-        if (Physics.CheckSphere(checkPos, groundDistance, groundMask))
-        {
-            isGrounded = true;
-        }
+        isGrounded = Physics.CheckSphere(checkPos, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
         {

@@ -182,7 +182,11 @@ public class GameManager : MonoBehaviour
                 return lampImg;
             case "FlowerPlant_SpiritUI":
                 return flowerPlantImg;
+            case "Plant":
+                return flowerPlantImg;
             case "Strong_SpiritUI":
+                return strongImg;
+            case "Strong":
                 return strongImg;
             case "Wise_SpiritUI":
                 return wiseImg;
