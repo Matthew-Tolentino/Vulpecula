@@ -22,15 +22,6 @@ public class PausedMenu : MonoBehaviour
         // SetUpDisplaySpiritsOnUI();
     }
 
-    void Update() {
-        if (Input.GetKeyDown(KeyCode.O)) {
-            SetUpDisplaySpiritsOnUI();
-        }
-        if (Input.GetKeyDown(KeyCode.P)) {
-            ResetDisplaySpiritsOnUI();
-        }
-    }
-
     public void ResetDisplaySpiritsOnUI() {
         List<Transform> children = new List<Transform>();
         foreach (Transform child in spiritUIHolder.transform) {
@@ -46,9 +37,6 @@ public class PausedMenu : MonoBehaviour
     }
 
     public void SetUpDisplaySpiritsOnUI() {
-        // spiritsInLevel = new List<string>();
-
-        // GetSpiritsInLevel();
 
         // Remove all children of SpiritUIHolder
 
@@ -59,11 +47,12 @@ public class PausedMenu : MonoBehaviour
         int index = 0;
         foreach (Transform child in spiritUIHolder.transform)
         {
-            Debug.Log(child.name);
             child.name = spiritsInLevel[index++] + "UI";
             // Assign Image to spirit
             child.GetComponent<Image>().sprite = GameManager.instance.findSpiritImage(child.name);
         }
+
+        UpdateSpiritsUI();
     }
 
     // Checks to see what spirits have been found and updates UI
@@ -72,27 +61,31 @@ public class PausedMenu : MonoBehaviour
         spiritsInLevel = new List<string>();
         GetSpiritsInLevel();
         ResetDisplaySpiritsOnUI();
+    }
 
+    private void UpdateSpiritsUI() {
         List <GameObject> foundSpirits = FindObjectOfType<SpiritHandler>().SpiritList;
         
         foreach (string spirit in spiritsInLevel)
         {
             GameObject tempSpiritUI = GameObject.Find(spirit + "UI");
-            Image img = tempSpiritUI.GetComponent<Image>();
-            Color tmpColor = img.color;
-            for (int i = 0; i < foundSpirits.Count; i++)
-            {
-                if (foundSpirits[i] != null)
+            if (tempSpiritUI != null) {
+                Image img = tempSpiritUI.GetComponent<Image>();
+                Color tmpColor = img.color;
+                for (int i = 0; i < foundSpirits.Count; i++)
                 {
-                    if (foundSpirits[i].name == spirit)
+                    if (foundSpirits[i] != null)
                     {
-                        tmpColor.a = 1f;
-                        break;
+                        if (foundSpirits[i].name == spirit)
+                        {
+                            tmpColor.a = 1f;
+                            break;
+                        }
                     }
+                    tmpColor.a = 0.3f;
                 }
-                tmpColor.a = 0.3f;
+                img.color = tmpColor;
             }
-            img.color = tmpColor;
         }
     }
 
