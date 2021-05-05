@@ -47,11 +47,9 @@ public class InventoryUI : MonoBehaviour
         foreach (string item in itemNames) {
             GameObject newItem = Instantiate(itemUI, transform);
             newItem.name = item + "UI";
-
-            Debug.Log("Set name " + item);
+            
             TextMeshProUGUI text = newItem.GetComponentInChildren<TextMeshProUGUI>(true);
             text.SetText(item);
-            Debug.Log("Done");
         }
     }
 }

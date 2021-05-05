@@ -16,24 +16,51 @@ public class PausedMenu : MonoBehaviour
     void Start()
     {
         // Holds names of spirits
-        spiritsInLevel = new List<string>();
+        // spiritsInLevel = new List<string>();
         spiritUIHolder = GameObject.Find("SpiritUIHolder");
 
-        // Set up UI for all the spirits inside the level
-        // NOTE: Can be a problem if more than 6
-        GetSpiritsInLevel();
+        // SetUpDisplaySpiritsOnUI();
+    }
 
-        for (int i = 0; i < spiritsInLevel.Count; i++)
-        {
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.O)) {
+            SetUpDisplaySpiritsOnUI();
+        }
+        if (Input.GetKeyDown(KeyCode.P)) {
+            ResetDisplaySpiritsOnUI();
+        }
+    }
+
+    public void ResetDisplaySpiritsOnUI() {
+        List<Transform> children = new List<Transform>();
+        foreach (Transform child in spiritUIHolder.transform) {
+            children.Add(child);
+        }
+
+        foreach (Transform child in children) {
+            Destroy(child.gameObject);
+        }
+
+        Invoke(nameof(SetUpDisplaySpiritsOnUI), .1f);
+        // SetUpDisplaySpiritsOnUI();
+    }
+
+    public void SetUpDisplaySpiritsOnUI() {
+        // spiritsInLevel = new List<string>();
+
+        // GetSpiritsInLevel();
+
+        // Remove all children of SpiritUIHolder
+
+        for (int i = 0; i < spiritsInLevel.Count; i++) {
             Instantiate(spriteUI, spiritUIHolder.transform);
         }
 
         int index = 0;
         foreach (Transform child in spiritUIHolder.transform)
         {
+            Debug.Log(child.name);
             child.name = spiritsInLevel[index++] + "UI";
-            // child.GetChild(0).GetComponent<TextMeshProUGUI>().SetText(spiritsInLevel[index++]);
-
             // Assign Image to spirit
             child.GetComponent<Image>().sprite = GameManager.instance.findSpiritImage(child.name);
         }
@@ -42,6 +69,10 @@ public class PausedMenu : MonoBehaviour
     // Checks to see what spirits have been found and updates UI
     public void displaySpiritsOnUI()
     {
+        spiritsInLevel = new List<string>();
+        GetSpiritsInLevel();
+        ResetDisplaySpiritsOnUI();
+
         List <GameObject> foundSpirits = FindObjectOfType<SpiritHandler>().SpiritList;
         
         foreach (string spirit in spiritsInLevel)

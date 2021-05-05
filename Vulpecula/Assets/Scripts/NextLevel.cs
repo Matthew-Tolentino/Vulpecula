@@ -24,7 +24,6 @@ public class NextLevel : MonoBehaviour
             ItemManager.instance.SetInventory(1);
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
         }
     }
 }
