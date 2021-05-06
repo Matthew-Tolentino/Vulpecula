@@ -73,6 +73,9 @@ public class GameManager : MonoBehaviour
     {
         // Close pause menu, unfreeze time in game, and mark game as unpaused
         pauseMenuCanvasUI.SetActive(false);
+        // Play pause menu close sound
+        var closeSound = pauseMenuCanvasUI.GetComponent<MenuSounds>().onCloseSound;
+        if (closeSound != null) closeSound.Play();
         //Time.timeScale = 1f;
         gameIsPaused = false;
 
@@ -87,6 +90,9 @@ public class GameManager : MonoBehaviour
     {
         // Bring up pause menu, freeze time in game, and mark game as paused
         pauseMenuCanvasUI.SetActive(true);
+        // Play pause menu open sound
+        var openSound = pauseMenuCanvasUI.GetComponent<MenuSounds>().onOpenSound;
+        if (openSound != null) openSound.Play();
         //Time.timeScale = 0f;
         gameIsPaused = true;
 

@@ -9,7 +9,7 @@ public class Item : MonoBehaviour
     private bool canPickup = false;
 
     [SerializeField]
-    FMODUnity.StudioEventEmitter pickupSound = null;
+    private List<FMODUnity.StudioEventEmitter> pickupSounds;
 
     // Update is called once per frame
     void Update()
@@ -20,7 +20,10 @@ public class Item : MonoBehaviour
             // Update inventory
             ItemManager.instance.UpdateItem(itemName, true);
 
-            if (pickupSound != null) pickupSound.Play();
+            foreach (var emitter in pickupSounds)
+            {
+                emitter.Play();
+            }
         }
     }
 

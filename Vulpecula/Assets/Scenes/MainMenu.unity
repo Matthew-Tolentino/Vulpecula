@@ -815,7 +815,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 557318625}
+        - m_Target: {fileID: 557318627}
           m_MethodName: Play
           m_Mode: 1
           m_Arguments:
@@ -891,7 +891,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1601080768}
+      - m_Target: {fileID: 650757968}
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -1078,7 +1078,7 @@ GameObject:
   - component: {fileID: 166151858}
   - component: {fileID: 166151859}
   m_Layer: 0
-  m_Name: Pause Menu Press Click
+  m_Name: Pause Menu Press Click Forward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2191,7 +2191,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 557318625}
+        - m_Target: {fileID: 557318627}
           m_MethodName: Play
           m_Mode: 1
           m_Arguments:
@@ -2267,7 +2267,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1601080768}
+      - m_Target: {fileID: 650757968}
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -2612,7 +2612,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 557318625}
+        - m_Target: {fileID: 557318627}
           m_MethodName: Play
           m_Mode: 1
           m_Arguments:
@@ -3086,6 +3086,9 @@ GameObject:
   - component: {fileID: 448817858}
   - component: {fileID: 448817857}
   - component: {fileID: 448817856}
+  - component: {fileID: 448817860}
+  - component: {fileID: 448817859}
+  - component: {fileID: 448817861}
   m_Layer: 0
   m_Name: PauseMenuCanvas
   m_TagString: Untagged
@@ -3175,6 +3178,66 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 3
   m_TargetDisplay: 0
+--- !u!114 &448817859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448817854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/UI/Book Open
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!114 &448817860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448817854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44ae4ac1af63dd840b8d92cd447df40b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onOpenSound: {fileID: 448817859}
+  onCloseSound: {fileID: 448817861}
+--- !u!114 &448817861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448817854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/UI/Book Close
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &452324636
 GameObject:
   m_ObjectHideFlags: 0
@@ -3681,6 +3744,7 @@ GameObject:
   m_Component:
   - component: {fileID: 557318626}
   - component: {fileID: 557318625}
+  - component: {fileID: 557318627}
   m_Layer: 0
   m_Name: Main Menu Hover Click
   m_TagString: Untagged
@@ -3727,6 +3791,22 @@ Transform:
   m_Father: {fileID: 1258832810}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &557318627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557318624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d12042ee46d50943a9327465cba7be7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notPlayingSounds:
+  - {fileID: 1601080768}
+  - {fileID: 650757968}
+  durationToWait: 10
 --- !u!1 &557848215
 GameObject:
   m_ObjectHideFlags: 0
@@ -4687,6 +4767,64 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 0
+--- !u!1 &650757966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 650757967}
+  - component: {fileID: 650757968}
+  m_Layer: 0
+  m_Name: Main Menu Press Click Back
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &650757967
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650757966}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1258832810}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &650757968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650757966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/UI/Menu Click
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: SoundID
+    Value: 2
+  - Name: LP Filter Cutoff
+    Value: 0.72
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &677657055
 GameObject:
   m_ObjectHideFlags: 0
@@ -7506,7 +7644,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1213498476}
+        - m_Target: {fileID: 1213498477}
           m_MethodName: Play
           m_Mode: 1
           m_Arguments:
@@ -8053,7 +8191,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1601080768}
+      - m_Target: {fileID: 650757968}
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -8118,7 +8256,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 557318625}
+        - m_Target: {fileID: 557318627}
           m_MethodName: Play
           m_Mode: 1
           m_Arguments:
@@ -9054,6 +9192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1213498475}
   - component: {fileID: 1213498476}
+  - component: {fileID: 1213498477}
   m_Layer: 0
   m_Name: Pause Menu Hover Click
   m_TagString: Untagged
@@ -9097,6 +9236,80 @@ MonoBehaviour:
   Params:
   - Name: SoundID
     Value: 10
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!114 &1213498477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213498474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d12042ee46d50943a9327465cba7be7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notPlayingSounds:
+  - {fileID: 166151859}
+  - {fileID: 1219392674}
+  durationToWait: 10
+--- !u!1 &1219392672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1219392673}
+  - component: {fileID: 1219392674}
+  m_Layer: 0
+  m_Name: Pause Menu Press Click Back
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1219392673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219392672}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -448.7684, y: -216.93416, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2091037801}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1219392674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219392672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/UI/Menu Click
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: SoundID
+    Value: 2
+  - Name: LP Filter Cutoff
+    Value: 0.72
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 0
@@ -9386,6 +9599,7 @@ Transform:
   - {fileID: 971223982}
   - {fileID: 557318626}
   - {fileID: 1601080767}
+  - {fileID: 650757967}
   - {fileID: 1939332824}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -11007,7 +11221,7 @@ GameObject:
   - component: {fileID: 1601080767}
   - component: {fileID: 1601080768}
   m_Layer: 0
-  m_Name: Main Menu Press Click
+  m_Name: Main Menu Press Click Forward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11049,6 +11263,8 @@ MonoBehaviour:
   Params:
   - Name: SoundID
     Value: 2
+  - Name: LP Filter Cutoff
+    Value: 1
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 0
@@ -12568,7 +12784,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 166151859}
+      - m_Target: {fileID: 1219392674}
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -12633,7 +12849,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1213498476}
+        - m_Target: {fileID: 1213498477}
           m_MethodName: Play
           m_Mode: 1
           m_Arguments:
@@ -13341,7 +13557,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1258832810}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1939332825
 MonoBehaviour:
@@ -13415,7 +13631,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 557318625}
+        - m_Target: {fileID: 557318627}
           m_MethodName: Play
           m_Mode: 1
           m_Arguments:
@@ -13945,7 +14161,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1601080768}
+      - m_Target: {fileID: 650757968}
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -14010,7 +14226,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 557318625}
+        - m_Target: {fileID: 557318627}
           m_MethodName: Play
           m_Mode: 1
           m_Arguments:
@@ -14183,6 +14399,7 @@ Transform:
   m_Children:
   - {fileID: 1213498475}
   - {fileID: 166151858}
+  - {fileID: 1219392673}
   m_Father: {fileID: 218085308}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14345,7 +14562,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 557318625}
+        - m_Target: {fileID: 557318627}
           m_MethodName: Play
           m_Mode: 1
           m_Arguments:
@@ -14985,7 +15202,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1601080768}
+      - m_Target: {fileID: 650757968}
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -15050,7 +15267,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 557318625}
+        - m_Target: {fileID: 557318627}
           m_MethodName: Play
           m_Mode: 1
           m_Arguments:

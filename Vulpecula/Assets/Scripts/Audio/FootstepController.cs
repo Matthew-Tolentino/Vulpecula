@@ -52,7 +52,7 @@ public class FootstepController : MonoBehaviour
 
         RaycastHit[] hit;
 
-        hit = Physics.RaycastAll(transform.position, Vector3.down, terrainRayLength);
+        hit = Physics.RaycastAll(transform.position + Vector3.up, Vector3.down, terrainRayLength);
 
         foreach (RaycastHit rayhit in hit)
         {

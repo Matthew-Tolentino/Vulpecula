@@ -4179,6 +4179,7 @@ MonoBehaviour:
   isSeen: 0
   visibleTargets: []
   onSeeSound: {fileID: 150718466}
+  onSeeHumanSound: {fileID: 0}
   passiveSound: {fileID: 150718462}
 --- !u!114 &150718465
 MonoBehaviour:
@@ -5560,6 +5561,7 @@ MonoBehaviour:
   isSeen: 0
   visibleTargets: []
   onSeeSound: {fileID: 256932618}
+  onSeeHumanSound: {fileID: 0}
   passiveSound: {fileID: 256932614}
 --- !u!114 &256932617
 MonoBehaviour:
@@ -17418,10 +17420,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playOnStart: 0
-  volume: 0.55
+  volume: 0.35
   scaleType: 0
-  minNote: -12
-  maxNote: 1
+  minNote: -7
+  maxNote: 3
   minTremulo: 0.2
   maxTremulo: 0.8
 --- !u!114 &612645901
@@ -17445,9 +17447,9 @@ MonoBehaviour:
   Preload: 0
   Params:
   - Name: Pitch
-    Value: 0.22
+    Value: 0.35
   - Name: Tremulo Depth
-    Value: 0.5
+    Value: 0.8
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
@@ -17495,9 +17497,9 @@ MonoBehaviour:
   Preload: 0
   Params:
   - Name: Tremulo Depth
-    Value: 0.5
+    Value: 0.8
   - Name: Pitch
-    Value: 0.22
+    Value: 0.35
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
@@ -26306,7 +26308,7 @@ MonoBehaviour:
   Preload: 0
   Params:
   - Name: Pitch
-    Value: -0.32
+    Value: 0.15
   - Name: Tremulo Depth
     Value: 0
   OverrideAttenuation: 0
@@ -26356,7 +26358,7 @@ MonoBehaviour:
   Preload: 0
   Params:
   - Name: Pitch
-    Value: -0.32
+    Value: 0.15
   - Name: Tremulo Depth
     Value: 0
   OverrideAttenuation: 0
@@ -30766,6 +30768,7 @@ MonoBehaviour:
   isSeen: 0
   visibleTargets: []
   onSeeSound: {fileID: 1151343639}
+  onSeeHumanSound: {fileID: 0}
   passiveSound: {fileID: 1151343635}
 --- !u!114 &1151343638
 MonoBehaviour:
@@ -36005,6 +36008,7 @@ MonoBehaviour:
   isSeen: 0
   visibleTargets: []
   onSeeSound: {fileID: 1329974144}
+  onSeeHumanSound: {fileID: 0}
   passiveSound: {fileID: 1329974140}
 --- !u!114 &1329974143
 MonoBehaviour:
@@ -36346,6 +36350,7 @@ MonoBehaviour:
   isSeen: 0
   visibleTargets: []
   onSeeSound: {fileID: 1336834146}
+  onSeeHumanSound: {fileID: 0}
   passiveSound: {fileID: 1336834142}
 --- !u!114 &1336834145
 MonoBehaviour:
@@ -44250,6 +44255,7 @@ MonoBehaviour:
   isSeen: 0
   visibleTargets: []
   onSeeSound: {fileID: 1695866270}
+  onSeeHumanSound: {fileID: 0}
   passiveSound: {fileID: 1695866266}
 --- !u!114 &1695866269
 MonoBehaviour:
@@ -45533,6 +45539,7 @@ MonoBehaviour:
   isSeen: 0
   visibleTargets: []
   onSeeSound: {fileID: 1788414338}
+  onSeeHumanSound: {fileID: 0}
   passiveSound: {fileID: 1788414334}
 --- !u!114 &1788414337
 MonoBehaviour:
@@ -50392,7 +50399,7 @@ PrefabInstance:
     - target: {fileID: 4440310462265449303, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.086232156
+      value: 0.08623214
       objectReference: {fileID: 0}
     - target: {fileID: 4440310462265449303, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
@@ -50402,7 +50409,7 @@ PrefabInstance:
     - target: {fileID: 4440310462265449303, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.11468184
+      value: -0.114681825
       objectReference: {fileID: 0}
     - target: {fileID: 4440310462386834624, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
@@ -51440,10 +51447,10 @@ MonoBehaviour:
   playOnStart: 0
   volume: 0.5
   scaleType: 0
-  minNote: 0
-  maxNote: 13
-  minTremulo: 0
-  maxTremulo: 0.6
+  minNote: 5
+  maxNote: 15
+  minTremulo: 0.5
+  maxTremulo: 1
 --- !u!114 &1896993478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51465,9 +51472,9 @@ MonoBehaviour:
   Preload: 0
   Params:
   - Name: Pitch
-    Value: -0.07
+    Value: 0.05
   - Name: Tremulo Depth
-    Value: 0
+    Value: 0.9
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
@@ -51515,9 +51522,9 @@ MonoBehaviour:
   Preload: 0
   Params:
   - Name: Pitch
-    Value: -0.07
+    Value: 0.05
   - Name: Tremulo Depth
-    Value: 0
+    Value: 0.9
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 0
@@ -53220,6 +53227,7 @@ MonoBehaviour:
   isSeen: 0
   visibleTargets: []
   onSeeSound: {fileID: 1969160144}
+  onSeeHumanSound: {fileID: 0}
   passiveSound: {fileID: 1969160140}
 --- !u!114 &1969160143
 MonoBehaviour:
@@ -53896,7 +53904,7 @@ PrefabInstance:
     - target: {fileID: 2938594160729433727, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.08768784
+      value: 0.087687835
       objectReference: {fileID: 0}
     - target: {fileID: 2938594160729433727, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
         type: 3}
@@ -55501,7 +55509,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: WiseBook
-  pickupSound: {fileID: 0}
+  pickupSounds:
+  - {fileID: 2594494200127586952}
+  - {fileID: 2594494200127586953}
 --- !u!1 &2594494200127586951
 GameObject:
   m_ObjectHideFlags: 0
@@ -55514,6 +55524,8 @@ GameObject:
   - component: {fileID: 6038996390397837401}
   - component: {fileID: 4686961953302491359}
   - component: {fileID: 2404619012661594458}
+  - component: {fileID: 2594494200127586952}
+  - component: {fileID: 2594494200127586953}
   m_Layer: 0
   m_Name: PickupTrigger
   m_TagString: Untagged
@@ -55521,6 +55533,52 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2594494200127586952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594494200127586951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/Action Sounds/Puzzle Solve Violin 01
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!114 &2594494200127586953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594494200127586951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/Book Page Turn
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!33 &2650482167987397132
 MeshFilter:
   m_ObjectHideFlags: 0

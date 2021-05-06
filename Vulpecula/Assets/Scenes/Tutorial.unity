@@ -2845,6 +2845,7 @@ MonoBehaviour:
   isSeen: 0
   visibleTargets: []
   onSeeSound: {fileID: 161385117}
+  onSeeHumanSound: {fileID: 161385125}
   passiveSound: {fileID: 161385123}
 --- !u!114 &161385120
 MonoBehaviour:
@@ -2926,6 +2927,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 161385114}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &161385125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161385116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/Humans/Mid Human Chirp
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Pitch
+    Value: 0.66
+  - Name: Tremulo Depth
+    Value: 0.57
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &162261282
 GameObject:
   m_ObjectHideFlags: 0
@@ -5333,6 +5361,7 @@ MonoBehaviour:
   isSeen: 0
   visibleTargets: []
   onSeeSound: {fileID: 271509980}
+  onSeeHumanSound: {fileID: 271509987}
   passiveSound: {fileID: 271509985}
 --- !u!95 &271509983
 Animator:
@@ -5396,6 +5425,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 271509977}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &271509987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271509979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/Humans/Mid Human Chirp
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Pitch
+    Value: 0.75
+  - Name: Tremulo Depth
+    Value: 0.44
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &275777185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7830,6 +7886,7 @@ MonoBehaviour:
   isSeen: 0
   visibleTargets: []
   onSeeSound: {fileID: 395296478}
+  onSeeHumanSound: {fileID: 395296485}
   passiveSound: {fileID: 395296483}
 --- !u!95 &395296481
 Animator:
@@ -7893,6 +7950,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 395296475}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &395296485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395296477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/Humans/Mid Human Chirp
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Pitch
+    Value: 0.91
+  - Name: Tremulo Depth
+    Value: 0.78
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &402585488
 GameObject:
   m_ObjectHideFlags: 0
@@ -11796,10 +11880,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playOnStart: 0
-  volume: 0.5
+  volume: 0.35
   scaleType: 0
-  minNote: -12
-  maxNote: 1
+  minNote: -7
+  maxNote: 3
   minTremulo: 0.2
   maxTremulo: 0.8
 --- !u!114 &691115873
@@ -11823,7 +11907,7 @@ MonoBehaviour:
   Preload: 0
   Params:
   - Name: Pitch
-    Value: 0.22
+    Value: 0.46
   - Name: Tremulo Depth
     Value: 0.5
   OverrideAttenuation: 0
@@ -11875,7 +11959,7 @@ MonoBehaviour:
   - Name: Tremulo Depth
     Value: 0.5
   - Name: Pitch
-    Value: 0.22
+    Value: 0.46
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
@@ -33263,6 +33347,7 @@ MonoBehaviour:
   isSeen: 0
   visibleTargets: []
   onSeeSound: {fileID: 1530247869}
+  onSeeHumanSound: {fileID: 1530247874}
   passiveSound: {fileID: 1530247872}
 --- !u!114 &1530247868
 MonoBehaviour:
@@ -33366,6 +33451,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1530247864}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1530247874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530247866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/Humans/Mid Human Chirp
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Pitch
+    Value: 0.76
+  - Name: Tremulo Depth
+    Value: 0.44
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1537977683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36567,6 +36679,7 @@ MonoBehaviour:
   isSeen: 0
   visibleTargets: []
   onSeeSound: {fileID: 1739349711}
+  onSeeHumanSound: {fileID: 1739349718}
   passiveSound: {fileID: 1739349716}
 --- !u!95 &1739349714
 Animator:
@@ -36630,6 +36743,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1739349708}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1739349718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739349710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/Humans/Mid Human Chirp
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Pitch
+    Value: 0.54
+  - Name: Tremulo Depth
+    Value: 0.31
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1751514016
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39034,7 +39174,7 @@ MonoBehaviour:
   Preload: 0
   Params:
   - Name: Pitch
-    Value: -0.32
+    Value: 0.15
   - Name: Tremulo Depth
     Value: 0
   OverrideAttenuation: 0
@@ -39113,7 +39253,7 @@ MonoBehaviour:
   Preload: 0
   Params:
   - Name: Pitch
-    Value: -0.32
+    Value: 0.15
   - Name: Tremulo Depth
     Value: 0
   OverrideAttenuation: 0
@@ -40788,6 +40928,7 @@ MonoBehaviour:
   isSeen: 0
   visibleTargets: []
   onSeeSound: {fileID: 1921885045}
+  onSeeHumanSound: {fileID: 1921885048}
   passiveSound: {fileID: 1921885046}
 --- !u!114 &1921885041
 MonoBehaviour:
@@ -40909,6 +41050,33 @@ MonoBehaviour:
   myPlayer: {fileID: 1630458415}
   enemySelf: {fileID: 1921885039}
   visionLight: {fileID: 1406789669}
+--- !u!114 &1921885048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921885039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/Humans/Mid Human Chirp
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Pitch
+    Value: -0.37
+  - Name: Tremulo Depth
+    Value: 0.34
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1933040957
 GameObject:
   m_ObjectHideFlags: 0
@@ -44906,7 +45074,7 @@ PrefabInstance:
     - target: {fileID: 2938594160729433727, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.10440131
+      value: 0.1044013
       objectReference: {fileID: 0}
     - target: {fileID: 2938594160729433727, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
         type: 3}
@@ -44916,7 +45084,7 @@ PrefabInstance:
     - target: {fileID: 2938594160729433727, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.10192739
+      value: -0.10192738
       objectReference: {fileID: 0}
     - target: {fileID: 2938594160729433727, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
         type: 3}
@@ -44959,6 +45127,16 @@ PrefabInstance:
     - target: {fileID: 3032751311198661280, guid: 0b48f2c39f9ade74a96fa594d99335da,
         type: 3}
       propertyPath: pickupSound
+      value: 
+      objectReference: {fileID: 3032751311198661281}
+    - target: {fileID: 3032751311198661280, guid: 0b48f2c39f9ade74a96fa594d99335da,
+        type: 3}
+      propertyPath: pickupSounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032751311198661280, guid: 0b48f2c39f9ade74a96fa594d99335da,
+        type: 3}
+      propertyPath: pickupSounds.Array.data[0]
       value: 
       objectReference: {fileID: 3032751311198661281}
     - target: {fileID: 3562452698818202133, guid: 0b48f2c39f9ade74a96fa594d99335da,
@@ -45319,12 +45497,12 @@ PrefabInstance:
     - target: {fileID: 4440310462265449303, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.10266814
+      value: 0.10266812
       objectReference: {fileID: 0}
     - target: {fileID: 4440310462265449303, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.1002353
+      value: -0.10023527
       objectReference: {fileID: 0}
     - target: {fileID: 4440310462386834624, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
