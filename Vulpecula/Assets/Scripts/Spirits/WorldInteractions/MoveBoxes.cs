@@ -22,6 +22,7 @@ public class MoveBoxes : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player") {
             Vector3 direction = (transform.position - collision.gameObject.transform.position).normalized;
+            direction.y /=  2;
             rb.AddForce(direction * magnitude);
         }
     }
@@ -30,6 +31,7 @@ public class MoveBoxes : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player") {
             Vector3 direction = (transform.position - collision.gameObject.transform.position).normalized;
+            direction.y /=  2;
             rb.AddForce(direction * magnitude);
         }
     }    
