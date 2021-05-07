@@ -26,7 +26,10 @@ public class Patroller : MonoBehaviour
         animator = GetComponent<Animator>();
         vision = GetComponent<FieldOfView>();
         waypointIndex = 0;
-        transform.LookAt(waypoints[waypointIndex].position);
+        if (waypoints.Length > 0)
+        {
+            transform.LookAt(waypoints[waypointIndex].position);
+        }
         animator.SetBool("isWalking", true);
 
     }
@@ -51,8 +54,10 @@ public class Patroller : MonoBehaviour
             {
                 ResetVision();
             }
-
-            dist = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
+            if (waypoints.Length > 0)
+            {
+                dist = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
+            }
             if (dist < 1f)
             {
                 if (tracker >= 400)
@@ -94,7 +99,10 @@ public class Patroller : MonoBehaviour
         {
             waypointIndex = 0;
         }
-        transform.LookAt(waypoints[waypointIndex].position);
+        if (waypoints.Length > 0)
+        {
+            transform.LookAt(waypoints[waypointIndex].position);
+        }
     }
 
     void ResetVision()

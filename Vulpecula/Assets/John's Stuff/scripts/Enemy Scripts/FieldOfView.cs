@@ -58,6 +58,8 @@ public class FieldOfView : MonoBehaviour
         animationRef = myBody.GetComponent<Animation_Handler>();
         StartCoroutine("FindTargetsWithDelay", .2f);
 
+        GameManager.instance.setCameraShake(false);
+
         //vg = postProc.GetComponent<Vignette>();
         exclamationPoint.SetActive(false);
 
@@ -131,9 +133,10 @@ public class FieldOfView : MonoBehaviour
 
                     // Camera Shake
                     GameManager.instance.setCameraShake(true);
+                    
 
                     // Check if the Player is dead
-                    if(animationRef.seenCounter >= 25){
+                    if (animationRef.seenCounter >= 25){
                         animator.SetBool("isDead", true);
                         myPlayer.GetComponent<CharacterController>().enabled = false;
                         myPlayer.GetComponent<PlayerMovement>().enabled = false;
@@ -146,19 +149,20 @@ public class FieldOfView : MonoBehaviour
                     exclamationPoint.SetActive(true);
 
 
-                    if (isSeen == true) { }
+                   
 
                        
                 }
                 
 
             }
-            else
+            else if(isSeen == true)
             {
                 
                 targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
                 GameManager.instance.setCameraShake(false);
+                
 
                 seenDelay = 0;
                 
@@ -168,12 +172,18 @@ public class FieldOfView : MonoBehaviour
         }
         if(targetsInViewRadius.Length == 0)
         {
+            if (isSeen == true)
+            {
+                GameManager.instance.setCameraShake(false);
+                
+            }
+
             isSeen = false;
             //vg.intensity.value = 0.0f;
 
             exclamationPoint.SetActive(false);
 
-            GameManager.instance.setCameraShake(false);
+            
         }
         
         

@@ -22,7 +22,7 @@ public class VisionField : MonoBehaviour
     public GameObject enemySelf;
     private FieldOfView Vision;
 
-    public Light visionLight;
+    //public Light visionLight;
 
    
     void Start()
@@ -46,9 +46,9 @@ public class VisionField : MonoBehaviour
                 if (SpiritRef.SpiritList[r].tag == "Spirit_Floating") {
                     // Activate spotlight
                     //visionLight.intensity = 10000;
-                    visionLight.spotAngle = Vision.viewAngle;
-                    visionLight.spotAngle = Vision.viewAngle;
-                    visionLight.range = Vision.viewRadius;
+                   // visionLight.spotAngle = Vision.viewAngle;
+                    //visionLight.spotAngle = Vision.viewAngle;
+                    //visionLight.range = Vision.viewRadius;
                 }
                 
             }
