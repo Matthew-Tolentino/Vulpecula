@@ -52,13 +52,17 @@ public class GameManager : MonoBehaviour
         // Pause game
         if (InputManager.instance.KeyDown("Pause"))
         {
-            if (gameIsPaused && SceneManager.GetActiveScene().buildIndex != 0)
+            int index = SceneManager.GetActiveScene().buildIndex;
+            if (index != 0 && index != 1 && index != 3)
             {
-                Resume();
-            }
-            else
-            {
-                Pause();
+                if (gameIsPaused)
+                {
+                    Resume();
+                }
+                else
+                {
+                    Pause();
+                }
             }
         }
 

@@ -18,20 +18,20 @@ public class MoveBoxes : MonoBehaviour
         rb.isKinematic = !script.strongSpirit;
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggernEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Player") {
             Vector3 direction = (transform.position - collision.gameObject.transform.position).normalized;
-            direction.y /=  2;
+            direction.y /=  4;
             rb.AddForce(direction * magnitude);
         }
     }
     
-    void OnCollisionStay(Collision collision)
+    void OnTriggerStay(Collider collision)
     {
         if (collision.gameObject.tag == "Player") {
             Vector3 direction = (transform.position - collision.gameObject.transform.position).normalized;
-            direction.y /=  2;
+            direction.y /=  4;
             rb.AddForce(direction * magnitude);
         }
     }    
