@@ -18,7 +18,9 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject gameOverCanvasUI;
 
-    public Image selectedSpiritImage;
+    public Image mainSpiritImage;
+    public Image prevSpiritImage;
+    public Image nextSpiritImage;
     public Sprite floatyImg;
     public Sprite rockImg;
     public Sprite lampImg;
@@ -164,14 +166,36 @@ public class GameManager : MonoBehaviour
     }
 
     public void setSelectedSpirit(string name) {
-        selectedSpiritImage.sprite = findSpiritImage(name);
+        mainSpiritImage.sprite = findSpiritImage(name);
         // Make image visable
-        Color temp = selectedSpiritImage.color;
-        if (selectedSpiritImage.sprite != null)
+        Color temp = mainSpiritImage.color;
+        if (mainSpiritImage.sprite != null)
             temp.a = 1f;
         else
             temp.a = 0f;
-        selectedSpiritImage.color = temp;
+        mainSpiritImage.color = temp;
+    }
+
+    public void setSelectedSpiritPrev(string name) {
+        prevSpiritImage.sprite = findSpiritImage(name);
+        // Make image visable
+        Color temp = prevSpiritImage.color;
+        if (prevSpiritImage.sprite != null)
+            temp.a = 1f;
+        else
+            temp.a = 0f;
+        prevSpiritImage.color = temp;
+    }
+
+    public void setSelectedSpiritNext(string name) {
+        nextSpiritImage.sprite = findSpiritImage(name);
+        // Make image visable
+        Color temp = nextSpiritImage.color;
+        if (nextSpiritImage.sprite != null)
+            temp.a = 1f;
+        else
+            temp.a = 0f;
+        nextSpiritImage.color = temp;
     }
 
     public Sprite findSpiritImage(string name) {
@@ -207,7 +231,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void SetSpiritToolTip(string name) {
-        TooltipTrigger tipTrigger = selectedSpiritImage.transform.parent.GetComponent<TooltipTrigger>();
+        TooltipTrigger tipTrigger = mainSpiritImage.transform.parent.GetComponent<TooltipTrigger>();
         tipTrigger.header = name;
 
         switch (name) {
