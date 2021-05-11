@@ -240,7 +240,7 @@ public class SpiritHandler : MonoBehaviour
 
     public string GetNextSpirit(){
         if (SpiritList.Count == 0) return "none";
-        int next = ++selectedSpirit;
+        int next = selectedSpirit + 1;
         if (next == SpiritList.Count) next = 0;
 
         if (SpiritList[next].tag == "Spirit_Land"){
@@ -252,8 +252,8 @@ public class SpiritHandler : MonoBehaviour
     }
     public string GetPrevSpirit(){
         if (SpiritList.Count == 0) return "none";
-        int prev = --selectedSpirit;
-        if (prev < 0) prev = SpiritList.Count-1;
+        int prev = selectedSpirit - 1;
+        if (prev == -1) prev = SpiritList.Count-1;
 
         if (SpiritList[prev].tag == "Spirit_Land"){
             return SpiritList[prev].GetComponent<SpriritMovement_Land>().type;
