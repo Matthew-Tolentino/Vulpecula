@@ -6,11 +6,14 @@ public class DisableWhileNotInSW : MonoBehaviour
 {
     public MoveToSpiritWorld target;
     public GameObject setObject;
-    public string getState;
+    
+    private string getState;
+    public bool isFloating;
     void Start()
     {
         setObject.SetActive(false);
-        getState = setObject.GetComponent<SpriritMovement_Land>().state;
+        if (!isFloating) getState = setObject.GetComponent<SpriritMovement_Land>().state;
+        else getState = setObject.GetComponent<SpiritMovement_Floating>().state;
     }
 
     // Update is called once per frame
@@ -19,7 +22,8 @@ public class DisableWhileNotInSW : MonoBehaviour
         if (target.state == "Human") setObject.SetActive(false);
         else setObject.SetActive(true);
 
-        getState = setObject.GetComponent<SpriritMovement_Land>().state;
+        if (!isFloating) getState = setObject.GetComponent<SpriritMovement_Land>().state;
+        else getState = setObject.GetComponent<SpiritMovement_Floating>().state;
         if (getState != "Spawn") Destroy(this);
     }
 }
