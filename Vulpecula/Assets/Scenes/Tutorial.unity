@@ -577,7 +577,6 @@ Transform:
   - {fileID: 726905922}
   - {fileID: 1760908553}
   - {fileID: 811430608}
-  - {fileID: 1901264045}
   - {fileID: 316343056}
   - {fileID: 1934392493}
   - {fileID: 1467667774}
@@ -1134,7 +1133,7 @@ PrefabInstance:
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
@@ -1200,6 +1199,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hint_Old_Guardian_Warning_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629043641042863482, guid: 925b2b76baeaff6429c3a94b4386bd6c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8379664066142327110, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
@@ -5495,17 +5499,17 @@ PrefabInstance:
     - target: {fileID: 2419556920482424376, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: dialogue.sentences.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2419556920482424376, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: Me want to help, let me press button to help!
+      value: Select spirits *Q or E*
       objectReference: {fileID: 0}
     - target: {fileID: 2419556920482424376, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
-      value: '*Select sprits*(Q or E)'
+      value: Use spirit *R*
       objectReference: {fileID: 0}
     - target: {fileID: 2419556920482424376, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
@@ -5521,7 +5525,7 @@ PrefabInstance:
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
@@ -5587,6 +5591,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hint_Rock_Open_Gate
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629043641042863482, guid: 925b2b76baeaff6429c3a94b4386bd6c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8379664066142327110, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
@@ -11392,7 +11401,8 @@ MonoBehaviour:
   dialogue:
     name: Sprout
     sentences:
-    - Hi I am Sprout!
+    - Stick with me and we can help each other.
+    - If a human sees you, I can heal you as I was a botanist in my previous life.
 --- !u!114 &691115872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14453,21 +14463,18 @@ PrefabInstance:
     - target: {fileID: 2419556920482424376, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: dialogue.sentences.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2419556920482424376, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: "The spirits you encounter are all special, all unique. They were once
-        humans, with families, friends, ambitions, and dreams \u2014 all living."
+      value: Spirits like Floaty, have special abilities you may use in your quest.
       objectReference: {fileID: 0}
     - target: {fileID: 2419556920482424376, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
-      value: "Their strongest personality trait from their human lives is what manifests
-        strongly in their spirit forms, and their forms here have attempted to adapt
-        to their surroundings\u2026 Look out for how the different spirits will be
-        able to aid you with different necessities."
+      value: Careful of humans. Guardians and Spirits are quite considerate beings,
+        they want to avoid causing panic here on the Solar Realm.
       objectReference: {fileID: 0}
     - target: {fileID: 2419556920482424376, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
@@ -18577,7 +18584,7 @@ PrefabInstance:
     - target: {fileID: 2419556920482424376, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: I believe this is my turn to shine! See that lamp?? I can help you traverse
+      value: I believe this is my turn to shine! See that lamp? I can help you traverse
         between the Solar and Lunar Realm!
       objectReference: {fileID: 0}
     - target: {fileID: 2419556920482424376, guid: 925b2b76baeaff6429c3a94b4386bd6c,
@@ -18601,7 +18608,7 @@ PrefabInstance:
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
@@ -19612,7 +19619,7 @@ PrefabInstance:
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
@@ -21352,10 +21359,8 @@ MonoBehaviour:
   dialogue:
     name: Rock
     sentences:
-    - Home lost, where I am. No longer a star?
-    - I once was kid who loves rock...
-    - Rock had best friend rock, I one day became best friend rock...
-    - Why rock here again?
+    - "I once was kid who loves rock. One day rock became rock. Why rock here again?\nMe
+      want to help, let me press button to help\r.\n"
 --- !u!65 &1174235226
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22655,7 +22660,7 @@ PrefabInstance:
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
@@ -26982,7 +26987,7 @@ PrefabInstance:
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
@@ -34599,18 +34604,19 @@ PrefabInstance:
     - target: {fileID: 2419556920482424376, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: dialogue.sentences.Array.size
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2419556920482424376, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: Little one, as my time as a guide is ending and I am ascending back
-        into the stars, I leave you my knowledge and I wish you good luck
+      value: "As humans live their lives, there\u2019s one path they have and it
+        is to one day shine bright like us, the stars. "
       objectReference: {fileID: 0}
     - target: {fileID: 2419556920482424376, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
-      value: Remember that the humans are fragile beings as well as the spirits.
+      value: As my time as a guide is ending and I am ascending back into the stars,
+        I leave you my knowledge and I wish you good luck.
       objectReference: {fileID: 0}
     - target: {fileID: 2419556920482424376, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
@@ -34632,7 +34638,7 @@ PrefabInstance:
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
@@ -36768,7 +36774,7 @@ PrefabInstance:
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
@@ -39585,137 +39591,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1896220689}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1901264044
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 35400624}
-    m_Modifications:
-    - target: {fileID: 2419556920482424376, guid: 925b2b76baeaff6429c3a94b4386bd6c,
-        type: 3}
-      propertyPath: portrait
-      value: 
-      objectReference: {fileID: 21300000, guid: 4ff11afcf33276c4292c0de5e0e85aea,
-        type: 3}
-    - target: {fileID: 2419556920482424376, guid: 925b2b76baeaff6429c3a94b4386bd6c,
-        type: 3}
-      propertyPath: dialogue.name
-      value: Old Guardian
-      objectReference: {fileID: 0}
-    - target: {fileID: 2419556920482424376, guid: 925b2b76baeaff6429c3a94b4386bd6c,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2419556920482424376, guid: 925b2b76baeaff6429c3a94b4386bd6c,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[0]
-      value: Of course there are many other reasons the path to the celestial realm
-        has been interrupted or interfered with.
-      objectReference: {fileID: 0}
-    - target: {fileID: 2419556920482424376, guid: 925b2b76baeaff6429c3a94b4386bd6c,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[1]
-      value: "Maybe the typical \u2018having many regrets in their lives,\u2019 or
-        perhaps they want to know how or why they died.  They want to know if their
-        loved ones are living well."
-      objectReference: {fileID: 0}
-    - target: {fileID: 2419556920482424376, guid: 925b2b76baeaff6429c3a94b4386bd6c,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[2]
-      value: Sometimes though, the person who loved them cannot bear to have them
-        go, creating an attachment too strong.
-      objectReference: {fileID: 0}
-    - target: {fileID: 2419556920482424376, guid: 925b2b76baeaff6429c3a94b4386bd6c,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[3]
-      value: Sometimes the path they encounter throws them off the usual path of
-        ascending, causing them to be stuck, lost.
-      objectReference: {fileID: 0}
-    - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.533771
-      objectReference: {fileID: 0}
-    - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 57.306023
-      objectReference: {fileID: 0}
-    - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 33.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.81
-      objectReference: {fileID: 0}
-    - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6629043641042863482, guid: 925b2b76baeaff6429c3a94b4386bd6c,
-        type: 3}
-      propertyPath: m_Name
-      value: Hint_Old_Guardian_Intro_2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8379664066142327110, guid: 925b2b76baeaff6429c3a94b4386bd6c,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 925b2b76baeaff6429c3a94b4386bd6c, type: 3}
---- !u!4 &1901264045 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1901264044}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1905384212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40741,7 +40616,7 @@ PrefabInstance:
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5175598982657415142, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
@@ -40807,6 +40682,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hint_Lamp_Puzzle_Intro
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629043641042863482, guid: 925b2b76baeaff6429c3a94b4386bd6c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8379664066142327110, guid: 925b2b76baeaff6429c3a94b4386bd6c,
         type: 3}
