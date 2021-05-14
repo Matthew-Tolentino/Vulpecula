@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4241,11 +4241,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 117944162}
   m_LocalRotation: {x: -0.40821788, y: 0.23456968, z: -0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 886.5, y: 290, z: 227.1}
+  m_LocalPosition: {x: 772, y: 107.9, z: 74.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1787683896}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &117944164
 MonoBehaviour:
@@ -4355,66 +4355,6 @@ Transform:
   m_Father: {fileID: 66828433}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &123557507
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 123557508}
-  - component: {fileID: 123557510}
-  - component: {fileID: 123557509}
-  m_Layer: 0
-  m_Name: Footsteps to Stone Trigger (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &123557508
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123557507}
-  m_LocalRotation: {x: -0.40821788, y: 0.23456968, z: -0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 554.5, y: 311.2, z: 245.6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1787683896}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &123557509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123557507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8605b4ed458fb794fa4ada5857eeaa7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  footstepController: {fileID: 2093458159}
-  onEnterTypeToSet: 0
-  onExitTypeToSet: 2
---- !u!65 &123557510
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123557507}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5, y: 10, z: 5}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &127288483
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7124,7 +7064,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 94ddfb6400f9b7141bd849651d9b7957,
         type: 3}
       propertyPath: m_RootOrder
-      value: 43
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 94ddfb6400f9b7141bd849651d9b7957,
         type: 3}
@@ -7218,7 +7158,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ac004f7e50364bb4aacd77f8dd35951b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 44
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ac004f7e50364bb4aacd77f8dd35951b,
         type: 3}
@@ -16923,7 +16863,7 @@ PrefabInstance:
     - target: {fileID: 2142189039804578334, guid: 65fb9c44fca4d954c88f5623616569ba,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2142189039804578334, guid: 65fb9c44fca4d954c88f5623616569ba,
         type: 3}
@@ -17333,7 +17273,9 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
-  Params: []
+  Params:
+  - Name: Music Segment
+    Value: 2
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 0
@@ -18426,6 +18368,7 @@ GameObject:
   - component: {fileID: 473662837}
   - component: {fileID: 473662836}
   - component: {fileID: 473662841}
+  - component: {fileID: 473662842}
   m_Layer: 11
   m_Name: Box(Square) (2)
   m_TagString: Box
@@ -18550,6 +18493,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.16, y: 1.11, z: 1.15}
   m_Center: {x: -0.000015258789, y: -0.15, z: 0.0000019073486}
+--- !u!114 &473662842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473662834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a2a73788811d841b1749e4d9eb7e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalVelocityThreshold: 5
 --- !u!1 &476391019
 GameObject:
   m_ObjectHideFlags: 0
@@ -18809,7 +18765,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 27dbaf8e53e7b604e8720ae7912eca2e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 27dbaf8e53e7b604e8720ae7912eca2e,
         type: 3}
@@ -21073,6 +21029,7 @@ GameObject:
   - component: {fileID: 612645900}
   - component: {fileID: 612645899}
   - component: {fileID: 612645898}
+  - component: {fileID: 612645909}
   m_Layer: 9
   m_Name: Strong_Spirit
   m_TagString: Spirit_Land
@@ -21141,7 +21098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playOnStart: 0
-  volume: 0.35
+  volume: 0.5
   scaleType: 0
   minNote: -7
   maxNote: 3
@@ -21239,6 +21196,7 @@ MonoBehaviour:
   collectSounds:
   - {fileID: 612645903}
   - {fileID: 612645902}
+  - {fileID: 612645909}
   actionTriggerSounds:
   - {fileID: 612645901}
 --- !u!114 &612645905
@@ -21310,6 +21268,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.27, y: 0.99, z: 0.75}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &612645909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612645896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/Action Sounds/Puzzle Solve Violin 01
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &612723726
 GameObject:
   m_ObjectHideFlags: 0
@@ -21467,6 +21448,7 @@ GameObject:
   - component: {fileID: 618650457}
   - component: {fileID: 618650456}
   - component: {fileID: 618650461}
+  - component: {fileID: 618650462}
   m_Layer: 11
   m_Name: Box(Small)
   m_TagString: Box
@@ -21591,6 +21573,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.13, y: 1.15, z: 1.1}
   m_Center: {x: 0, y: -0.27, z: 0}
+--- !u!114 &618650462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618650454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a2a73788811d841b1749e4d9eb7e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalVelocityThreshold: 5
 --- !u!1 &619158032
 GameObject:
   m_ObjectHideFlags: 0
@@ -22656,7 +22651,7 @@ Transform:
   - {fileID: 1508512806}
   - {fileID: 353949669}
   m_Father: {fileID: 0}
-  m_RootOrder: 39
+  m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &673183366
 PrefabInstance:
@@ -25744,11 +25739,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 730916546}
   m_LocalRotation: {x: -0.40821788, y: 0.23456968, z: -0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 572.7, y: 330.6, z: 261.8}
+  m_LocalPosition: {x: 616.1, y: 88.8, z: 58.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1787683896}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &730916548
 MonoBehaviour:
@@ -25776,7 +25771,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5, y: 10, z: 55}
+  m_Size: {x: 5, y: 10, z: 15}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &731321170
 PrefabInstance:
@@ -27773,6 +27768,40 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 743098468}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &743098470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 9485b0c79d11e2e4d0007da98d76c639,
+    type: 3}
+  m_PrefabInstance: {fileID: 743098468}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &743098471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743098470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8605b4ed458fb794fa4ada5857eeaa7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footstepController: {fileID: 0}
+  onEnterTypeToSet: 2
+  onExitTypeToSet: 1
+--- !u!135 &743098472
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743098470}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.97
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &745931979
 GameObject:
   m_ObjectHideFlags: 0
@@ -30369,6 +30398,7 @@ GameObject:
   - component: {fileID: 855454766}
   - component: {fileID: 855454765}
   - component: {fileID: 855454764}
+  - component: {fileID: 855454776}
   m_Layer: 9
   m_Name: Shark_Spirit
   m_TagString: Spirit_Floating
@@ -30506,6 +30536,7 @@ MonoBehaviour:
   collectSounds:
   - {fileID: 855454768}
   - {fileID: 855454767}
+  - {fileID: 855454776}
   actionTriggerSounds:
   - {fileID: 855454766}
 --- !u!114 &855454770
@@ -30609,6 +30640,29 @@ Transform:
   m_Father: {fileID: 73808479}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &855454776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855454763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/Action Sounds/Puzzle Solve Violin 01
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 1
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &855827370
 GameObject:
   m_ObjectHideFlags: 0
@@ -33664,7 +33718,7 @@ PrefabInstance:
     - target: {fileID: 4312586638042377670, guid: 897d9de865929544aa6edbbff546798e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4312586638042377670, guid: 897d9de865929544aa6edbbff546798e,
         type: 3}
@@ -33996,6 +34050,7 @@ Transform:
   - {fileID: 889142801}
   - {fileID: 1074807404}
   - {fileID: 1690721897}
+  - {fileID: 1308133892}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -37172,7 +37227,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 3058485490fcb214589d34e7b4412c4f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 42
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3058485490fcb214589d34e7b4412c4f,
         type: 3}
@@ -38843,6 +38898,60 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1064768975}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1203516291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1203516292}
+  - component: {fileID: 1203516293}
+  m_Layer: 0
+  m_Name: City Sounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1203516292
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203516291}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1787683896}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1203516293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203516291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/City Sounds
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1001 &1203564468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38972,7 +39081,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a98e4ecaae7b4d343bc8d650893fa146,
         type: 3}
       propertyPath: m_RootOrder
-      value: 41
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a98e4ecaae7b4d343bc8d650893fa146,
         type: 3}
@@ -44028,11 +44137,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247902260}
   m_LocalRotation: {x: -0.40821788, y: 0.23456968, z: -0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 554.6, y: 361.5, z: 287.7}
+  m_LocalPosition: {x: 676.4, y: 65.9, z: 39.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1787683896}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1247902262
 MonoBehaviour:
@@ -44060,7 +44169,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 80, y: 10, z: 5}
+  m_Size: {x: 135, y: 10, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1253054224
 GameObject:
@@ -44169,6 +44278,7 @@ GameObject:
   - component: {fileID: 1257479535}
   - component: {fileID: 1257479534}
   - component: {fileID: 1257479539}
+  - component: {fileID: 1257479540}
   m_Layer: 11
   m_Name: Box(Small) (1)
   m_TagString: Box
@@ -44293,6 +44403,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.13, y: 1.15, z: 1.1}
   m_Center: {x: 0, y: -0.27, z: 0}
+--- !u!114 &1257479540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257479532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a2a73788811d841b1749e4d9eb7e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalVelocityThreshold: 5
 --- !u!1 &1258234868
 GameObject:
   m_ObjectHideFlags: 0
@@ -45618,6 +45741,74 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1308133891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1308133892}
+  - component: {fileID: 1308133894}
+  - component: {fileID: 1308133893}
+  m_Layer: 0
+  m_Name: Completion Sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1308133892
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308133891}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -24.28, y: 11.4, z: -21.06}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1017939496}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1308133893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308133891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Player
+  Event: event:/SFX/Action Sounds/Puzzle Solve Violin 01
+  PlayEvent: 3
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 1
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!65 &1308133894
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308133891}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 5, z: 50}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1309375103
 GameObject:
   m_ObjectHideFlags: 0
@@ -48101,7 +48292,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437287967}
   m_LocalRotation: {x: -0.40821788, y: 0.23456968, z: -0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 533.3, y: 344.4, z: 273.4}
+  m_LocalPosition: {x: 675, y: 59.2, z: 34.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1787683896}
@@ -48133,7 +48324,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 80, y: 10, z: 50}
+  m_Size: {x: 135, y: 10, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1439730656
 GameObject:
@@ -50576,7 +50767,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 3058485490fcb214589d34e7b4412c4f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 40
+      value: 41
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3058485490fcb214589d34e7b4412c4f,
         type: 3}
@@ -54635,8 +54826,62 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 0.93083}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1582809194
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1582809195}
+  - component: {fileID: 1582809196}
+  m_Layer: 0
+  m_Name: Rain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1582809195
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582809194}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1787683896}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1582809196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582809194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/Rain
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &1583785107
 GameObject:
   m_ObjectHideFlags: 0
@@ -54799,6 +55044,7 @@ GameObject:
   - component: {fileID: 1611438286}
   - component: {fileID: 1611438285}
   - component: {fileID: 1611438290}
+  - component: {fileID: 1611438291}
   m_Layer: 11
   m_Name: Box(Square) (1)
   m_TagString: Box
@@ -54923,6 +55169,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.16, y: 1.11, z: 1.15}
   m_Center: {x: -0.000015258789, y: -0.15, z: 0}
+--- !u!114 &1611438291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611438283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a2a73788811d841b1749e4d9eb7e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalVelocityThreshold: 5
 --- !u!1001 &1613176136
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55548,7 +55807,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1636839944
 PrefabInstance:
@@ -56970,6 +57229,7 @@ GameObject:
   - component: {fileID: 1742406053}
   - component: {fileID: 1742406058}
   - component: {fileID: 1742406057}
+  - component: {fileID: 1742406059}
   m_Layer: 11
   m_Name: Box(Square)
   m_TagString: Box
@@ -57094,6 +57354,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script: {fileID: 2093458158}
   magnitude: 250
+--- !u!114 &1742406059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742406051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a2a73788811d841b1749e4d9eb7e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalVelocityThreshold: 5
 --- !u!1001 &1761308500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61216,10 +61489,11 @@ Transform:
   - {fileID: 413710766}
   - {fileID: 2019080347}
   - {fileID: 1437287968}
-  - {fileID: 123557508}
   - {fileID: 1247902261}
   - {fileID: 730916547}
   - {fileID: 117944163}
+  - {fileID: 1582809195}
+  - {fileID: 1203516292}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -66453,22 +66727,22 @@ PrefabInstance:
     - target: {fileID: 4440310462265449303, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.59476525
+      value: 0.5947653
       objectReference: {fileID: 0}
     - target: {fileID: 4440310462265449303, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.08623208
+      value: 0.08623207
       objectReference: {fileID: 0}
     - target: {fileID: 4440310462265449303, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7909908
+      value: 0.79099077
       objectReference: {fileID: 0}
     - target: {fileID: 4440310462265449303, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.11468185
+      value: -0.11468182
       objectReference: {fileID: 0}
     - target: {fileID: 4440310462386834624, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
@@ -67852,6 +68126,7 @@ GameObject:
   - component: {fileID: 1896993478}
   - component: {fileID: 1896993477}
   - component: {fileID: 1896993476}
+  - component: {fileID: 1896993487}
   m_Layer: 9
   m_Name: Wise_Spirit
   m_TagString: Spirit_Floating
@@ -68006,6 +68281,7 @@ MonoBehaviour:
   collectSounds:
   - {fileID: 1896993480}
   - {fileID: 1896993479}
+  - {fileID: 1896993487}
   actionTriggerSounds:
   - {fileID: 1896993478}
 --- !u!114 &1896993482
@@ -68093,6 +68369,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &1896993487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896993474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/Action Sounds/Puzzle Solve Violin 01
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 1
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1001 &1901926184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70097,7 +70396,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a1153d0ad845ea04995002c132c0a424,
         type: 3}
       propertyPath: m_RootOrder
-      value: 45
+      value: 46
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a1153d0ad845ea04995002c132c0a424,
         type: 3}
@@ -71344,7 +71643,7 @@ PrefabInstance:
     - target: {fileID: 2938594160729433727, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2938594160729433727, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
         type: 3}
@@ -71364,7 +71663,7 @@ PrefabInstance:
     - target: {fileID: 2938594160729433727, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5945524
+      value: 0.59455246
       objectReference: {fileID: 0}
     - target: {fileID: 2938594160729433727, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
         type: 3}
@@ -71379,7 +71678,7 @@ PrefabInstance:
     - target: {fileID: 2938594160729433727, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.116617836
+      value: -0.11661782
       objectReference: {fileID: 0}
     - target: {fileID: 2938594160729433727, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
         type: 3}
@@ -72658,7 +72957,7 @@ PrefabInstance:
     - target: {fileID: 8186383926658599437, guid: 7b57cc64214b2864995e59faf1203bd7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8186383926658599437, guid: 7b57cc64214b2864995e59faf1203bd7,
         type: 3}
