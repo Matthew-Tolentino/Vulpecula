@@ -11,6 +11,9 @@ public class InventoryUI : MonoBehaviour
 
     string[] itemNames;
 
+    public Sprite gateKey;
+    public Sprite book;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +23,15 @@ public class InventoryUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (string item in itemNames) {
-            if (ItemManager.instance.CheckItem(item)) {
+        UpdateItemImages();
+    }
+
+    private void UpdateItemImages()
+    {
+        foreach (string item in itemNames)
+        {
+            if (ItemManager.instance.CheckItem(item))
+            {
                 Image itemImg = GameObject.Find(item + "UI").GetComponent<Image>();
                 Color tmpColor = itemImg.color;
                 tmpColor.a = 1f;
@@ -46,6 +56,8 @@ public class InventoryUI : MonoBehaviour
         itemNames = ItemManager.instance.GetItems(level);
         foreach (string item in itemNames) {
             GameObject newItem = Instantiate(itemUI, transform);
+            if (item == "GateKey") newItem.GetComponent<Image>().sprite = gateKey;
+            if (item == "WiseBook") newItem.GetComponent<Image>().sprite = book;
             newItem.name = item + "UI";
             
             TextMeshProUGUI text = newItem.GetComponentInChildren<TextMeshProUGUI>(true);

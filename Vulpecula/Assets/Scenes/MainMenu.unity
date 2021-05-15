@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -329,6 +329,7 @@ MonoBehaviour:
   flowerPlantImg: {fileID: 21300000, guid: ea6f7605cd3083643823b289f6c128f0, type: 3}
   wiseImg: {fileID: 21300000, guid: 9c3a9dc26128da04e9b1980d959e22c0, type: 3}
   strongImg: {fileID: 21300000, guid: af4d9760996b47f4d887d3a8b519e583, type: 3}
+  sharkImg: {fileID: 21300000, guid: 467764eeca775b648b964bf6bca4fae0, type: 3}
   camSettings: {fileID: 11400000, guid: ae95700be450bbb429475ecd3812905d, type: 2}
   playerMoveVector: {x: 0, y: 0, z: 0}
   minimapMask: {fileID: 771452610}
@@ -412,6 +413,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemUI: {fileID: 3488218423990533675, guid: ad3fb3a2e23a7894a83287d2a338eb0b, type: 3}
   items: {fileID: 11400000, guid: 746849f556d29834ba10fc5a9991ea1a, type: 2}
+  gateKey: {fileID: 21300000, guid: a80697339fa73b24a90c1ed5cf7e5c2c, type: 3}
+  book: {fileID: 21300000, guid: 48f3faef6c587294ba947ebeaf38053d, type: 3}
 --- !u!114 &68362845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6927,7 +6930,6 @@ RectTransform:
   - {fileID: 1869166802}
   - {fileID: 212808237}
   - {fileID: 475493602}
-  - {fileID: 2129279177}
   m_Father: {fileID: 393270855}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15242,80 +15244,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124703471}
-  m_CullTransparentMesh: 0
---- !u!1 &2129279176
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2129279177}
-  - component: {fileID: 2129279179}
-  - component: {fileID: 2129279178}
-  m_Layer: 0
-  m_Name: PortraitBorder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2129279177
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2129279176}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 960958814}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -333.7, y: -7.6}
-  m_SizeDelta: {x: 148.38217, y: 158.46126}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2129279178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2129279176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 967a250a40f60cb4c8d79c17b8ccbcf0, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &2129279179
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2129279176}
   m_CullTransparentMesh: 0
 --- !u!1 &2144083792
 GameObject:

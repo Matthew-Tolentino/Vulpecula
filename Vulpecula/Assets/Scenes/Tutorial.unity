@@ -5103,7 +5103,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &293715666
 PrefabInstance:
@@ -11722,6 +11722,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpiritMapIcon_Lamp
       objectReference: {fileID: 0}
+    - target: {fileID: 246719839055169346, guid: 182bc19d3d76a44428914f5b773b3d96,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 246719839055169356, guid: 182bc19d3d76a44428914f5b773b3d96,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -13926,6 +13931,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpiritMapIcon_Floaty
+      objectReference: {fileID: 0}
+    - target: {fileID: 246719839055169346, guid: 182bc19d3d76a44428914f5b773b3d96,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 246719839055169356, guid: 182bc19d3d76a44428914f5b773b3d96,
         type: 3}
@@ -25424,6 +25434,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpiritMapIcon_FlowerPlant
+      objectReference: {fileID: 0}
+    - target: {fileID: 246719839055169346, guid: 182bc19d3d76a44428914f5b773b3d96,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 246719839055169356, guid: 182bc19d3d76a44428914f5b773b3d96,
         type: 3}
@@ -37851,6 +37866,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpiritMapIcon_Rock
       objectReference: {fileID: 0}
+    - target: {fileID: 246719839055169346, guid: 182bc19d3d76a44428914f5b773b3d96,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 246719839055169357, guid: 182bc19d3d76a44428914f5b773b3d96,
         type: 3}
       propertyPath: m_RootOrder
@@ -43586,7 +43606,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2062087859}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: SpiritMinimapIcons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44991,7 +45011,7 @@ PrefabInstance:
     - target: {fileID: 2142189039804578334, guid: 65fb9c44fca4d954c88f5623616569ba,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2142189039804578334, guid: 65fb9c44fca4d954c88f5623616569ba,
         type: 3}
@@ -45052,6 +45072,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2938594160729433720, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 65335
+      objectReference: {fileID: 0}
     - target: {fileID: 2938594160729433722, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
         type: 3}
       propertyPath: m_Name
@@ -45085,7 +45110,7 @@ PrefabInstance:
     - target: {fileID: 2938594160729433727, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.10440131
+      value: 0.1044013
       objectReference: {fileID: 0}
     - target: {fileID: 2938594160729433727, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
         type: 3}
@@ -45095,7 +45120,7 @@ PrefabInstance:
     - target: {fileID: 2938594160729433727, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.10192739
+      value: -0.10192738
       objectReference: {fileID: 0}
     - target: {fileID: 2938594160729433727, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
         type: 3}
@@ -45624,22 +45649,22 @@ PrefabInstance:
     - target: {fileID: 4440310460614512819, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.113315806
+      value: 0.11331581
       objectReference: {fileID: 0}
     - target: {fileID: 4440310460614512819, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.11063064
+      value: -0.110630654
       objectReference: {fileID: 0}
     - target: {fileID: 4440310462265449303, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.10266814
+      value: 0.10266812
       objectReference: {fileID: 0}
     - target: {fileID: 4440310462265449303, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.1002353
+      value: -0.10023527
       objectReference: {fileID: 0}
     - target: {fileID: 4440310462386834624, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
@@ -45654,7 +45679,7 @@ PrefabInstance:
     - target: {fileID: 4440310462386834625, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4440310462386834625, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
@@ -45738,7 +45763,7 @@ PrefabInstance:
     - target: {fileID: 8186383926658599437, guid: 7b57cc64214b2864995e59faf1203bd7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8186383926658599437, guid: 7b57cc64214b2864995e59faf1203bd7,
         type: 3}
