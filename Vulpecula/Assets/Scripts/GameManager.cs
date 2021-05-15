@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     public GameObject minimapMask;
     public GameObject minimapBorder;
 
+    public Image fadeBackground;
+
     void Awake()
     {
         if (instance == null)
@@ -278,6 +280,25 @@ public class GameManager : MonoBehaviour
         } else {
             minimapMask.SetActive(false);
             minimapBorder.SetActive(false);
+        }
+    }
+
+    public IEnumerator NextScene() {
+        while (fadeBackground.color.a < 1) {
+            Color temp = fadeBackground.color;
+            temp.a += .01f;
+            yield return fadeBackground.color = temp;
+        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        StartCoroutine(FadeOut());
+    }
+
+    public IEnumerator FadeOut() {
+        while (fadeBackground.color.a > 0)
+        {
+            Color temp = fadeBackground.color;
+            temp.a -= .01f;
+            yield return fadeBackground.color = temp;
         }
     }
 }

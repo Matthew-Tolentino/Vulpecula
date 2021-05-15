@@ -19,14 +19,14 @@ public class ControlSlides : MonoBehaviour
     public void nextImage()
     {	
     	if (NextIndex >= slides.Length){
-    		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    		StartCoroutine(GameManager.instance.NextScene());
         	GameManager.instance.setMouseLock(true);
     	}
     	else image.sprite = slides[NextIndex++];
     }
 
     public void skip(){
-    	SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    	GameManager.instance.setMouseLock(true);
+        StartCoroutine(GameManager.instance.NextScene());
+        GameManager.instance.setMouseLock(true);
     }
 }

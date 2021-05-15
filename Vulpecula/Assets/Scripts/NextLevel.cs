@@ -23,7 +23,7 @@ public class NextLevel : MonoBehaviour
             // Wont work with mulitple level will need to revise
             ItemManager.instance.SetInventory(1);
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            StartCoroutine(GameManager.instance.NextScene());
         }
     }
 }
