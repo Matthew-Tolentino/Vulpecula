@@ -4245,7 +4245,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1787683896}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &117944164
 MonoBehaviour:
@@ -17228,62 +17228,6 @@ Transform:
   m_Father: {fileID: 661958886}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &413710765
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 413710766}
-  - component: {fileID: 413710767}
-  m_Layer: 0
-  m_Name: BGM
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &413710766
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413710765}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1787683896}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &413710767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413710765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: event:/Music/Level 2 BGM
-  PlayEvent: 1
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params:
-  - Name: Music Segment
-    Value: 2
-  OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
 --- !u!1001 &414444493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18510,7 +18454,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26a2a73788811d841b1749e4d9eb7e53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalVelocityThreshold: 5
+  horizontalVelocityTriggerThreshold: 15
+  horizontalVelocityFullVolumeThreshold: 20
+  eventFN: event:/SFX/Box Dragging
 --- !u!1 &476391019
 GameObject:
   m_ObjectHideFlags: 0
@@ -21590,7 +21536,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26a2a73788811d841b1749e4d9eb7e53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalVelocityThreshold: 5
+  horizontalVelocityTriggerThreshold: 15
+  horizontalVelocityFullVolumeThreshold: 20
+  eventFN: event:/SFX/Box Dragging
 --- !u!1 &619158032
 GameObject:
   m_ObjectHideFlags: 0
@@ -25748,7 +25696,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1787683896}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &730916548
 MonoBehaviour:
@@ -31122,6 +31070,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.04737566, y: 0.06644706, z: 0.028348144}
   m_Center: {x: 0.0005914926, y: 0.00019691346, z: 0.01}
+--- !u!114 &889142807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889142802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a2a73788811d841b1749e4d9eb7e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalVelocityTriggerThreshold: 15
+  horizontalVelocityFullVolumeThreshold: 20
+  eventFN: event:/SFX/Dumpster Draggin
 --- !u!1 &897256636
 GameObject:
   m_ObjectHideFlags: 0
@@ -38937,7 +38900,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1787683896}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1203516293
 MonoBehaviour:
@@ -44151,7 +44114,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1787683896}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1247902262
 MonoBehaviour:
@@ -44425,7 +44388,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26a2a73788811d841b1749e4d9eb7e53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalVelocityThreshold: 5
+  horizontalVelocityTriggerThreshold: 15
+  horizontalVelocityFullVolumeThreshold: 20
+  eventFN: event:/SFX/Box Dragging
 --- !u!1 &1258234868
 GameObject:
   m_ObjectHideFlags: 0
@@ -48306,7 +48271,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1787683896}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1437287969
 MonoBehaviour:
@@ -54882,7 +54847,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1787683896}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1582809196
 MonoBehaviour:
@@ -55206,7 +55171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26a2a73788811d841b1749e4d9eb7e53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalVelocityThreshold: 5
+  horizontalVelocityTriggerThreshold: 15
+  horizontalVelocityFullVolumeThreshold: 20
+  eventFN: event:/SFX/Box Dragging
 --- !u!1001 &1613176136
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57391,7 +57358,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26a2a73788811d841b1749e4d9eb7e53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalVelocityThreshold: 5
+  horizontalVelocityTriggerThreshold: 15
+  horizontalVelocityFullVolumeThreshold: 20
+  eventFN: event:/SFX/Box Dragging
 --- !u!1001 &1761308500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61511,7 +61480,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 413710766}
   - {fileID: 2019080347}
   - {fileID: 1437287968}
   - {fileID: 1247902261}
@@ -61519,6 +61487,7 @@ Transform:
   - {fileID: 117944163}
   - {fileID: 1582809195}
   - {fileID: 1203516292}
+  - {fileID: 2038827262}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -66717,12 +66686,12 @@ PrefabInstance:
     - target: {fileID: 4440310460614512819, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.09517516
+      value: 0.095175155
       objectReference: {fileID: 0}
     - target: {fileID: 4440310460614512819, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7891748
+      value: 0.7891749
       objectReference: {fileID: 0}
     - target: {fileID: 4440310460614512819, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
@@ -66752,7 +66721,7 @@ PrefabInstance:
     - target: {fileID: 4440310462265449303, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5947653
+      value: 0.59476525
       objectReference: {fileID: 0}
     - target: {fileID: 4440310462265449303, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
@@ -66767,7 +66736,7 @@ PrefabInstance:
     - target: {fileID: 4440310462265449303, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.11468182
+      value: -0.11468183
       objectReference: {fileID: 0}
     - target: {fileID: 4440310462386834624, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
@@ -71304,7 +71273,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1787683896}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2019080348
 MonoBehaviour:
@@ -71708,7 +71677,7 @@ PrefabInstance:
     - target: {fileID: 2938594160729433727, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.11661782
+      value: -0.116617806
       objectReference: {fileID: 0}
     - target: {fileID: 2938594160729433727, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
         type: 3}
@@ -71739,6 +71708,67 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2032769403}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2038827261
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2038827262}
+  - component: {fileID: 2038827264}
+  - component: {fileID: 2038827263}
+  m_Layer: 0
+  m_Name: MusicCues
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2038827262
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038827261}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1787683896}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2038827263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038827261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f25b3f65c3bee1f4cb5bd7f1dee22cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerType: 0
+  paramType: 0
+  value: 2
+--- !u!114 &2038827264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038827261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95dd1f060a8e64c4ca07f59a458574e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicIndex: 2
+  continueIfAlreadyPlaying: 1
 --- !u!1 &2042579049
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,12 @@ public class BoxSounds : MonoBehaviour
     Rigidbody rb;
 
     [SerializeField]
-    private float horizontalVelocityThreshold = 5;
+    private float horizontalVelocityTriggerThreshold = 30;
+    [SerializeField]
+    private float horizontalVelocityFullVolumeThreshold = 25;
+
+    [FMODUnity.EventRef]
+    public string eventFN = "";
 
     private FMOD.Studio.EventInstance moveSoundsInstance;
 
@@ -24,10 +29,13 @@ public class BoxSounds : MonoBehaviour
         Vector3 horizontalVelocity = rb.velocity;
         horizontalVelocity.Scale(horizontalVector);
 
-        if (horizontalVelocity.sqrMagnitude >= horizontalVelocityThreshold)
+        if (horizontalVelocity.sqrMagnitude >= horizontalVelocityTriggerThreshold)
         {
             PlayMoveSound();
         }
+
+        if (moveSoundsInstance.isValid())
+            moveSoundsInstance.setVolume(Mathf.Clamp(horizontalVelocity.sqrMagnitude / horizontalVelocityFullVolumeThreshold, 0, 1));
     }
 
     private void PlayMoveSound()
@@ -39,7 +47,7 @@ public class BoxSounds : MonoBehaviour
                 return;
         }
 
-        moveSoundsInstance = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Box Dragging");
+        moveSoundsInstance = FMODUnity.RuntimeManager.CreateInstance(eventFN);
 
         moveSoundsInstance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
         moveSoundsInstance.start();
