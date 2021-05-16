@@ -7,32 +7,27 @@ public class MoveBoxes : MonoBehaviour
     Rigidbody rb;
     public SpiritHandler script;
     public float magnitude;
+
+    private Vector3 pastPos;
+    private bool move;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        Invoke("delayedContraint", 1.0f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        rb.isKinematic = !script.strongSpirit;
-    }
-
-    void OnTriggernEnter(Collider collision)
-    {
-        if (collision.gameObject.tag == "Player") {
-            Vector3 direction = (transform.position - collision.gameObject.transform.position).normalized;
-            direction.y /=  4;
-            rb.AddForce(direction * magnitude);
-        }
-    }
     
     void OnTriggerStay(Collider collision)
     {
-        if (collision.gameObject.tag == "Player") {
+        if (collision.gameObject.tag == "Player" && script.StrongActive) {
+            rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
             Vector3 direction = (transform.position - collision.gameObject.transform.position).normalized;
             direction.y /=  4;
             rb.AddForce(direction * magnitude);
         }
     }    
+
+    private void delayedContraint(){
+        rb.constraints |= RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+    }
 }

@@ -19,7 +19,7 @@ public class SpiritHandler : MonoBehaviour
     public GameObject targetRockLoc;
     public bool nearButton;
 
-    public bool strongSpirit;
+    public bool StrongActive;
 
 
     void Start()
@@ -32,7 +32,8 @@ public class SpiritHandler : MonoBehaviour
         triggerLamp = false;
         nearButton = false;
         targetRockLoc = null;
-        strongSpirit = false;
+
+        StrongActive = false;
     }
 
 
@@ -69,7 +70,7 @@ public class SpiritHandler : MonoBehaviour
             pull.ObtainSpiritLand();
 
             // Enable Passive Abilities
-            if (pull.type == "Strong") strongSpirit = true;
+
 
 
         }
@@ -117,7 +118,7 @@ public class SpiritHandler : MonoBehaviour
             pull.ReleaseSpiritLand();
 
             // Disable Passive Abilities
-            if (pull.type == "Strong") strongSpirit = false;
+
         }
 
         SpiritList.RemoveAt(removeIndex);
@@ -168,6 +169,12 @@ public class SpiritHandler : MonoBehaviour
     			return;
     		}
 
+            else if (pull.type == "Strong")
+            {
+                StrongActive = true;
+                Invoke("delayedStrong", 0.5f);
+            }
+
     		else return;
     	}
 
@@ -181,7 +188,9 @@ public class SpiritHandler : MonoBehaviour
     	}
     }
 
-
+    private void delayedStrong(){
+        StrongActive = false;
+    }
 
     private void incrementSelect()
     {
