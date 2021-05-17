@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 8322c7a72abb02749a61f17e0ca62a8c,
+  m_Motion: {fileID: -203655887218126122, guid: 4f6776213664ce642a07682b9016b20a,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -42,7 +42,7 @@ AnimatorStateMachine:
     m_Position: {x: 410, y: 80, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -159740784326205225}
-    m_Position: {x: 420, y: 180, z: 0}
+    m_Position: {x: 410, y: 190, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -99,8 +99,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 8322c7a72abb02749a61f17e0ca62a8c,
-    type: 3}
+  m_Motion: {fileID: 7400000, guid: a9f48d4a40d24894fbb99e5ee292cbad, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -114,7 +113,13 @@ AnimatorController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Male4_Patroller
   serializedVersion: 5
-  m_AnimatorParameters: []
+  m_AnimatorParameters:
+  - m_Name: isWalking
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
