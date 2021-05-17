@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject gameOverCanvasUI;
 
+    public GameObject spiritHolderUI;
     public Image mainSpiritImage;
     public Image prevSpiritImage;
     public Image nextSpiritImage;
@@ -168,7 +169,8 @@ public class GameManager : MonoBehaviour
         mouseState = MouseState.game;
     }
 
-    public void setSelectedSpirit(string name) {
+    public void setSelectedSpirit(string name)
+    {
         mainSpiritImage.sprite = findSpiritImage(name);
         // Make image visable
         Color temp = mainSpiritImage.color;
@@ -179,7 +181,8 @@ public class GameManager : MonoBehaviour
         mainSpiritImage.color = temp;
     }
 
-    public void setSelectedSpiritPrev(string name) {
+    public void setSelectedSpiritPrev(string name)
+    {
         prevSpiritImage.sprite = findSpiritImage(name);
         // Make image visable
         Color temp = prevSpiritImage.color;
@@ -190,7 +193,8 @@ public class GameManager : MonoBehaviour
         prevSpiritImage.color = temp;
     }
 
-    public void setSelectedSpiritNext(string name) {
+    public void setSelectedSpiritNext(string name)
+    {
         nextSpiritImage.sprite = findSpiritImage(name);
         // Make image visable
         Color temp = nextSpiritImage.color;
@@ -201,8 +205,10 @@ public class GameManager : MonoBehaviour
         nextSpiritImage.color = temp;
     }
 
-    public Sprite findSpiritImage(string name) {
-        switch (name) {
+    public Sprite findSpiritImage(string name)
+    {
+        switch (name)
+        {
             case "Floaty_SpiritUI":
                 return floatyImg;
             case "Floaty":
@@ -227,6 +233,8 @@ public class GameManager : MonoBehaviour
                 return strongImg;
             case "Wise_SpiritUI":
                 return wiseImg;
+            case "Wise":
+                return wiseImg;
             case "Shark_SpiritUI":
                 return sharkImg;
             default:
@@ -235,11 +243,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SetSpiritToolTip(string name) {
-        TooltipTrigger tipTrigger = mainSpiritImage.transform.parent.GetComponent<TooltipTrigger>();
+    public void SetSpiritToolTip(string name)
+    {
+        TooltipTrigger tipTrigger = spiritHolderUI.GetComponent<TooltipTrigger>();
         tipTrigger.header = name;
 
-        switch (name) {
+        switch (name)
+        {
             case "Rock":
                 tipTrigger.content = "Will stay in one spot upon first activation and then return you upon second activation.";
                 break;
@@ -249,7 +259,20 @@ public class GameManager : MonoBehaviour
             case "Lamp":
                 tipTrigger.content = "Use on special lamps to activate a transition from solar to lunar realm.";
                 break;
+            case "Strong":
+                tipTrigger.content = "Helps to move heavy objects.";
+                break;
+            case "Wise":
+                tipTrigger.content = "N/A";
+                break;
+            case "Shark":
+                tipTrigger.content = "N/A";
+                break;
+            case "Plant":
+                tipTrigger.content = "Regenerates hp over time.";
+                break;
             default:
+                Debug.LogError("No spirit for trigger with name: " + name);
                 tipTrigger.content = "No spirit currently selected";
                 break;
         }
@@ -263,28 +286,36 @@ public class GameManager : MonoBehaviour
             DialogueManager.instance.DisplayNextSentence();
     }
 
-    public void GameOver() {
+    public void GameOver()
+    {
         setMouseLock(false);
         mouseState = MouseState.canvas;
         gameOverCanvasUI.SetActive(true);
     }
 
-    public void setCameraShake(bool isShaking) {
+    public void setCameraShake(bool isShaking)
+    {
         camSettings.cameraShake = isShaking;
     }
 
-    public void setMinimapVisable(bool isOpen) {
-        if (isOpen) {
+    public void setMinimapVisable(bool isOpen)
+    {
+        if (isOpen)
+        {
             minimapMask.SetActive(true);
             minimapBorder.SetActive(true);
-        } else {
+        }
+        else
+        {
             minimapMask.SetActive(false);
             minimapBorder.SetActive(false);
         }
     }
 
-    public IEnumerator NextScene() {
-        while (fadeBackground.color.a < 1) {
+    public IEnumerator NextScene()
+    {
+        while (fadeBackground.color.a < 1)
+        {
             Color temp = fadeBackground.color;
             temp.a += .01f;
             yield return fadeBackground.color = temp;
@@ -293,7 +324,8 @@ public class GameManager : MonoBehaviour
         StartCoroutine(FadeOut());
     }
 
-    public IEnumerator FadeOut() {
+    public IEnumerator FadeOut()
+    {
         while (fadeBackground.color.a > 0)
         {
             Color temp = fadeBackground.color;

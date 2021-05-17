@@ -15,14 +15,19 @@ public class Tooltip : MonoBehaviour
 
     public RectTransform rectTransform;
 
-    private void Awake() {
+    private void Awake()
+    {
         rectTransform = GetComponent<RectTransform>();
     }
 
-    public void SetText(string content, string header = "") {
-        if (string.IsNullOrEmpty(header)) {
+    public void SetText(string content, string header = "")
+    {
+        if (string.IsNullOrEmpty(header))
+        {
             headerField.gameObject.SetActive(false);
-        } else {
+        }
+        else
+        {
             headerField.gameObject.SetActive(true);
             headerField.text = header;
         }
@@ -30,25 +35,27 @@ public class Tooltip : MonoBehaviour
         contentField.text = content;
 
         int headerLen = headerField.text.Length;
-            int contentLen = contentField.text.Length;
+        int contentLen = contentField.text.Length;
 
-            LayoutElement.enabled = (headerLen > characterWrapLimit || contentLen > characterWrapLimit) ? true : false;
+        LayoutElement.enabled = (headerLen > characterWrapLimit || contentLen > characterWrapLimit) ? true : false;
     }
 
-    private void Update() {
-        if (Application.isEditor) {
+    private void Update()
+    {
+        if (Application.isEditor)
+        {
             int headerLen = headerField.text.Length;
             int contentLen = contentField.text.Length;
 
             LayoutElement.enabled = (headerLen > characterWrapLimit || contentLen > characterWrapLimit) ? true : false;
         }
 
-        Vector2 position = Input.mousePosition;
+        // Vector2 position = Input.mousePosition;
 
-        float pivotX = position.x / Screen.width;
-        float pivotY = position.y / Screen.height;
+        // float pivotX = position.x / Screen.width;
+        // float pivotY = position.y / Screen.height;
 
-        rectTransform.pivot = new Vector2(pivotX, pivotY);
-        transform.position = position;
+        // rectTransform.pivot = new Vector2(pivotX, pivotY);
+        // transform.position = position;
     }
 }
