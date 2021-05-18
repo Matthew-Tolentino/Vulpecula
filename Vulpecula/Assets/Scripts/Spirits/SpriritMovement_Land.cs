@@ -38,7 +38,6 @@ public class SpriritMovement_Land : MonoBehaviour
         state = "Spawn";
         spawn = transform.position;
         rb = GetComponent<Rigidbody>();
-        rb.useGravity = true;
         rb.isKinematic = false;
         timer = 5f;
         fs = GetComponent<Collider>();
@@ -147,7 +146,8 @@ public class SpriritMovement_Land : MonoBehaviour
     	Physics.IgnoreCollision(pl.GetComponent<Collider>(), GetComponent<Collider>(), true);
         state = "OnPlayer";
         accel = 5f;
-        rb.constraints |= RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;;
+        rb.constraints |= RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
+        rb.useGravity = true;
     }
 
     // Player Lose spirit

@@ -21,6 +21,11 @@ public class SpiritHandler : MonoBehaviour
 
     public bool StrongActive;
 
+    public int[] selectableSpirits;
+    private int selectIndex;
+    private int currentIndex;
+
+
 
     void Start()
     {
@@ -34,6 +39,14 @@ public class SpiritHandler : MonoBehaviour
         targetRockLoc = null;
 
         StrongActive = false;
+
+        selectIndex = -1;
+        currentIndex = -1;
+
+        selectableSpirits = new int[3];
+        selectableSpirits[0] = -1;
+        selectableSpirits[1] = -1;
+        selectableSpirits[2] = -1;
     }
 
 
@@ -51,6 +64,7 @@ public class SpiritHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
+    	string type = "";
         if (collision.gameObject.tag == "Spirit_Floating")
         {
             var pull = collision.gameObject.GetComponent<SpiritMovement_Floating>();
@@ -61,15 +75,17 @@ public class SpiritHandler : MonoBehaviour
             // Enable Passive Abilities
             if (pull.type == "Bunny") GameManager.instance.setMinimapVisable(true);
 
+            if (pull.type == "Lamp") type = pull.type;
+            
+
 
         }
         else if (collision.gameObject.tag == "Spirit_Land")
         {
             var pull = collision.gameObject.GetComponent<SpriritMovement_Land>();
             if (pull.state != "Spawn") return;
+            if (pull.type == "Rock" || pull.type == "Strong") type = pull.type;
             pull.ObtainSpiritLand();
-
-            // Enable Passive Abilities
 
 
 
@@ -90,6 +106,15 @@ public class SpiritHandler : MonoBehaviour
 
         if (selectedSpirit == -1) selectedSpirit = 0;
         else selectedSpirit = SpiritList.Count - 1;
+        
+
+        // Add to new selector
+        if (type != "") {
+        	++selectIndex;
+        	selectableSpirits[selectIndex] = selectedSpirit;
+        	currentIndex = selectIndex;
+        }
+
         nameSelected();
 
     }
@@ -98,7 +123,21 @@ public class SpiritHandler : MonoBehaviour
 
     public void loseSpirit()
     {
-        if (SpiritList.Count == 0) return;
+        while(SpiritList.Count != 0) loseElement();
+
+        // Handle new Selector
+        selectableSpirits[0] = -1;
+        selectableSpirits[1] = -1;
+        selectableSpirits[2] = -1;
+        selectIndex = -1;
+        currentIndex = -1;
+
+        nameSelected();
+    }
+
+    private void loseElement()
+    {
+    	if (SpiritList.Count == 0) return;
         int removeIndex = SpiritList.Count - 1;
 
         if (SpiritList[removeIndex].tag == "Spirit_Floating")
@@ -126,27 +165,26 @@ public class SpiritHandler : MonoBehaviour
         	--selectedSpirit;
         	if (ability) callAbility();
         }
-        nameSelected();
     }
 
 
 
     private void callAbility()
     {
-        if (selectedSpirit < 0) return;
+        if (currentIndex == -1 || selectableSpirits[currentIndex] < 0) return;
 
         // call sounds
-        if (SpiritList[selectedSpirit].GetComponent<SpiritSounds>() != null)
+        if (SpiritList[selectableSpirits[currentIndex]].GetComponent<SpiritSounds>() != null)
         {
-            foreach (var emitter in SpiritList[selectedSpirit].GetComponent<SpiritSounds>().actionTriggerSounds)
+            foreach (var emitter in SpiritList[selectableSpirits[currentIndex]].GetComponent<SpiritSounds>().actionTriggerSounds)
             {
                 emitter.Play();
             }
         }
 
-        if (SpiritList[selectedSpirit].tag == "Spirit_Land")
+        if (SpiritList[selectableSpirits[currentIndex]].tag == "Spirit_Land")
     	{
-    		var pull = SpiritList[selectedSpirit].GetComponent<SpriritMovement_Land>();
+    		var pull = SpiritList[selectableSpirits[currentIndex]].GetComponent<SpriritMovement_Land>();
     		if (pull.type == "Rock") 
     		{
     			if (!ability)
@@ -178,9 +216,9 @@ public class SpiritHandler : MonoBehaviour
     		else return;
     	}
 
-    	else if (SpiritList[selectedSpirit].tag == "Spirit_Floating")
+    	else if (SpiritList[selectableSpirits[currentIndex]].tag == "Spirit_Floating")
     	{
-    		var pull = SpiritList[selectedSpirit].gameObject.GetComponent<SpiritMovement_Floating>();
+    		var pull = SpiritList[selectableSpirits[currentIndex]].gameObject.GetComponent<SpiritMovement_Floating>();
             if (pull.type == "Lamp") {
                 triggerLamp = true;
                 Invoke("endLampCheck", 0.5f);
@@ -194,40 +232,51 @@ public class SpiritHandler : MonoBehaviour
 
     private void incrementSelect()
     {
-    	if (selectedSpirit == -1) return;
+    	if (currentIndex == -1) return;
     	if (ability) {
         	callAbility();
         	ability = !ability;
         }
-    	if (selectedSpirit == SpiritList.Count - 1) selectedSpirit = 0;
-    	else ++selectedSpirit;
+
+        int temp = currentIndex;
+    	if (temp == 2) temp = 0;
+    	else ++temp;
+    	if (selectableSpirits[temp] == -1) return;
+    	currentIndex = temp;
+
     	nameSelected();
 
     }
     private void decrementSelect()
     {
-    	if (selectedSpirit == -1) return;
+    	if (currentIndex == -1) return;
     	if (ability) {
         	callAbility();
         	ability = !ability;
         }
-    	if (selectedSpirit == 0) selectedSpirit = SpiritList.Count - 1;
-    	else --selectedSpirit;
+
+        int temp = currentIndex;
+    	if (temp == 0) temp = 2;
+    	else --temp;
+    	if (selectableSpirits[temp] == -1) return;
+    	currentIndex = temp;
+
     	nameSelected();
     }
 
     private void nameSelected(){
     	var send = GetComponent<PlayerUI>();
     	string type = "";
-    	if (selectedSpirit == -1) type = "none";
-    	else if (SpiritList[selectedSpirit].tag == "Spirit_Land")
+    	
+    	if (currentIndex == -1 || selectableSpirits[currentIndex] == -1) type = "none";
+    	else if (SpiritList[selectableSpirits[currentIndex]].tag == "Spirit_Land")
     	{
-    		var pull = SpiritList[selectedSpirit].GetComponent<SpriritMovement_Land>();
+    		var pull = SpiritList[selectableSpirits[currentIndex]].GetComponent<SpriritMovement_Land>();
     		type = pull.type;
     	}
-    	else if (SpiritList[selectedSpirit].tag == "Spirit_Floating")
+    	else if (SpiritList[selectableSpirits[currentIndex]].tag == "Spirit_Floating")
     	{
-    		var pull = SpiritList[selectedSpirit].GetComponent<SpiritMovement_Floating>();
+    		var pull = SpiritList[selectableSpirits[currentIndex]].GetComponent<SpiritMovement_Floating>();
             type = pull.type;
     	}
     	if (type == "") type = "undefined";
@@ -237,8 +286,9 @@ public class SpiritHandler : MonoBehaviour
         GameManager.instance.setSelectedSpiritNext(GetNextSpirit());
         GameManager.instance.setSelectedSpiritPrev(GetPrevSpirit());
         GameManager.instance.SetSpiritToolTip(type);
-        if (selectedSpirit != -1){
-            var pull = SpiritList[selectedSpirit].GetComponent<SpiritGlowControl>();
+
+        if (currentIndex != -1){
+            var pull = SpiritList[selectableSpirits[currentIndex]].GetComponent<SpiritGlowControl>();
             if (pull != null) pull.activate = true;
         }
     }
@@ -248,27 +298,29 @@ public class SpiritHandler : MonoBehaviour
     }
 
     public string GetNextSpirit(){
-        if (SpiritList.Count == 0) return "none";
-        int next = selectedSpirit + 1;
-        if (next == SpiritList.Count) next = 0;
+        if (selectIndex == -1) return "none";
+        int next = currentIndex + 1;
+        if (next >= 3) next = 0;
 
-        if (SpiritList[next].tag == "Spirit_Land"){
-            return SpiritList[next].GetComponent<SpriritMovement_Land>().type;
+        if (selectableSpirits[next] == -1) return "none";
+        if (SpiritList[selectableSpirits[next]].tag == "Spirit_Land"){
+            return SpiritList[selectableSpirits[next]].GetComponent<SpriritMovement_Land>().type;
         }
         else{
-            return SpiritList[next].GetComponent<SpiritMovement_Floating>().type;  
+            return SpiritList[selectableSpirits[next]].GetComponent<SpiritMovement_Floating>().type;  
         }
     }
     public string GetPrevSpirit(){
-        if (SpiritList.Count == 0) return "none";
-        int prev = selectedSpirit - 1;
-        if (prev == -1) prev = SpiritList.Count-1;
+        if (selectIndex == -1) return "none";
+        int prev = currentIndex - 1;
+        if (prev <= -1) prev = 2;
 
-        if (SpiritList[prev].tag == "Spirit_Land"){
-            return SpiritList[prev].GetComponent<SpriritMovement_Land>().type;
+        if (selectableSpirits[prev] == -1) return "none";
+        if (SpiritList[selectableSpirits[prev]].tag == "Spirit_Land"){
+            return SpiritList[selectableSpirits[prev]].GetComponent<SpriritMovement_Land>().type;
         }
         else{
-            return SpiritList[prev].GetComponent<SpiritMovement_Floating>().type;  
+            return SpiritList[selectableSpirits[prev]].GetComponent<SpiritMovement_Floating>().type;  
         }
     }
 }

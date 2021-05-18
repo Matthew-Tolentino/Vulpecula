@@ -9,7 +9,6 @@ public class SeeSawControl : MonoBehaviour
 
 	public float rotationMaximum;
 	public float speed; 
-	public float curRot;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,20 +19,22 @@ public class SeeSawControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		float currentAngle = transform.eulerAngles.z;
+		float currentAngle = transform.eulerAngles.x;
 		if(currentAngle > 180) currentAngle -= 360;
 		
         if (leftWeight > rightWeight && currentAngle < rotationMaximum)
         {
-        	Quaternion f = transform.localRotation;
-        	f.z += speed * Time.deltaTime;
-        	transform.localRotation = f;
+        	//Quaternion f = transform.localRotation;
+        	//f.x += speed * Time.deltaTime;
+        	//transform.localRotation = f;
+            transform.Rotate(speed*Time.deltaTime, 0, 0);
         }
         else if (leftWeight < rightWeight && currentAngle > -1f * rotationMaximum)
         {
-        	Quaternion f = transform.localRotation;
-        	f.z -= speed * Time.deltaTime;
-        	transform.localRotation = f;
+        	//Quaternion f = transform.localRotation;
+        	//f.x -= speed * Time.deltaTime;
+        	//transform.localRotation = f;
+            transform.Rotate(-speed*Time.deltaTime, 0, 0);
         }
     }
 }
