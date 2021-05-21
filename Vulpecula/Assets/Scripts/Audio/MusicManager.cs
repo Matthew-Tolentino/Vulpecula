@@ -6,19 +6,22 @@ public class MusicManager : MonoBehaviour
 {
     public static MusicManager instance;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (instance == null)
         {
             instance = this;
-
-            PlayMusic(defaultMusicIndex);
         }
         else if (instance != this)
         {
             Destroy(gameObject);
         }
         DontDestroyOnLoad(transform);
+    }
+
+    private void Start()
+    {
+        PlayMusic(defaultMusicIndex);
     }
 
     private string[] musicFNs = new string[] {"event:/Music/Menu Music",

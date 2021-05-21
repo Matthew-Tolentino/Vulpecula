@@ -77,7 +77,7 @@ public class MoveToSpiritWorld : MonoBehaviour
     {
         if (controlSpiritHum)
         {
-            foreach (var noodler in FindObjectsOfType<SpiritNoodler>())
+            foreach (var noodler in NoodlerManager.instance.noodlers)
             {
                 noodler.StartPlaying();
             }
@@ -98,7 +98,7 @@ public class MoveToSpiritWorld : MonoBehaviour
     {
         if (controlSpiritHum)
         {
-            foreach (var noodler in FindObjectsOfType<SpiritNoodler>())
+            foreach (var noodler in NoodlerManager.instance.noodlers)
             {
                 noodler.StopPlaying();
             }

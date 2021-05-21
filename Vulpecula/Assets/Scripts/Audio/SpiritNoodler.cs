@@ -31,9 +31,11 @@ public class SpiritNoodler : MonoBehaviour
     private int nextSemitone;
     private bool needsSemitoneUpdate = true;
 
-    private enum SCALE_TYPES { PENTATONIC };
+    private enum SCALE_TYPES { PENTATONIC, MINOR, CHROMATIC };
 
     private static int[] PentatonicIntervals = { 0, 2, 4, 7, 9, 12 };
+    private static int[] MinorIntervals = { 0, 2, 3, 5, 7, 9, 10, 12 };
+    // chromatic
 
     private static int NUM_NOTES = 4;
 
@@ -75,6 +77,24 @@ public class SpiritNoodler : MonoBehaviour
                     }
                 }
                 break;
+            case SCALE_TYPES.MINOR:
+                if (System.Array.Exists(MinorIntervals, element => element == semitoneInterval))
+                    break;
+                for (int i = 0; i < MinorIntervals.Length; ++i)
+                {
+                    if (semitoneInterval <= MinorIntervals[i])
+                    {
+                        System.Random rand = new System.Random();
+                        if (rand.NextDouble() < 0.5 || i == 0)
+                            semitoneInterval = MinorIntervals[i];
+                        else
+                            semitoneInterval = MinorIntervals[i - 1];
+                    }
+                }
+                break;
+            case SCALE_TYPES.CHROMATIC:
+                // keep all notes
+                break;
             default:
                 break;
         }
@@ -85,6 +105,8 @@ public class SpiritNoodler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        NoodlerManager.instance.noodlers.Add(this);
+
         if (playOnStart)
         {
             PlayNextNote();
@@ -120,7 +142,7 @@ public class SpiritNoodler : MonoBehaviour
         musicInstance.setVolume(volume);
 
         int semitones = rand.Next(minNote, maxNote);
-        semitones = ClampToScale(semitones, SCALE_TYPES.PENTATONIC);
+        semitones = ClampToScale(semitones, scaleType);
         musicInstance.setParameterByName("Pitch", SemitoneToPitchVar((float)semitones));
 
         float tremuloDepth = (float)rand.NextDouble() * (maxTremulo - minTremulo) + minTremulo;
