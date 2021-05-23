@@ -22,7 +22,8 @@ public class ItemInteractable : MonoBehaviour
             {
                 if (interactSound != null) interactSound.Play();
 
-                Destroy(transform.parent.gameObject);
+                transform.parent.parent.gameObject.GetComponent<ButtonTrigger>().state = "Closed-To-Open";
+                Destroy(gameObject);
             }
         }
     }

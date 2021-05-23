@@ -42,8 +42,8 @@ public class SpiritGlowControl : MonoBehaviour
     	if (glowTarget != null && activate){
     		if (state == "Inactive") state = "ActiveUp";
     		if (state == "ActiveUp"){
-    			intensity += Time.deltaTime * (intensity + 1) * 4;
-    			if (intensity >= 7.5) state = "ActiveDown";
+    			intensity += Time.deltaTime * (intensity + 1) ;
+    			if (intensity >= 2.5) state = "ActiveDown";
     		}
     		if (state == "ActiveDown"){
     			intensity -= Time.deltaTime * 4;

@@ -11,6 +11,8 @@ public class ButtonTrigger : MonoBehaviour
     public string state;
     private float time;
 
+    public bool openByPlayer;
+
     [SerializeField]
     private FMODUnity.StudioEventEmitter gateOpenSound = null;
     [SerializeField]
@@ -58,6 +60,12 @@ public class ButtonTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
     	if (state == "Opened" || state == "Closed-To-Open") return;
+
+    	if (openByPlayer && other.gameObject.tag == "Player")
+    	{
+    		state = "Closed-To-Open";
+    	}
+
         else if (other.gameObject.tag == "Spirit_Land"){
         	var pull = other.gameObject.GetComponent<SpriritMovement_Land>();
             if (pull.type == "Rock" && (pull.state == "ForceMovement" || pull.state == "ForcedMovent_Idle"))
@@ -79,7 +87,7 @@ public class ButtonTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-    	if (state == "Closed" || state == "Open-To-Closed") return;
+    	if (state == "Closed" || state == "Open-To-Closed" || openByPlayer) return;
         else if (other.gameObject.tag == "Spirit_Land"){
         	var pull = other.gameObject.GetComponent<SpriritMovement_Land>();
             if (pull.type == "Rock")
