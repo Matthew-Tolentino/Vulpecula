@@ -37,7 +37,7 @@ public class Tooltip : MonoBehaviour
         int headerLen = headerField.text.Length;
         int contentLen = contentField.text.Length;
 
-        LayoutElement.enabled = (headerLen > characterWrapLimit || contentLen > characterWrapLimit) ? true : false;
+        // LayoutElement.enabled = (headerLen > characterWrapLimit || contentLen > characterWrapLimit) ? true : false;
     }
 
     private void Update()

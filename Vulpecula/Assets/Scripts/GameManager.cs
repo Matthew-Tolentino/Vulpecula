@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public Sprite wiseImg;
     public Sprite strongImg;
     public Sprite sharkImg;
+    public Sprite bushImg;
 
     public CameraSettings camSettings;
 
@@ -237,6 +238,10 @@ public class GameManager : MonoBehaviour
                 return wiseImg;
             case "Shark_SpiritUI":
                 return sharkImg;
+            case "Sprout_SpiritUI":
+                return flowerPlantImg;
+            case "Bush_SpiritUI":
+                return bushImg;
             default:
                 Debug.LogError("No sprite with name: " + name);
                 return null;
