@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpCoolDown = .5f;
 
     [Header("Ground Checks")]
+    public float groundPosCheck = 1.5f;
     public float groundDistance = 1f;
     public LayerMask groundMask;
 
@@ -101,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(movementVector);
 
         // Gravity Handeling
-        Vector3 checkPos = new Vector3(transform.position.x, transform.position.y - 1.5f, transform.position.z);
+        Vector3 checkPos = new Vector3(transform.position.x, transform.position.y - groundPosCheck, transform.position.z);
         isGrounded = Physics.CheckSphere(checkPos, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
@@ -129,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void OnDrawGizmos() {
-        Gizmos.DrawWireSphere(new Vector3(transform.position.x, transform.position.y - 1.5f, transform.position.z), groundDistance);
+        Gizmos.DrawWireSphere(new Vector3(transform.position.x, transform.position.y - groundPosCheck, transform.position.z), groundDistance);
     }
 
 
