@@ -32,7 +32,7 @@ public class FootstepChangeTrigger : MonoBehaviour
     {
         if (other.tag == "Player" && onExitTypeToSet != FootstepController.TERRAIN_TYPES.NULL)
         {
-            footstepController.SetTerrainType(onExitTypeToSet);
+            if (footstepController != null)footstepController.SetTerrainType(onExitTypeToSet);
         }
     }
 }

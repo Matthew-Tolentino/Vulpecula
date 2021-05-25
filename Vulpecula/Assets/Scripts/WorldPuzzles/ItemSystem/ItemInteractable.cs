@@ -6,7 +6,7 @@ public class ItemInteractable : MonoBehaviour
 {
     public string[] itemsNeeded;
 
-    private bool canInteract;
+    private bool canInteract = false;
 
     [SerializeField]
     FMODUnity.StudioEventEmitter interactSound = null;
@@ -43,9 +43,10 @@ public class ItemInteractable : MonoBehaviour
                     break;
                 }
             }
-            if (!missingItem)
+            if (!missingItem){
                 Debug.Log("Can interact");
                 canInteract = true;
+            }
         }
     }
 
