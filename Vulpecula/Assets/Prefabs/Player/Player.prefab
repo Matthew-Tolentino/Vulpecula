@@ -103,7 +103,7 @@ MonoBehaviour:
   defaultSpeed: 6
   sprintSpeed: 20
   turnSpeed: 0.5
-  jumpHeight: 750
+  jumpHeight: 375
   jumpCoolDown: 0.5
   groundDistance: 0.2
   groundMask:
@@ -133,7 +133,8 @@ MonoBehaviour:
   rockgoto: {x: 0, y: 0, z: 0}
   targetRockLoc: {fileID: 0}
   nearButton: 0
-  strongSpirit: 0
+  StrongActive: 0
+  selectableSpirits: 
 --- !u!114 &8186383926658599434
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,7 +9,15 @@ public class TooltipSystem : MonoBehaviour
     public Tooltip tooltip;
 
     public void Awake() {
-        current = this;
+        if (current == null)
+        {
+            current = this;
+        }
+        else if (current != this)
+        {
+            Destroy(this);
+        }
+        DontDestroyOnLoad(this);
     }
 
     public static void Show(string content, string header = "") {
