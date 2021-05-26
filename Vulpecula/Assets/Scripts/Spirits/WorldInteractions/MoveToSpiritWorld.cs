@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MoveToSpiritWorld : MonoBehaviour
 {
+    public static int inSpiritWorld;
 	public string state;
 	public bool touching;
 	public Vector3 origin;
@@ -23,6 +24,7 @@ public class MoveToSpiritWorld : MonoBehaviour
     	sharedVal = 0;
         state = "Human";
         touching = false;
+        inSpiritWorld = 0;
     }
 
     // Update is called once per frame
@@ -35,6 +37,7 @@ public class MoveToSpiritWorld : MonoBehaviour
         if (pull.triggerLamp) lampAbility();
         if (x >= distance && state == "Spirit"){
         	state = "Human";
+            inSpiritWorld -= 1;
             // beginning to exit spirit world
             StartCoroutine(Audio_FadeOutOfSpiritWorld(fadeOutTime));
         }
@@ -46,12 +49,14 @@ public class MoveToSpiritWorld : MonoBehaviour
         	sharedVal -= Time.deltaTime*(1/secEnd);
         	if (sharedVal < 0) sharedVal = 0;
         }
+
     }
 
     void lampAbility(){
         var pull = player.GetComponent<SpiritHandler>();
         if (touching && state != "Spirit"){
             state = "Spirit";
+            inSpiritWorld += 1;
             // begining to enter spirit world
             StartCoroutine(Audio_FadeIntoSpiritWorld(fadeInTime));
         }

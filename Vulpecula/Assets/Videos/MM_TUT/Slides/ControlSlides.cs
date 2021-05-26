@@ -10,6 +10,7 @@ public class ControlSlides : MonoBehaviour
     public Sprite[] slides;
 
     private int NextIndex = 0;
+    public bool endGame;
 
     void Start()
     {
@@ -19,14 +20,22 @@ public class ControlSlides : MonoBehaviour
     public void nextImage()
     {	
     	if (NextIndex >= slides.Length){
-    		StartCoroutine(GameManager.instance.NextScene());
-        	GameManager.instance.setMouseLock(true);
+            if (endGame) SceneManager.LoadScene(0);
+    		else 
+            {
+                StartCoroutine(GameManager.instance.NextScene());
+            	GameManager.instance.setMouseLock(true);
+            }
     	}
     	else image.sprite = slides[NextIndex++];
     }
 
     public void skip(){
-        StartCoroutine(GameManager.instance.NextScene());
-        GameManager.instance.setMouseLock(true);
+        if (endGame) SceneManager.LoadScene(0);
+        else 
+        {
+            StartCoroutine(GameManager.instance.NextScene());
+            GameManager.instance.setMouseLock(true);
+        }
     }
 }

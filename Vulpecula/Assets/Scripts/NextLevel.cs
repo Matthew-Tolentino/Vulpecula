@@ -12,9 +12,7 @@ public class NextLevel : MonoBehaviour
         {
         	if (loseSpirits){
         		var pull = obj.GetComponent<SpiritHandler>();
-        		while(pull.SpiritList.Count > 0){
-        			pull.loseSpirit();
-        		}
+        		pull.loseSpirit();
         	}
 
             // Clear inventory to show correct items needed in next level
