@@ -18,6 +18,8 @@ public class FieldOfView : MonoBehaviour
 
     public GameObject exclamationPoint;
 
+    private DialogueManager manager;
+
     //public GameObject PostFX_Vision;
     //public PostProcessVolume volume = gameObject.GetComponent<PostProcessVolume>();
 
@@ -62,6 +64,8 @@ public class FieldOfView : MonoBehaviour
 
         //vg = postProc.GetComponent<Vignette>();
         exclamationPoint.SetActive(false);
+
+        manager = GameObject.Find("Managers").GetComponent<DialogueManager>();
 
 
 
@@ -123,7 +127,10 @@ public class FieldOfView : MonoBehaviour
                     seenDelay++;
                     if(seenDelay >= 10)
                     {
-                        animationRef.seenCounter++;
+                        if (!manager.isOpen)
+                        {
+                            animationRef.seenCounter++;
+                        }
                     }
                     isSeen = true;
                     spiritRef.loseSpirit();

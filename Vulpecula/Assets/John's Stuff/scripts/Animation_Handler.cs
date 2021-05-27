@@ -7,7 +7,9 @@ public class Animation_Handler : MonoBehaviour
 {
     private Animator animator;
     public Image healthBar;
-    
+
+    private DialogueManager manager;
+
 
     private int angerCounter = 0;
     public float seenCounter = 0;
@@ -18,11 +20,15 @@ public class Animation_Handler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+
         animator = GetComponent<Animator>();
 
         healthBar = GameObject.Find("PlayerHealthFG").GetComponent<Image>();
-        
+
+        manager = GameObject.Find("Managers").GetComponent<DialogueManager>();
+
+
+
     }
 
     // Update is called once per frame
@@ -30,56 +36,75 @@ public class Animation_Handler : MonoBehaviour
     {
         // Used to determine current value of health bar. 
         healthBar.fillAmount = ((startHealth - (seenCounter / 100) * 4) / startHealth);
+        if (!manager.isOpen)
+        {
+            if (Input.GetKey("space"))
+            {
+                angerCounter = 0;
+                animator.SetBool("isAngry", false);
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isSprinting", false);
+                animator.SetBool("isPointing", false);
+                animator.SetBool("isJumping", true);
 
-        if (Input.GetKey("space"))
-        {
-           angerCounter = 0;
-           animator.SetBool("isAngry", false);
-           animator.SetBool("isWalking", false);
-           animator.SetBool("isSprinting", false);
-           animator.SetBool("isPointing", false);
-           animator.SetBool("isJumping", true);
-             
+            }
+            else if (Input.GetKey("r"))
+            {
+                angerCounter = 0;
+                animator.SetBool("isAngry", false);
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isSprinting", false);
+                animator.SetBool("isJumping", false);
+                animator.SetBool("isPointing", true);
+
+            }
+
+            else if ((Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d")) && Input.GetKey(KeyCode.LeftShift))
+            // Swap running animation to be based on player movement
+            // else if (.13f < GameManager.instance.playerMoveVector.magnitude)
+            {
+                //Debug.Log("RUNNING");
+                angerCounter = 0;
+                animator.SetBool("isAngry", false);
+                animator.SetBool("isJumping", false);
+                animator.SetBool("isSprinting", true);
+                animator.SetBool("isPointing", false);
+                animator.SetBool("isWalking", false);
+
+            }
+
+            else if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
+            // Swap walking animation to be based on player movement
+            // else if (.01f < GameManager.instance.playerMoveVector.magnitude || Input.GetKey("a") || Input.GetKey("d"))
+            {
+                //Debug.Log("WALKING");
+                angerCounter = 0;
+                animator.SetBool("isAngry", false);
+                animator.SetBool("isJumping", false);
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isPointing", false);
+                animator.SetBool("isSprinting", false);
+
+            }
+
+            else
+            {
+                //Debug.Log("STANDING");
+                angerCounter++;
+
+                animator.SetBool("isJumping", false);
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isSprinting", false);
+                animator.SetBool("isPointing", false);
+
+                if (angerCounter >= 600)
+                {
+                    animator.SetBool("isAngry", true);
+                }
+            }
+
+
         }
-        else if(Input.GetKey("r"))
-        {
-           angerCounter = 0;
-           animator.SetBool("isAngry", false);
-           animator.SetBool("isWalking", false);
-           animator.SetBool("isSprinting", false);
-           animator.SetBool("isJumping", false);
-           animator.SetBool("isPointing", true);
-             
-        }
-        
-        else if ((Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d")) && Input.GetKey(KeyCode.LeftShift))
-        // Swap running animation to be based on player movement
-        // else if (.13f < GameManager.instance.playerMoveVector.magnitude)
-        {
-            //Debug.Log("RUNNING");
-            angerCounter = 0;
-            animator.SetBool("isAngry", false);
-            animator.SetBool("isJumping", false);
-            animator.SetBool("isSprinting", true);
-            animator.SetBool("isPointing", false);
-            animator.SetBool("isWalking", false);
-             
-        }
-        
-        else if(Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d") )
-        // Swap walking animation to be based on player movement
-        // else if (.01f < GameManager.instance.playerMoveVector.magnitude || Input.GetKey("a") || Input.GetKey("d"))
-        {
-            //Debug.Log("WALKING");
-            angerCounter = 0;
-            animator.SetBool("isAngry", false);
-            animator.SetBool("isJumping", false);
-            animator.SetBool("isWalking", true);
-            animator.SetBool("isPointing", false);
-            animator.SetBool("isSprinting", false);
-            
-        }
-        
         else
         {
             //Debug.Log("STANDING");
@@ -90,14 +115,14 @@ public class Animation_Handler : MonoBehaviour
             animator.SetBool("isSprinting", false);
             animator.SetBool("isPointing", false);
 
-            if(angerCounter >= 600){
+            if (angerCounter >= 600)
+            {
                 animator.SetBool("isAngry", true);
             }
-            
         }
 
-        
-       
+
+
     }
 
 
