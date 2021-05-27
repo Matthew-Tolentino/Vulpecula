@@ -9,7 +9,7 @@ public class ItemInteractable : MonoBehaviour
     private bool canInteract = false;
 
     [SerializeField]
-    FMODUnity.StudioEventEmitter interactSound = null;
+    private List<FMODUnity.StudioEventEmitter> interactSounds;
 
     // Update is called once per frame
     void Update()
@@ -20,7 +20,10 @@ public class ItemInteractable : MonoBehaviour
             // Generalize to all items later
             if (transform.parent.gameObject.name == "Interactable_InnerGate")
             {
-                if (interactSound != null) interactSound.Play();
+                foreach (var sound in interactSounds)
+                {
+                    sound.Play();
+                }
 
                 transform.parent.parent.gameObject.GetComponent<ButtonTrigger>().state = "Closed-To-Open";
                 Destroy(gameObject);

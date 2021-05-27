@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 787917670}
-  m_IndirectSpecularColor: {r: 0.08753476, g: 0.11207639, b: 0.10472281, a: 1}
+  m_IndirectSpecularColor: {r: 0.08753497, g: 0.11207646, b: 0.10472283, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1660,6 +1660,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &53604672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53604667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a2a73788811d841b1749e4d9eb7e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalVelocityTriggerThreshold: 15
+  horizontalVelocityFullVolumeThreshold: 20
+  eventFN: event:/SFX/Box Dragging
+  volumeMultiplier: 1
+  externalSound: {fileID: 595804905}
 --- !u!1 &56574172 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 65702495048144492, guid: 503c3a49c1dd7ba449ccb617604ca0e3,
@@ -6189,6 +6206,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &237873792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237873787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a2a73788811d841b1749e4d9eb7e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalVelocityTriggerThreshold: 15
+  horizontalVelocityFullVolumeThreshold: 20
+  eventFN: event:/SFX/Box Dragging
+  volumeMultiplier: 1
+  externalSound: {fileID: 595804905}
 --- !u!1 &238868076
 GameObject:
   m_ObjectHideFlags: 0
@@ -7150,6 +7184,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &284496184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284496179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a2a73788811d841b1749e4d9eb7e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalVelocityTriggerThreshold: 15
+  horizontalVelocityFullVolumeThreshold: 20
+  eventFN: event:/SFX/Box Dragging
+  volumeMultiplier: 1
+  externalSound: {fileID: 595804905}
 --- !u!1001 &286147850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11060,6 +11111,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &416635076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416635071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a2a73788811d841b1749e4d9eb7e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalVelocityTriggerThreshold: 15
+  horizontalVelocityFullVolumeThreshold: 20
+  eventFN: event:/SFX/Box Dragging
+  volumeMultiplier: 1
+  externalSound: {fileID: 595804905}
 --- !u!1001 &427773457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12539,6 +12607,7 @@ Transform:
   - {fileID: 1450797790}
   - {fileID: 1554984169}
   - {fileID: 261717845}
+  - {fileID: 595804904}
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15139,6 +15208,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7512366810aa6684b9d3188a29b39737, type: 3}
+--- !u!1 &595804903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 595804904}
+  - component: {fileID: 595804905}
+  m_Layer: 0
+  m_Name: Box Puzzle Success
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &595804904
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595804903}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 469117966}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &595804905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595804903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/Action Sounds/Puzzle Solve Violin 01
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 1
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &600526460
 GameObject:
   m_ObjectHideFlags: 0
@@ -16790,6 +16913,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &671699798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671699793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a2a73788811d841b1749e4d9eb7e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalVelocityTriggerThreshold: 15
+  horizontalVelocityFullVolumeThreshold: 20
+  eventFN: event:/SFX/Box Dragging
+  volumeMultiplier: 1
+  externalSound: {fileID: 595804905}
 --- !u!1001 &676618454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26686,6 +26826,7 @@ GameObject:
   - component: {fileID: 1030580087}
   - component: {fileID: 1030580089}
   - component: {fileID: 1030580085}
+  - component: {fileID: 1030580090}
   m_Layer: 0
   m_Name: TrashCan
   m_TagString: Box
@@ -26778,6 +26919,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1030580090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030580083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a2a73788811d841b1749e4d9eb7e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalVelocityTriggerThreshold: 25
+  horizontalVelocityFullVolumeThreshold: 25
+  eventFN: event:/SFX/Dumpster Draggin
+  volumeMultiplier: 0.625
+  externalSound: {fileID: 0}
 --- !u!1001 &1032228933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27957,6 +28115,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1060687851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060687846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a2a73788811d841b1749e4d9eb7e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalVelocityTriggerThreshold: 15
+  horizontalVelocityFullVolumeThreshold: 20
+  eventFN: event:/SFX/Box Dragging
+  volumeMultiplier: 1
+  externalSound: {fileID: 595804905}
 --- !u!1001 &1066078371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30991,6 +31166,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.020681648, y: 0.02119393, z: 0.027478613}
   m_Center: {x: -1.3005851e-26, y: 0.00027601697, z: 0.0029602095}
+--- !u!114 &1172601460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172601455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a2a73788811d841b1749e4d9eb7e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalVelocityTriggerThreshold: 15
+  horizontalVelocityFullVolumeThreshold: 20
+  eventFN: event:/SFX/Box Dragging
+  volumeMultiplier: 0.75
+  externalSound: {fileID: 595804905}
 --- !u!1001 &1172987440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34807,6 +34999,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1295005094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295005089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a2a73788811d841b1749e4d9eb7e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalVelocityTriggerThreshold: 15
+  horizontalVelocityFullVolumeThreshold: 20
+  eventFN: event:/SFX/Box Dragging
+  volumeMultiplier: 1
+  externalSound: {fileID: 595804905}
 --- !u!1001 &1296673401
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36351,6 +36560,7 @@ GameObject:
   - component: {fileID: 1340423755}
   - component: {fileID: 1340423754}
   - component: {fileID: 1340423757}
+  - component: {fileID: 1340423758}
   m_Layer: 0
   m_Name: InteractableTrigger
   m_TagString: Untagged
@@ -36386,7 +36596,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemsNeeded:
   - GateKey
-  interactSound: {fileID: 1340423757}
+  interactSounds:
+  - {fileID: 1340423757}
+  - {fileID: 1340423758}
 --- !u!65 &1340423755
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36422,6 +36634,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollisionTag: 
   Event: event:/SFX/Action Sounds/Puzzle Solve Violin 01
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!114 &1340423758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340423752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/Gate Open
   PlayEvent: 0
   StopEvent: 0
   AllowFadeout: 1
@@ -47825,7 +48060,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemsNeeded:
   - GateKey
-  interactSound: {fileID: 1626931941}
+  interactSounds: []
 --- !u!65 &1626931943
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -52631,6 +52866,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1829444584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829444579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a2a73788811d841b1749e4d9eb7e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalVelocityTriggerThreshold: 15
+  horizontalVelocityFullVolumeThreshold: 20
+  eventFN: event:/SFX/Box Dragging
+  volumeMultiplier: 1
+  externalSound: {fileID: 595804905}
 --- !u!1001 &1832206547
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63605,7 +63857,7 @@ PrefabInstance:
     - target: {fileID: 2938594160729433727, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.13409707
+      value: 0.13409705
       objectReference: {fileID: 0}
     - target: {fileID: 2938594160729433727, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
         type: 3}
@@ -63615,7 +63867,7 @@ PrefabInstance:
     - target: {fileID: 2938594160729433727, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.13091949
+      value: -0.13091947
       objectReference: {fileID: 0}
     - target: {fileID: 2938594160729433727, guid: 383b02c0ea5a5ec49a40b4ceaf3f8a2a,
         type: 3}
@@ -65296,37 +65548,37 @@ PrefabInstance:
     - target: {fileID: 4440310460614512819, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.1235733
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4440310460614512819, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.261528
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4440310460614512819, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.026947021
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4440310460614512819, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.70650405
+      value: 0.7010288
       objectReference: {fileID: 0}
     - target: {fileID: 4440310460614512819, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.113315806
+      value: 0.14334264
       objectReference: {fileID: 0}
     - target: {fileID: 4440310460614512819, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6897626
+      value: 0.68441707
       objectReference: {fileID: 0}
     - target: {fileID: 4440310460614512819, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.11063064
+      value: -0.13994595
       objectReference: {fileID: 0}
     - target: {fileID: 4440310460690229776, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
@@ -65381,7 +65633,7 @@ PrefabInstance:
     - target: {fileID: 4440310462265449303, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.13273616
+      value: 0.13273615
       objectReference: {fileID: 0}
     - target: {fileID: 4440310462265449303, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
@@ -65391,7 +65643,7 @@ PrefabInstance:
     - target: {fileID: 4440310462265449303, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.12959082
+      value: -0.12959081
       objectReference: {fileID: 0}
     - target: {fileID: 4440310462386834624, guid: 406bc29b143671049975459f054a0d19,
         type: 3}

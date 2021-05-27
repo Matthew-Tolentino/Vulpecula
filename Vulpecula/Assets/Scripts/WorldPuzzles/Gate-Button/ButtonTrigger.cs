@@ -63,7 +63,17 @@ public class ButtonTrigger : MonoBehaviour
 
     	if (openByPlayer && other.gameObject.tag == "Player")
     	{
-    		state = "Closed-To-Open";
+            if (gateCloseSound != null && gateOpenSound != null)
+            {
+                if (gateCloseSound.IsPlaying())
+                    gateCloseSound.Stop();
+                if (!gateOpenSound.IsPlaying())
+                {
+                    gateOpenSound.Play();
+                }
+            }
+
+            state = "Closed-To-Open";
     	}
 
         else if (other.gameObject.tag == "Spirit_Land"){

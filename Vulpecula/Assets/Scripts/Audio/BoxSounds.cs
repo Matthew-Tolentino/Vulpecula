@@ -16,6 +16,12 @@ public class BoxSounds : MonoBehaviour
 
     private FMOD.Studio.EventInstance moveSoundsInstance;
 
+    [SerializeField]
+    private float volumeMultiplier = 1;
+
+    [SerializeField]
+    private FMODUnity.StudioEventEmitter externalSound = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +41,10 @@ public class BoxSounds : MonoBehaviour
         }
 
         if (moveSoundsInstance.isValid())
-            moveSoundsInstance.setVolume(Mathf.Clamp(horizontalVelocity.sqrMagnitude / horizontalVelocityFullVolumeThreshold, 0, 1));
+        {
+            float moveVol = Mathf.Clamp(horizontalVelocity.sqrMagnitude / horizontalVelocityFullVolumeThreshold, 0, 1);
+            moveSoundsInstance.setVolume(moveVol * volumeMultiplier);
+        }
     }
 
     private void PlayMoveSound()
@@ -45,6 +54,12 @@ public class BoxSounds : MonoBehaviour
             moveSoundsInstance.getPlaybackState(out var state);
             if (state == FMOD.Studio.PLAYBACK_STATE.PLAYING)
                 return;
+        }
+
+        if (externalSound != null)
+        {
+            if (!externalSound.IsPlaying())
+                externalSound.Play();
         }
 
         moveSoundsInstance = FMODUnity.RuntimeManager.CreateInstance(eventFN);
