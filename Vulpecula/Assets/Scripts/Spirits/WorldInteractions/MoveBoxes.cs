@@ -7,9 +7,6 @@ public class MoveBoxes : MonoBehaviour
     Rigidbody rb;
     public SpiritHandler script;
     public float magnitude;
-
-    private Vector3 pastPos;
-    private bool move;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
