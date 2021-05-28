@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,10 +10,8 @@ public class NextLevel : MonoBehaviour
     {
         if (obj.gameObject.CompareTag("Player"))
         {
-        	if (loseSpirits){
-        		var pull = obj.GetComponent<SpiritHandler>();
-        		pull.loseSpirit();
-        	}
+    		var pull = obj.GetComponent<SpiritHandler>();
+    		pull.loseSpirit();
 
             // Clear inventory to show correct items needed in next level
             ItemManager.instance.ResetInventory();

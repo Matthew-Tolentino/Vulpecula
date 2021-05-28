@@ -163,7 +163,7 @@ public class SpiritHandler : MonoBehaviour
         SpiritList.RemoveAt(removeIndex);
         if (removeIndex == selectedSpirit) {
         	--selectedSpirit;
-        	if (ability) callAbility();
+        	//if (ability) callAbility();
         }
     }
 

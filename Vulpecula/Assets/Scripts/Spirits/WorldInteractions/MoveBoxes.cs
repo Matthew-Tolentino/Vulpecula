@@ -10,7 +10,7 @@ public class MoveBoxes : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Invoke("delayedContraint", 1.0f);
+        Invoke("delayedContraint", 2.5f);
     }
 
     
