@@ -38,11 +38,8 @@ public class ControlSlides : MonoBehaviour
         }
         else 
         {
-            print("skip scene");
             GameManager.instance.StopFadeOut();
-            print("stopped coroutines");
             StartCoroutine(GameManager.instance.NextScene());
-            print("next scene done");
             GameManager.instance.setMouseLock(true);
         }
     }

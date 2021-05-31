@@ -328,7 +328,6 @@ public class GameManager : MonoBehaviour
         {
             Color temp = fadeBackground.color;
             temp.a += .01f;
-            print("in fade in");
             yield return fadeBackground.color = temp;
         }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -341,7 +340,6 @@ public class GameManager : MonoBehaviour
         {
             Color temp = fadeBackground.color;
             temp.a -= .01f;
-            print("in fade out");
             yield return fadeBackground.color = temp;
         }
     }
