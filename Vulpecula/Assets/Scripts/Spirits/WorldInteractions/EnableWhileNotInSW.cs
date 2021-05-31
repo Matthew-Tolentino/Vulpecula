@@ -6,6 +6,7 @@ public class EnableWhileNotInSW : MonoBehaviour
 {
     public MoveToSpiritWorld target;
     public GameObject setObject;
+    public bool inverted;
     
     void Start()
     {
@@ -16,7 +17,9 @@ public class EnableWhileNotInSW : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (target.state == "Human") setObject.SetActive(true);
+        bool set = target.state == "Human";
+        if (inverted) set = !(target.state == "Human");
+        if (set) setObject.SetActive(true);
         else setObject.SetActive(false);
     }
 }
