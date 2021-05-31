@@ -16,26 +16,31 @@ public class Item : MonoBehaviour
     {
         if (InputManager.instance.KeyDown("PickUp") && canPickup)
         {
-            Destroy(transform.parent.gameObject);
-            // Update inventory
-            ItemManager.instance.UpdateItem(itemName, true);
+            PickupItem();
+        }
+    }
 
-            foreach (var emitter in pickupSounds)
-            {
-                emitter.Play();
-            }
+    private void PickupItem()
+    {
+        Destroy(transform.parent.gameObject);
+        // Update inventory
+        ItemManager.instance.UpdateItem(itemName, true);
+
+        foreach (var emitter in pickupSounds)
+        {
+            emitter.Play();
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-            canPickup = true;
+            PickupItem();
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-            canPickup = false;
-    }
+    // private void OnTriggerExit(Collider other)
+    // {
+    //     if (other.CompareTag("Player"))
+    //         canPickup = false;
+    // }
 }

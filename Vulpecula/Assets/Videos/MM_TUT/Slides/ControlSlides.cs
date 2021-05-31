@@ -20,7 +20,9 @@ public class ControlSlides : MonoBehaviour
     public void nextImage()
     {	
     	if (NextIndex >= slides.Length){
-            if (endGame) SceneManager.LoadScene(0);
+            if (endGame) { 
+                SceneManager.LoadScene(0);
+            }
     		else 
             {
                 StartCoroutine(GameManager.instance.NextScene());
@@ -31,10 +33,16 @@ public class ControlSlides : MonoBehaviour
     }
 
     public void skip(){
-        if (endGame) SceneManager.LoadScene(0);
+        if (endGame) { 
+            SceneManager.LoadScene(0);
+        }
         else 
         {
+            print("skip scene");
+            GameManager.instance.StopFadeOut();
+            print("stopped coroutines");
             StartCoroutine(GameManager.instance.NextScene());
+            print("next scene done");
             GameManager.instance.setMouseLock(true);
         }
     }

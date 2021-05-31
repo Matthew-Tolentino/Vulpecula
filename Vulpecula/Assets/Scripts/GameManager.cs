@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public Sprite strongImg;
     public Sprite sharkImg;
     public Sprite bushImg;
+    public Sprite mushroomImg;
 
     public CameraSettings camSettings;
 
@@ -39,6 +40,8 @@ public class GameManager : MonoBehaviour
     public GameObject minimapBorder;
 
     public Image fadeBackground;
+
+    private Coroutine fadeOut;
 
     void Awake()
     {
@@ -242,6 +245,8 @@ public class GameManager : MonoBehaviour
                 return flowerPlantImg;
             case "Bush_SpiritUI":
                 return bushImg;
+            case "Mushroom_SpiritUI":
+                return mushroomImg;
             default:
                 Debug.LogError("No sprite with name: " + name);
                 return null;
@@ -323,10 +328,11 @@ public class GameManager : MonoBehaviour
         {
             Color temp = fadeBackground.color;
             temp.a += .01f;
+            print("in fade in");
             yield return fadeBackground.color = temp;
         }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        StartCoroutine(FadeOut());
+        fadeOut = StartCoroutine(FadeOut());
     }
 
     public IEnumerator FadeOut()
@@ -335,7 +341,12 @@ public class GameManager : MonoBehaviour
         {
             Color temp = fadeBackground.color;
             temp.a -= .01f;
+            print("in fade out");
             yield return fadeBackground.color = temp;
         }
+    }
+
+    public void StopFadeOut() {
+        StopCoroutine(fadeOut);
     }
 }

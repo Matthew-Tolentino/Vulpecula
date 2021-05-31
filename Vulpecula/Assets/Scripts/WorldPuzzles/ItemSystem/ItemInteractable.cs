@@ -16,18 +16,23 @@ public class ItemInteractable : MonoBehaviour
     {
         if (InputManager.instance.KeyDown("ItemInteract") && canInteract)
         {
-            // Do whatever interactable needs to do
-            // Generalize to all items later
-            if (transform.parent.gameObject.name == "Interactable_InnerGate")
-            {
-                foreach (var sound in interactSounds)
-                {
-                    sound.Play();
-                }
+            InteractItem();
+        }
+    }
 
-                transform.parent.parent.gameObject.GetComponent<ButtonTrigger>().state = "Closed-To-Open";
-                Destroy(gameObject);
+    private void InteractItem()
+    {
+        // Do whatever interactable needs to do
+        // Generalize to all items later
+        if (transform.parent.gameObject.name == "Interactable_InnerGate")
+        {
+            foreach (var sound in interactSounds)
+            {
+                sound.Play();
             }
+
+            transform.parent.parent.gameObject.GetComponent<ButtonTrigger>().state = "Closed-To-Open";
+            Destroy(gameObject);
         }
     }
 
@@ -49,6 +54,7 @@ public class ItemInteractable : MonoBehaviour
             if (!missingItem){
                 Debug.Log("Can interact");
                 canInteract = true;
+                InteractItem();
             }
         }
     }
