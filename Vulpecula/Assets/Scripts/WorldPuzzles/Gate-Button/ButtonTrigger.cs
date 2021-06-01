@@ -63,14 +63,11 @@ public class ButtonTrigger : MonoBehaviour
 
     	if (openByPlayer && other.gameObject.tag == "Player")
     	{
-            if (gateCloseSound != null && gateOpenSound != null)
+            if (gateCloseSound != null && gateCloseSound.IsPlaying())
+                gateCloseSound.Stop();
+            if (gateOpenSound != null && !gateOpenSound.IsPlaying())
             {
-                if (gateCloseSound.IsPlaying())
-                    gateCloseSound.Stop();
-                if (!gateOpenSound.IsPlaying())
-                {
-                    gateOpenSound.Play();
-                }
+                gateOpenSound.Play();
             }
 
             state = "Closed-To-Open";
@@ -80,16 +77,13 @@ public class ButtonTrigger : MonoBehaviour
         	var pull = other.gameObject.GetComponent<SpriritMovement_Land>();
             if (pull.type == "Rock" && (pull.state == "ForceMovement" || pull.state == "ForcedMovent_Idle"))
             {
-                if (gateCloseSound != null && gateOpenSound != null)
+                if (gateCloseSound != null && gateCloseSound.IsPlaying())
+                    gateCloseSound.Stop();
+                if (gateOpenSound != null && !gateOpenSound.IsPlaying())
                 {
-                    if (gateCloseSound.IsPlaying())
-                        gateCloseSound.Stop();
-                    if (!gateOpenSound.IsPlaying())
-                    {
-                        gateOpenSound.Play();
-                    }
+                    gateOpenSound.Play();
                 }
-                
+
                 state = "Closed-To-Open";
             }
         }
@@ -102,14 +96,11 @@ public class ButtonTrigger : MonoBehaviour
         	var pull = other.gameObject.GetComponent<SpriritMovement_Land>();
             if (pull.type == "Rock")
             {
-                if (gateOpenSound != null && gateCloseSound != null)
+                if (gateOpenSound != null && gateOpenSound.IsPlaying())
+                    gateOpenSound.Stop();
+                if (gateCloseSound != null && !gateCloseSound.IsPlaying())
                 {
-                    if (gateOpenSound.IsPlaying())
-                        gateOpenSound.Stop();
-                    if (!gateCloseSound.IsPlaying())
-                    {
-                        gateCloseSound.Play();
-                    }
+                    gateCloseSound.Play();
                 }
                 
                 state = "Open-To-Closed";
