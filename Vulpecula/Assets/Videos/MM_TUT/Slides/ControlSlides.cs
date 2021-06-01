@@ -11,7 +11,8 @@ public class ControlSlides : MonoBehaviour
 
     private int NextIndex = 0;
     public bool endGame;
-    public bool beforeCredits;
+
+    public EndVideo ender;
 
     void Start()
     {
@@ -22,7 +23,8 @@ public class ControlSlides : MonoBehaviour
     {	
     	if (NextIndex >= slides.Length){
             if (endGame) { 
-                SceneManager.LoadScene(0);
+                //SceneManager.LoadScene(0);
+                ender.startVideo();
             }
     		else 
             {
@@ -35,13 +37,22 @@ public class ControlSlides : MonoBehaviour
 
     public void skip(){
         if (endGame) { 
-            SceneManager.LoadScene(0);
+            //SceneManager.LoadScene(0);
+            ender.startVideo();
         }
         else 
         {
             GameManager.instance.StopFadeOut();
             StartCoroutine(GameManager.instance.NextScene());
-            if (!beforeCredits) GameManager.instance.setMouseLock(true);
+            GameManager.instance.setMouseLock(true);
+        }
+    }
+
+    public void returnToMenu()
+    {
+        if (endGame)
+        {
+            SceneManager.LoadScene(0);
         }
     }
 }
