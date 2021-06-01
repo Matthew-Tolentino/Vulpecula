@@ -11283,7 +11283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   script: {fileID: 8186383926103300158}
-  magnitude: 250
+  magnitude: 200
 --- !u!54 &388329455
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18161,7 +18161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   script: {fileID: 8186383926103300158}
-  magnitude: 250
+  magnitude: 200
 --- !u!4 &646378326
 Transform:
   m_ObjectHideFlags: 0
@@ -19470,7 +19470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pl: {fileID: 1630458415}
   player: {fileID: 2074128816}
-  speed: 2.5
+  speed: 1.35
   state: 
   timer: 0
   type: Strong
@@ -30690,7 +30690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   script: {fileID: 8186383926103300158}
-  magnitude: 250
+  magnitude: 200
 --- !u!54 &1087152886
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -32799,6 +32799,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.84, y: 10.54, z: 2.63}
   m_Center: {x: 0, y: 5.36, z: 0}
+--- !u!1 &1143506574 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3756473180518285571, guid: a683d451f44b84e4fb0ca5b92e66a394,
+    type: 3}
+  m_PrefabInstance: {fileID: 1143506569}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1143506575
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143506574}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8314571269056883277, guid: a683d451f44b84e4fb0ca5b92e66a394, type: 3}
 --- !u!1 &1143737227
 GameObject:
   m_ObjectHideFlags: 0
@@ -33573,7 +33593,7 @@ MonoBehaviour:
   state: 
   timer: 0
   type: Rock
-  followDistance: 4.27
+  followDistance: 6.71
   velo: {x: 0, y: 0, z: 0}
   saidDialog: 0
 --- !u!54 &1174235222
@@ -41517,6 +41537,26 @@ MonoBehaviour:
   secStart: 0.5
   secEnd: 0.25
   controlSpiritHum: 1
+--- !u!1 &1422013435 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3756473180518285571, guid: a683d451f44b84e4fb0ca5b92e66a394,
+    type: 3}
+  m_PrefabInstance: {fileID: 1422013430}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1422013436
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422013435}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8314571269056883277, guid: a683d451f44b84e4fb0ca5b92e66a394, type: 3}
 --- !u!1001 &1424603736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57831,7 +57871,7 @@ MonoBehaviour:
   initialF: 1.31
   numVertFluct: 0.81
   state: 
-  speed: 1.5
+  speed: 0.85
   type: Lamp
   saidDialog: 0
 --- !u!136 &1874079104
@@ -63728,7 +63768,7 @@ MonoBehaviour:
   initialF: 0.75
   numVertFluct: 1.8
   state: 
-  speed: 1.5
+  speed: 0.39
   type: Bunny
   saidDialog: 0
 --- !u!136 &2051827827
@@ -70419,7 +70459,7 @@ PrefabInstance:
     - target: {fileID: 4440310461492226302, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.13582233
+      value: 0.13582231
       objectReference: {fileID: 0}
     - target: {fileID: 4440310461492226302, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
@@ -70429,7 +70469,7 @@ PrefabInstance:
     - target: {fileID: 4440310461492226302, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.13260385
+      value: -0.13260384
       objectReference: {fileID: 0}
     - target: {fileID: 4440310462265449303, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
@@ -70454,7 +70494,7 @@ PrefabInstance:
     - target: {fileID: 4440310462265449303, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.13273615
+      value: 0.13273616
       objectReference: {fileID: 0}
     - target: {fileID: 4440310462265449303, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
@@ -70464,7 +70504,7 @@ PrefabInstance:
     - target: {fileID: 4440310462265449303, guid: 406bc29b143671049975459f054a0d19,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.12959081
+      value: -0.12959082
       objectReference: {fileID: 0}
     - target: {fileID: 4440310462386834624, guid: 406bc29b143671049975459f054a0d19,
         type: 3}

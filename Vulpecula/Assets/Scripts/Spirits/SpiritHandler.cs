@@ -123,6 +123,7 @@ public class SpiritHandler : MonoBehaviour
 
     public void loseSpirit()
     {
+        if (ability) callAbility();
         while(SpiritList.Count != 0) loseElement();
 
         // Handle new Selector
@@ -152,7 +153,7 @@ public class SpiritHandler : MonoBehaviour
         }
         else if (SpiritList[removeIndex].tag == "Spirit_Land")
         {
-            if (removeIndex == selectedSpirit && ability) callAbility();
+            //if (removeIndex == selectedSpirit && ability) callAbility();
             var pull = SpiritList[removeIndex].GetComponent<SpriritMovement_Land>();
             pull.ReleaseSpiritLand();
 
