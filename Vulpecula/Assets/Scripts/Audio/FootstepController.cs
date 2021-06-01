@@ -10,6 +10,9 @@ public class FootstepController : MonoBehaviour
     [SerializeField]
     private TERRAIN_TYPES defaultTerrain = TERRAIN_TYPES.STONE;
 
+    [SerializeField]
+    private List<TERRAIN_TYPES> texToTerrainList;
+
     private TERRAIN_TYPES currentTerrain = TERRAIN_TYPES.STONE;
 
     private FMOD.Studio.EventInstance footsteps;
@@ -22,6 +25,10 @@ public class FootstepController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        terrain = Terrain.activeTerrain;
+        terrainData = terrain.terrainData;
+        terrainPos = terrain.transform.position;
+
         SetTerrainType(defaultTerrain);
     }
 
@@ -46,6 +53,10 @@ public class FootstepController : MonoBehaviour
     private const int nStoneVariants = 10;
     private const int nGrassVariants = 7;
 
+    private Terrain terrain;
+    private TerrainData terrainData;
+    private Vector3 terrainPos;
+
     void DetermineTerrain()
     {
         //currentTerrain = defaultTerrain;
@@ -56,13 +67,23 @@ public class FootstepController : MonoBehaviour
 
         foreach (RaycastHit rayhit in hit)
         {
-            if (rayhit.transform.gameObject.layer == LayerMask.NameToLayer("Stone"))
+            if (rayhit.transform.gameObject.name == "Terrain")
+            {
+                if (texToTerrainList.Count > 0)
+                {
+                    int Index = GetMainTexture(rayhit.point);
+                    currentTerrain = texToTerrainList[Index];
+                }
+            }
+            else if (rayhit.transform.gameObject.layer == LayerMask.NameToLayer("Stone"))
             {
                 currentTerrain = TERRAIN_TYPES.STONE;
+                break;
             }
             else if (rayhit.transform.gameObject.layer == LayerMask.NameToLayer("Grass"))
             {
                 currentTerrain = TERRAIN_TYPES.GRASS;
+                break;
             }
         }
     }
@@ -94,4 +115,53 @@ public class FootstepController : MonoBehaviour
         DetermineTerrain();
         PlayFootstep();
     }
+
+    float[] GetTextureMix(Vector3 worldPos)
+    {
+         // returns an array containing the relative mix of textures
+         // on the main terrain at this world position.
+     
+         // The number of values in the array will equal the number
+         // of textures added to the terrain.
+     
+         // calculate which splat map cell the worldPos falls within (ignoring y)
+         int mapX = (int)(((worldPos.x - terrainPos.x) / terrainData.size.x) * terrainData.alphamapWidth );
+         int mapZ = (int)(((worldPos.z - terrainPos.z) / terrainData.size.z) * terrainData.alphamapHeight );
+     
+         // get the splat data for this cell as a 1x1xN 3d array (where N = number of textures)
+         float[,,] splatmapData = terrainData.GetAlphamaps(mapX, mapZ, 1, 1 );
+
+        // extract the 3D array data to a 1D array:
+        float[] cellMix = new float[splatmapData.GetUpperBound(2) + 1];
+     
+         for (int n = 0; n<cellMix.Length; n ++ )
+         {
+             cellMix[n] = splatmapData[0, 0, n];
+         }
+     
+         return cellMix;
+    }
+ 
+ 
+     int GetMainTexture(Vector3 worldPos)
+     {
+        // returns the zero-based index of the most dominant texture
+        // on the main terrain at this world position.
+        float[] mix = GetTextureMix(worldPos );
+
+        float maxMix = 0;
+        int maxIndex = 0;
+     
+         // loop through each mix value and find the maximum
+         for (int n = 0; n<mix.Length; n ++ )
+         {
+             if (mix[n] > maxMix )
+             {
+                 maxIndex = n;
+                 maxMix = mix[n];
+             }
+         }
+     
+         return maxIndex;
+     }
 }

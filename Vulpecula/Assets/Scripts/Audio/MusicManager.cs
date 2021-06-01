@@ -26,14 +26,16 @@ public class MusicManager : MonoBehaviour
 
     private string[] musicFNs = new string[] {"event:/Music/Menu Music",
         "event:/Music/Level 1 BGM",
-        "event:/Music/Level 2 BGM" };
+        "event:/Music/Level 2 BGM",
+        "event:/Music/End Credit Music"};
 
     public enum eMusicIndices
     {
         Null = -1,
         MainMenu = 0,
         Tutorial,
-        Level1
+        Level1,
+        EndCredit,
     }
 
     [SerializeField]
