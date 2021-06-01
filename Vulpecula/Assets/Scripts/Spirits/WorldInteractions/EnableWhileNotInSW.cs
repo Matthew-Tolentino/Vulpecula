@@ -10,8 +10,9 @@ public class EnableWhileNotInSW : MonoBehaviour
     
     void Start()
     {
-        setObject.SetActive(true);
-        
+        if (setObject == null) Destroy(this);
+        print(setObject.name);
+        setObject.SetActive(true);   
     }
 
     // Update is called once per frame

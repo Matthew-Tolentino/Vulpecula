@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     public static bool gameIsPaused = false;
 
+    public bool cheatNoDamage = false;
+
     public enum MouseState { canvas, game };
     public static MouseState mouseState = MouseState.game;
 
@@ -80,6 +82,19 @@ public class GameManager : MonoBehaviour
         if (InputManager.instance.KeyDown("NextDialogue"))
         {
             NextDialogue();
+        }
+
+        // Cheats
+        if (Input.GetKeyDown(KeyCode.Alpha1)) {
+            CheatNextLevel();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2)) {
+            CheatGetAllSpirits();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3)) {
+            CheatNoDamage();
         }
     }
 
@@ -346,5 +361,56 @@ public class GameManager : MonoBehaviour
 
     public void StopFadeOut() {
         StopCoroutine(fadeOut);
+    }
+
+    public void CheatNextLevel() {
+        int buildIndex = SceneManager.GetActiveScene().buildIndex;
+
+        if (buildIndex == 0) return;
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player != null) {
+            var pull = player.GetComponent<SpiritHandler>();
+            pull.loseSpirit();
+
+            ItemManager.instance.ResetInventory();
+
+            if (buildIndex == 2)
+                ItemManager.instance.SetInventory(0);
+            else
+                ItemManager.instance.SetInventory(1);
+
+            if (buildIndex % 2 == 0)
+                setMouseLock(false);
+            else
+                setMouseLock(true);
+        }
+
+        StopFadeOut();
+        StartCoroutine(NextScene());
+    }
+
+    public void CheatGetAllSpirits() {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player == null) return;
+
+        GameObject spiritHolder = GameObject.FindGameObjectWithTag("SpiritHolder");
+
+        GameObject[] specialLamps = GameObject.FindGameObjectsWithTag("SpecialLamp");
+
+        foreach (GameObject lamp in specialLamps) {
+            Destroy(lamp.GetComponent<DisableWhileNotInSW>());
+        }
+
+        foreach (Transform child in spiritHolder.transform) {
+            child.gameObject.SetActive(true);
+            child.position = player.transform.position;
+        }
+    }
+
+    public void CheatNoDamage() {
+        cheatNoDamage = !cheatNoDamage;
     }
 }

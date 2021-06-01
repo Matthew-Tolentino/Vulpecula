@@ -105,7 +105,7 @@ public class FieldOfView : MonoBehaviour
                 float dstToTarget = Vector3.Distance(transform.position, target.position);
                
                 //If player is seen, the code below is performed***********************************************************
-                if(!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
+                if(!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask) && !GameManager.instance.cheatNoDamage)
                 {
                     if (isSeen == false) // only when first seen
                     {
