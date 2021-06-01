@@ -11,6 +11,7 @@ public class ControlSlides : MonoBehaviour
 
     private int NextIndex = 0;
     public bool endGame;
+    public bool beforeCredits;
 
     void Start()
     {
@@ -40,7 +41,7 @@ public class ControlSlides : MonoBehaviour
         {
             GameManager.instance.StopFadeOut();
             StartCoroutine(GameManager.instance.NextScene());
-            GameManager.instance.setMouseLock(true);
+            if (!beforeCredits) GameManager.instance.setMouseLock(true);
         }
     }
 }
