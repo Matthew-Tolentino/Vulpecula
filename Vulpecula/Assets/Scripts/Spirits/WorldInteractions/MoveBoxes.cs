@@ -17,7 +17,7 @@ public class MoveBoxes : MonoBehaviour
     void OnTriggerStay(Collider collision)
     {
         if (collision.gameObject.tag == "Player" && script.StrongActive) {
-            rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
             Vector3 direction = (transform.position - collision.gameObject.transform.position).normalized;
             direction.y /=  4;
             rb.AddForce(direction * magnitude);
